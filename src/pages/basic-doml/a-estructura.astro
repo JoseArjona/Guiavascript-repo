@@ -1,0 +1,130 @@
+---
+import DomLayout from "../../layouts/DomLayout.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+
+const title = "Estructura del Dom";
+const description =
+  "El DOM se puede visualizar como un árbol, donde cada nodo del árbol representa un elemento HTML. El nodo raíz del árbol representa el documento HTML completo. Los nodos hijos del nodo raíz representan los elementos HTML que están dentro del documento.";
+---
+
+<DomLayout title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="0" />
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        {description}
+      </p>
+      <pre><code>Estructura del DOM en un Documento HTML Básico:
+DOM
+└── Document
+   ├─── HTML
+   │    ├── HEAD
+   │    │   └── TITLE
+   │    │       └── "Mi página web"
+   │    └── BODY
+   │        ├── H1
+   │        │   └── "Hola mundo"
+   │        └── P
+   │            └── "Esta es una página web muy simple"
+   └── Otros objetos globales, como Window, Navigator, etc.</code></pre>
+    </article>
+    <br />
+    <section class="flex f-col">
+      <article class="card primary">
+        <h3 class="txt-blue">Tipos de Nodos</h3>
+        <ul>
+          <li>
+            <span class="txt-blue"> Nodo de elemento</span>: Representa un
+            elemento HTML, como una etiqueta
+            <span class="txt-secondary">&lt;div/&gt;</span> o <span
+              class="txt-secondary">&lt;p/&gt;</span
+            >.
+          </li>
+          <li>
+            <span class="txt-blue">Nodo de texto:</span> Representa un fragmento
+            de texto.
+          </li>
+          <li>
+            <span class="txt-blue">Nodo de comentario:</span> Representa un
+            comentario HTML.
+          </li>
+          <li>
+            <span class="txt-blue">Nodo de atributo:</span> Representa un
+            atributo de un elemento HTML.
+          </li>
+          <li>
+            <span class="txt-blue">Nodo de documento:</span> Representa el
+            documento HTML completo.
+          </li>
+        </ul>
+      </article>
+      <br />
+      <article class="card primary">
+        <h3 class="txt-blue">Relación entre nodos</h3>
+        <p>
+          Los nodos del DOM están relacionados entre sí de varias maneras. La
+          relación más importante es la relación padre-hijo. Cada nodo tiene un
+          nodo padre, que es el nodo que lo contiene. Por ejemplo, todos los
+          elementos HTML dentro de un contenedor <span class="txt-secondary"
+            >&lt;div/&gt;</span
+          >
+           son nodos hijos del <span class="txt-secondary">&lt;div/&gt;</span>.
+        </p>
+        <p>Otras relaciones</p>
+        <ul>
+          <li>
+            Relación hermano: Dos nodos son hermanos si tienen el mismo nodo
+            padre. Por ejemplo, todos los elementos HTML dentro del mismo <span
+              class="txt-secondary">&lt;div/&gt;</span
+            > son hermanos.
+            <li>
+              Relación ancestro: Un nodo es ancestro de otro nodo si está más
+              arriba en el árbol del DOM. Por ejemplo, el nodo raíz es ancestro
+              de todos los demás nodos del documento.
+            </li>
+            <li>
+              Relación descendiente: Un nodo es descendiente de otro nodo si
+              está más abajo en el árbol del DOM. Por ejemplo, todos los
+              elementos HTML dentro de un contenedor <span class="txt-secondary"
+                >&lt;div/&gt;</span
+              > son descendientes del <span class="txt-secondary"
+                >&lt;div/&gt;</span
+              >.
+            </li>
+          </li>
+        </ul>
+      </article>
+      <br />
+      <article class="card primary">
+        <h3 class="txt-blue">JavaScript para interactuar con el DOM</h3>
+        <p>
+          JavaScript proporciona una API que permite a los desarrolladores
+          interactuar con el DOM. Esta API incluye funciones y métodos que
+          permiten a los desarrolladores acceder a los elementos HTML del DOM,
+          modificar sus propiedades y relaciones, y crear nuevos elementos HTML.
+        </p>
+        <p>
+          En las siguientes lecciones aprenderás a usar los métodos más comunes
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <style>
+    ul {
+      margin-top: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    .card {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 90vw;
+    }
+  </style>
+</DomLayout>
