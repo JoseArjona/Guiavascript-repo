@@ -1,0 +1,36 @@
+{
+  "background_color": "#2c2b47",
+  "description": "GuiavaScript es la guía definitiva para aprender y dominar JavaScript. Hacemos que el aprendizaje de JavaScript sea fácil al evitar la jerga compleja y los conceptos confusos, y en su lugar brindamos instrucciones simples y directas que hacen que el aprendizaje sea agradable y directo.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "guiavascript",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "guiavascript",
+  "start_url": "/",
+  "theme_color": "#f6cb59",
+  "categories": [
+    "education"
+  ],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "500x500"
+    },
+    {
+      "src": "https://guiavascript.netlify.app/guiavascript.png",
+      "type": "image/png",
+      "sizes": "500x500"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "guiavascript",
+      "url": "https://guiavascript.netlify.app/",
+      "description": "aprende javascript con guiavascript"
+    }
+  ],
+  "lang": "es"
+}
