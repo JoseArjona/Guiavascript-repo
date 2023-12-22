@@ -5,16 +5,16 @@ export interface Props {
 
 const { NamePages } = Astro.props;
 
-// Añadimos la ruta "/" y "/basic-dom/" al array de rutas
+// Añadimos la ruta "/" y "/basic-doml/" al array de rutas
 const pages = ["/", ...Object.values(NamePages.map((page) => page.url))];
 // Obtenemos la primera y última página
 const firstPage = pages[pages.length - 1];
 const lastPage = pages[0];
 
 pages.sort((a, b) => {
-  if (a === "/basic-dom") {
+  if (a === "/basic-doml") {
     return -1;
-  } else if (b === "/basic-dom") {
+  } else if (b === "/basic-doml") {
     return 1;
   }
   return a.localeCompare(b); // Sort other elements alphabetically
