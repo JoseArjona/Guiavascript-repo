@@ -1,0 +1,227 @@
+---
+import SubjectL from "../../layouts/BasicDom.astro";
+import ShowSolution from "../../components/ShowSolution.astro";
+import type { Code } from "astro:components";
+const title = "Reto Final";
+const description =
+  "En esta sección aprenderemos a crear una agenda de tareas con JavaScript, aplicando lo conceptos del DOM.";
+---
+
+<SubjectL title={"Guiavascript-" + title} description={description}>
+  <h1 class="display-3 txt-center">
+    Felicidades has completado la lección ! 🎊
+  </h1>
+  <main class="container">
+    <h2 class="txt-center">{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Crear aplicación de tareas. 📋</span>
+      <p>
+        En esta sección aprenderemos a crear un juego de piedra, papel o tijera
+        en el cual el usuario podrá elegir una de las 3 opciones y el programa
+        escogerá una de las 3 opciones de manera aleatoria, y se mostrará quién
+        ganó la partida. Tu tarea será completar el código según lo aprendido.
+        <strong>Observación:</strong> si el comentario inicia con un * significa
+        que debes completar lo que pida, de lo contrario es un simple comentario
+        para entender el código.
+      </p>
+      <p>
+        NOTA: La actividad esta construida para favorecer el aprendizaje, por lo
+        tanto, es posible que el código no siga las mejores practicas.
+      </p>
+    </article>
+    <article class="card primary container-lg">
+      <span class="txt-blue">Primeros pasos</span>
+      <p>
+        Completa el código que falte para que el programa pueda funcionar. Al
+        final tendrás el código completo. Te recomiendo que uses un editor o lo
+        hagas del proporcionado y vayas siguiendo la actividad desde ahí.
+        <br />
+        <br />
+         La actividad se centra en repasar lo visto anteriormente, por lo que el
+        CSS y el HTML ya está construido. <a
+          class="txt-yellow"
+          href="https://codi.link//PCFET0NUWVBFIGh0bWw+DQo8aHRtbCBsYW5nPSJlcyI+DQo8aGVhZD4NCiA8bWV0YSBjaGFyc2V0PSJVVEYtOCIgLz4NCjxtZXRhIGh0dHAtZXF1aXY9IlgtVUEtQ29tcGF0aWJsZSIgY29udGVudD0iSUU9ZWRnZSIgLz4NCjxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MS4wIiAvPg0KPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2NhY3R1cy1jc3MudmVyY2VsLmFwcC9hc3NldHMvY3NzL2NhY3R1czMuY3NzIj4NCiAgPHRpdGxlPkVqZXJjaWNpbyBkZSBET008L3RpdGxlPg0KPC9oZWFkPg0KPGJvZHkgY2xhc3M9ImNvbnRhaW5lciAiPg0KICA8bWFpbiBjbGFzcz0iY2FyZCBmLWNvbCBici1ibGFjayB3aGl0ZSBjZW50ZXIiPg0KICAgIDxoMT5MaXN0YSBkZSB0YXJlYXM8L2gxPg0KICA8Zm9ybSBhY3Rpb249IiIgbWV0aG9kPSJwb3N0IiA+DQogICAgPGlucHV0IHR5cGU9InRleHQiIG5hbWU9Im5vbWJyZSIgcGxhY2Vob2xkZXI9Ik5vbWJyZSBkZSBsYSB0YXJlYSIgY2xhc3M9ImlucHV0IiByZXF1aXJlZD4NCiAgICA8dGV4dGFyZWEgbmFtZT0iZGVzY3JpcGNpb24iIHBsYWNlaG9sZGVyPSJEZXNjcmlwY2nDs24gZGUgbGEgdGFyZWEiIGNsYXNzPSJpbnB1dCIgcmVxdWlyZWQ+PC90ZXh0YXJlYT4NCiAgICA8aW5wdXQgdHlwZT0iZGF0ZSIgbmFtZT0idmVuY2ltaWVudG8iIGNsYXNzPSJpbnB1dCI+DQogICAgPGRpdiBjbGFzcz0iZmxleCBmLWNvbCI+DQogICAgICA8aW5wdXQgdHlwZT0ic3VibWl0IiB2YWx1ZT0iRW52aWFyIiBjbGFzcz0iYnRuIGJsYWNrIj4NCiAgICA8L2Rpdj4NCiAgPC9mb3JtPg0KICA8L21haW4+DQogIDx1bCBpZD0ibGlzdGEtdGFyZWFzIiBjbGFzcz0iZ3JpZCBjb2wtNCBtZC1jb2wtMiBzbS1jb2wtMSI+DQogIDwvdWw+DQo8L2JvZHk+DQo8L2h0bWw+DQo=%7CLmNvbnRhaW5lciB7DQogICAgbWF4LXdpZHRoOiA5MCU7DQogICAgd2lkdGg6IDEyMDBweDsNCiAgICBtYXJnaW46IDIwcHggYXV0bzsNCiAgICBvdmVyZmxvdzogc2Nyb2xsICFpbXBvcnRhbnQ7DQp9DQoNCnVsew0KICBtYXJnaW46IDA7DQogIG1hcmdpbi10b3A6IDFyZW07DQogIHBhZGRpbmc6IDA7DQp9DQoNCg0KbWFpbnsNCiAgbWF4LXdpZHRoOiA1MDBweDsNCiAgbWFyZ2luOiBhdXRvOw0KfQ0KDQpwew0KICBtYXJnaW46IDJweDsNCn0=%7CLy8gQXF1w60gQ29taWVuemEgdHUgdHJhYmFqbyDwn5iJDQovLyBDaGVjYSBsYSBww6FnaW5hIGRlbCByZXRvIHBhcmEgdmVyIGxvIHF1ZSBzaWd1ZS4NCi8vIEVsIGNzcyB1c2FkbyB2aWVuZSBkZSBodHRwczovL2NhY3R1cy1jc3MudmVyY2VsLmFwcC8gLiAgUGVybyBubyB0ZSBwcmVvY3VwZXMgc29sbyB0cmFiYWphcmVtb3MgY29uIEpT"
+          target="_blank"
+          rel="noopener noreferrer">Accede al archivo aquí</a
+        >, y regresa para ir construyendo la app paso a paso. No te preocupes si
+        la solución no es la misma, al final existen varias formas de
+        resolverlo, el objetivo es que le entiendas y lo intentes. Suerte! 😉
+        <br />
+        <br />
+         El objetivo de la app es dado un formulario, capturar los datos y
+        pintarlos en una card. Para comenzar desde el JS seleccionemos el
+        formulario y la etiqueta <strong>ul</strong> que es donde vamos a
+        insertar el contenido. Completa el código:
+      </p>
+      <pre><code class="language-js">//*declara una varible donde selecciones el form.
+//*declara una variable donde selecciones la etiqueta ul.
+</code></pre>
+      <ShowSolution
+        content='const form = document.querySelector("form");\nconst listaTareas = document.querySelector("#lista-tareas");'
+      />
+      <br />
+      <p>
+        Una vez teniendo esto necesitamos añadir un evento al form para obtener
+        los valores, el evento a usar es <strong>"submit"</strong> este nos va a
+        permitir escuchar cuando los datos sean enviados. Completa el código:
+      </p>
+      <pre><code class="language-js">//*Añade el evento submit al formulario y pásale una función de flecha con el evento como parámetro.
+//Pista (e) => &lbrace; ...</code></pre>
+      <br />
+      <ShowSolution
+        content='form.addEventListener("submit", (e) => {/*Código próximo*/}'
+      />
+      <p>
+        Ahora usaremos <strong>"e.preventDefault()"</strong>para desactivar que
+        se recargue la página.Dentro de la función necesitamos obtener los datos
+        del formulario.Completa el código:
+      </p>
+      <pre><code class="language-js">// Obtenemos los datos del formulario
+//*Obtén los datos del campo, nombre, descripción y vencimiento.
+// TIP usa el selector que usa un sistema similar a CSS para obtener los campos sin agregar un ID.</code></pre>
+      <ShowSolution
+        content='//Por cuestiones del editor se uso"" en lugar de las comillas simples dentro del querySelector simplemente sustituyelas para evitar errores.\nconst nombre = form.querySelector("input[name="nombre"]").value; \nconst descripcion = form.querySelector("textarea[name="descripcion"]").value; \nconst vencimiento = form.querySelector("input[name="vencimiento"]").value;'
+      />
+    </article>
+    <article class="card primary container-lg">
+      <span class="txt-blue">Creando el elemento</span>
+      <p>
+        Ahora que tenemos los valores del formulario y sus respectivos campos,
+        falta crear el elemento para que se pinte en la pantalla. Tu tarea ahora
+        será el crear un elemento <span class="txt-green">li</span>, es aquí
+        donde contendremos los datos, para que esto se vea mejor añade las
+        siguientes clases <span class="txt-secondary"
+          >"card","br-black","white"</span
+        > al elemento creado.Completa el código:
+      </p>
+      <pre><code class="language-js">//*crea el elemento li desde el JS y añádele las clases mencionadas</code></pre>
+      <ShowSolution
+        content='//Creamos un nuevo elemento<li> \nconst li = document.createElement("li");\n// Estilamos el li\nli.classList.add("card","br-black","white")'
+      />
+      <p>
+        Ahora modificaremos el HTML interno del elemento y añadiremos los datos
+        capturados. El HTML interno debe verse así (completa lo que haga falta
+        internamente en el HTML):
+      </p>
+      <pre><code class="language-js">`&lt;h3 class ='txt-center'&gt;Tarea:&lt;/h3&gt;
+&lt;p&gt;&lt;!-- Nombre --&gt;&lt;/p&gt; //*Completa para pintar el nombre
+&lt;p&gt;-$&lbrace;descripcion&rbrace;&lt;/p&gt;
+&lt;p&gt;Límite: $&lbrace;...&rbrace;&lt;/p&gt;`;//*Completa para pintar la fecha</code></pre>
+      <p>Completa el código:</p>
+      <pre><code class="language-js">// Asignamos los datos al elemento li modificando el HTML interno.
+//*Modifica el HTML interno del li</code></pre>
+      <ShowSolution
+        content="//Por motivos del editor sustituye las comillas simples por las template literals.\n//Asignamos los datos al elemento <li> modificando el html\nli.innerHTML = '<h3 class ='txt-center'>Tarea:</h3>\n<p>-${nombre}</p>\n<p>-${descripcion}</p>\n<p>Límite: ${vencimiento}</p'"
+      />
+      <p>
+        Ahora que ya tenemos el elemento modificado, el siguiente paso es 
+        añadirlo al HTML usando la etiqueta UL como contenedor padre. Pero antes
+        añadiremos un ID con el objetivo de poder eliminar e incluso actualizar
+        la tarea en un futuro.
+      </p>
+      <pre><code class="language-js">//*Añade el ID al li y posteriormente agrega el li final como hijo al elemento ul ('nombrado como listaTareas en el primer paso.')</code></pre>
+      <ShowSolution
+        content="// Generamos un id aleatorio para la tarea\nconst id = Math.floor(Math.random() * 1000000);\nli.setAttribute('id', id);\n// Añadimos el elemento <li> a la lista de tareas\nlistaTareas.appendChild(li);"
+      />
+      <p>
+        Ahora si vemos nuestra aplicación ya está funcionando. Para completarla
+        añadiremos una opcion para eliminar la tarea.
+      </p>
+    </article>
+
+    <article class="card primary container-lg">
+      <span class="txt-blue">Eliminando tareas</span>
+      <p>
+        Para eliminar la tarea que completemos usaremos una función que
+        crearemos para obtener las tareas y posteriormente su ID. Para ello
+        dentro de la misma función que usamos donde ejecutamos la acción del
+        eventListener llamaremos una función que posteriormente vamos a crear(ya
+        fuera de la función).
+      </p>
+      <pre><code class="language-js">obtenerTareas()</code></pre>
+      <p>Ahora creamos la función</p>
+      <pre><code class="language-js">function obtenerTareas()&lbrace;&rbrace;</code></pre>
+      <p>
+        Lo que tenemos que hacer ahora es seleccionar todos los elementos <span
+          class="txt-secondary">li</span
+        >. Completa el código
+      </p>
+      <pre><code class="language-js">//* Dentro de la función selecciona todos los li</code></pre>
+      <ShowSolution content='const tareas = document.querySelectorAll("li")' />
+      <p>
+        Ya que tenemos el array con todos los elementos, tendremos que recorrer
+        todos los li y añadirles un evento que escuche cuando se haga un doble
+        click. Completa el código
+      </p>
+      <pre><code class="language-js">// Recorremos todos los li para añadirles un evento para saber cuando se hizo un click doble.
+for(let tarea of tareas) &lbrace;
+//* teniendo a tarea representando a un li de lista de varios. Añadele un evento de doble click.
+&rbrace;</code></pre>
+      <ShowSolution
+        content="for(let tarea of tareas){\n tarea.addEventListener('dblclick', //aqui vamos a llamar otra función.)\n}"
+      />
+      <p>
+        Después crearemos una función y se la pasamos al evento de doble click.
+        A dicha función le pasaremos como parámetro el evento <i
+          ><strong>e</strong></i
+        >, cuando tengamos el evento, accederemos a su propiedad target y
+        despues al ID. Y con esto ya tendríamos el <strong
+          >id del elemento</strong
+        >
+        <span class="txt-green">li</span> o visto de otra forma el ID de la
+        tarea a la cual se le haga doble click. Completa el código.
+      </p>
+      <pre><code class="language-js">// Recorremos todos los li para añadirles un evento para saber cuando se hizo un click doble.
+for(let tarea of tareas) &lbrace;
+ const select = (e) => &lbrace;
+    const idTarea = e.target.id 
+    eliminarTarea(idTarea)//* Crea la función para eliminar la tarea
+    // TIP: Dado que ya tenemos el id ahora solo falta seleccionar el elemento con ese id y removerlo. No es necesario hacer un condicional o un ciclo dado que ya tenemos el id concreto al cual se le hizo click doble.
+ &rbrace;
+ tarea.addEventListener("dblclick",select)
+&rbrace;</code></pre>
+      <ShowSolution
+        content="function eliminarTarea(id) {\nconst tareaSeleccionada = document.getElementById(`${id}`)\n//eliminamos la tarea\ntareaSeleccionada.remove()\n}"
+      />
+      <p>
+        LISTO!, ahora si le das click doble sobre la card se debe eliminar. No
+        es perfecto, pero es trabajo honesto 🤓
+      </p>
+    </article>
+  </main>
+  <section>
+    <article class="card primary container">
+      <span class="txt-yellow">CÓDIGO COMPLETO</span>
+      <p class="txtLeft">
+        Ahora queda de ti mejorarlo. Felicidades por haberlo intentado, si no
+        lograste hacerlo completo o te apoyaste en las soluciones es
+        completamente normal, al final lo que tenemos que hacer es practicar
+        para mejorar.Asi quedaría el código. Puedes ejecutarlo en cualquier
+        playground online:
+      </p>
+      <div>
+        <a
+          class="btn blue"
+          href="https://codi.link//PCFET0NUWVBFIGh0bWw+DQo8aHRtbCBsYW5nPSJlcyI+DQo8aGVhZD4NCiA8bWV0YSBjaGFyc2V0PSJVVEYtOCIgLz4NCjxtZXRhIGh0dHAtZXF1aXY9IlgtVUEtQ29tcGF0aWJsZSIgY29udGVudD0iSUU9ZWRnZSIgLz4NCjxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MS4wIiAvPg0KPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2NhY3R1cy1jc3MudmVyY2VsLmFwcC9hc3NldHMvY3NzL2NhY3R1czMuY3NzIj4NCiAgPHRpdGxlPkVqZXJjaWNpbyBkZSBET008L3RpdGxlPg0KPC9oZWFkPg0KPGJvZHkgY2xhc3M9ImNvbnRhaW5lciAiPg0KICA8bWFpbiBjbGFzcz0iY2FyZCBmLWNvbCBici1ibGFjayB3aGl0ZSBjZW50ZXIiPg0KICAgIDxoMT5MaXN0YSBkZSB0YXJlYXM8L2gxPg0KICA8Zm9ybSBhY3Rpb249IiIgbWV0aG9kPSJwb3N0IiA+DQogICAgPGlucHV0IHR5cGU9InRleHQiIG5hbWU9Im5vbWJyZSIgcGxhY2Vob2xkZXI9Ik5vbWJyZSBkZSBsYSB0YXJlYSIgY2xhc3M9ImlucHV0IiByZXF1aXJlZD4NCiAgICA8dGV4dGFyZWEgbmFtZT0iZGVzY3JpcGNpb24iIHBsYWNlaG9sZGVyPSJEZXNjcmlwY2nDs24gZGUgbGEgdGFyZWEiIGNsYXNzPSJpbnB1dCIgcmVxdWlyZWQ+PC90ZXh0YXJlYT4NCiAgICA8aW5wdXQgdHlwZT0iZGF0ZSIgbmFtZT0idmVuY2ltaWVudG8iIGNsYXNzPSJpbnB1dCI+DQogICAgPGRpdiBjbGFzcz0iZmxleCBmLWNvbCI+DQogICAgICA8aW5wdXQgdHlwZT0ic3VibWl0IiB2YWx1ZT0iRW52aWFyIiBjbGFzcz0iYnRuIGJsYWNrIj4NCiAgICA8L2Rpdj4NCiAgPC9mb3JtPg0KICA8L21haW4+DQogIDx1bCBpZD0ibGlzdGEtdGFyZWFzIiBjbGFzcz0iZ3JpZCBjb2wtNCBtZC1jb2wtMiBzbS1jb2wtMSI+DQogIDwvdWw+DQo8L2JvZHk+DQo8L2h0bWw+DQo=%7CLmNvbnRhaW5lciB7DQogICAgbWF4LXdpZHRoOiA5MCU7DQogICAgd2lkdGg6IDEyMDBweDsNCiAgICBtYXJnaW46IDIwcHggYXV0bzsNCiAgICBvdmVyZmxvdzogc2Nyb2xsICFpbXBvcnRhbnQ7DQp9DQoNCnVsew0KICBtYXJnaW46IDA7DQogIG1hcmdpbi10b3A6IDFyZW07DQogIHBhZGRpbmc6IDA7DQp9DQoNCg0KbWFpbnsNCiAgbWF4LXdpZHRoOiA1MDBweDsNCiAgbWFyZ2luOiBhdXRvOw0KfQ0KDQpwew0KICBtYXJnaW46IDJweDsNCn0=%7CY29uc3QgZm9ybSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImZvcm0iKTsNCmNvbnN0IGxpc3RhVGFyZWFzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiI2xpc3RhLXRhcmVhcyIpOw0KDQpmb3JtLmFkZEV2ZW50TGlzdGVuZXIoInN1Ym1pdCIsIChlKSA9PiB7DQogIGUucHJldmVudERlZmF1bHQoKTsNCg0KICAvLyBPYnRlbmVtb3MgbG9zIGRhdG9zIGRlbCBmb3JtdWxhcmlvDQogIGNvbnN0IG5vbWJyZSA9IGZvcm0ucXVlcnlTZWxlY3RvcigiaW5wdXRbbmFtZT0nbm9tYnJlJ10iKS52YWx1ZTsNCiAgY29uc3QgZGVzY3JpcGNpb24gPSBmb3JtLnF1ZXJ5U2VsZWN0b3IoInRleHRhcmVhW25hbWU9J2Rlc2NyaXBjaW9uJ10iKS52YWx1ZTsNCiAgY29uc3QgdmVuY2ltaWVudG8gPSBmb3JtLnF1ZXJ5U2VsZWN0b3IoImlucHV0W25hbWU9J3ZlbmNpbWllbnRvJ10iKS52YWx1ZTsNCg0KICAvLyBDcmVhbW9zIHVuIG51ZXZvIGVsZW1lbnRvIDxsaT4NCiAgY29uc3QgbGkgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJsaSIpOw0KICAvLyBFc3RpbGFtb3MgZWwgbGkNCiAgbGkuY2xhc3NMaXN0LmFkZCgiY2FyZCIsImJyLWJsYWNrIiwid2hpdGUiKQ0KICAvLyBBc2lnbmFtb3MgbG9zIGRhdG9zIGFsIGVsZW1lbnRvIDxsaT4gbW9kaWZpY2FuZG8gZWwgaHRtbA0KICBsaS5pbm5lckhUTUwgPSBgPGgzIGNsYXNzID0ndHh0LWNlbnRlcic+VGFyZWE6PC9oMz4NCiAgICAgICAgICAgICAgICAgIDxwPi0ke25vbWJyZX08L3A+DQogICAgICAgICAgICAgICAgICA8cD4tJHtkZXNjcmlwY2lvbn08L3A+DQogICAgICAgICAgICAgICAgICA8cD5Mw61taXRlOiAke3ZlbmNpbWllbnRvfTwvcD5gOw0KICAvLyBHZW5lcmFtb3MgdW4gaWQgYWxlYXRvcmlvIHBhcmEgbGEgdGFyZWENCiAgY29uc3QgaWQgPSBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAxMDAwMDAwKTsNCiAgbGkuc2V0QXR0cmlidXRlKCJpZCIsIGlkKTsNCiAgLy8gQcOxYWRpbW9zIGVsIGVsZW1lbnRvIDxsaT4gYSBsYSBsaXN0YSBkZSB0YXJlYXMNCiAgbGlzdGFUYXJlYXMuYXBwZW5kQ2hpbGQobGkpOw0KICBvYnRlbmVyVGFyZWFzKCkNCn0pOw0KDQovLyBPYnRlbmVtb3MgdG9kYXMgbGFzIHRhcmVhcw0KZnVuY3Rpb24gb2J0ZW5lclRhcmVhcygpew0KICBjb25zdCB0YXJlYXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJsaSIpDQogIC8vIFJlY29ycmVtb3MgdG9kb3MgbG9zIGxpIHBhcmEgYcOxYWRpcmxlcyB1biBldmVudG8gcGFyYSBzYWJlciBjdWFuZG8gc2UgaGl6byB1biBjbGljayBkb2JsZS4NCiAgZm9yKGxldCB0YXJlYSBvZiB0YXJlYXMpew0KICAgIGNvbnN0IHNlbGVjdCA9ICAoZSkgPT4gew0KICAgICAgY29uc3QgaWRUYXJlYSA9IGUudGFyZ2V0LmlkDQogICAgICBlbGltaW5hclRhcmVhKGlkVGFyZWEpDQogICAgfTsNCiAgICB0YXJlYS5hZGRFdmVudExpc3RlbmVyKCJkYmxjbGljayIsIHNlbGVjdCkNCiAgfQ0KfQ0KDQpmdW5jdGlvbiBlbGltaW5hclRhcmVhKGlkKSB7DQogIGNvbnN0IHRhcmVhU2VsZWNjaW9uYWRhID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoYCR7aWR9YCkNCiAgLy9lbGltaW5hbW9zIGxhIHRhcmVhDQogIHRhcmVhU2VsZWNjaW9uYWRhLnJlbW92ZSgpDQp9DQo="
+          target="_blank">Código Completo !!</a
+        >
+      </div>
+    </article>
+  </section>
+
+  <script is:inline>
+    const btn = document.querySelectorAll("button");
+    const show = document.querySelectorAll(".show");
+    btn.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        if (show[i].style.display === "none") {
+          show[i].style.display = "block";
+          btn.innerHTML = "Ocultar";
+        } else {
+          show[i].style.display = "none";
+          btn.innerHTML = "Mostrar";
+        }
+      });
+    });
+  </script>
+</SubjectL>

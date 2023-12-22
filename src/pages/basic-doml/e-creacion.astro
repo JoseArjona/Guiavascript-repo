@@ -1,0 +1,123 @@
+---
+import SubjectL from "../../layouts/BasicDom.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+
+const title = "Creando elementos";
+const description =
+  "En HTML, los elementos se crean utilizando etiquetas.Sin embargo, a veces es necesario crear elementos dinámicamente con JavaScript. Ahí es donde radica la importancia de este tema.";
+---
+
+<SubjectL title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="64" />
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        {description}
+      </p>
+    </article>
+    <br />
+    <section class="flex f-col card primary">
+      <header class="txt-center">
+        <h3>Tratando el elemento</h3>
+      </header>
+      <article class="card primary">
+        <h4 class="txt-green">CreateElement</h4>
+        <p>
+          Podemos crear elementos usando el método
+          <code class="txt-secondary">.createElement("img")</code> y como
+          argumento le pasamos el elemento a crear.
+        </p>
+        <pre><code class="language-js">const img = document.createElement("img");
+console.log(img);
+</code></pre>
+        <p>Posteriormente podemos modificarlo para hacerlo más completo.</p>
+        <pre><code class="language-js">// Posteriormente podemos modificarlo
+img.src = "https://picsum.photos/200/200";
+img.alt = "Imagen";
+img.setAttribute("id", "imagenJS"); // Agregar un atributo al elemento
+console.log(img)</code></pre>
+      </article>
+      <article class="card primary">
+        <h4 class="txt-green">Agregando el elemento</h4>
+        <p>
+          Posteriormente de crear el elemento, lo ideal seria insertarlo en
+          nuestro html. Usando el método <code class="txt-secondary"
+            >.appendChild(img)</code
+          > como argumento le pasamos el elemento creado, sin embargo,
+          appendChild lo que hará es agregar el elemento dentro del elemento que
+          indiquemos, asi que necesitamos seleccionar el elemento <code
+            class="txt-blue">body.appendChild(img);</code
+          > .De esta forma ya le indicamos que dentro del elemento ingrese este
+          nuevo elemento.
+        </p>
+        <pre><code class="language-js">const body = document.querySelector("body"); // Seleccionar el body
+body.appendChild(img); // Agregar un elemento al final del body </code></pre>
+        <p>
+          Si deseamos agregar el elemento al inicio haremos lo mismo pero ahora
+          usaremos <code class="txt-blue">body.prepend(img);</code>
+        </p>
+      </article>
+      <article class="card primary">
+        <h4 class="txt-green">Eliminando el elemento</h4>
+        <p>
+          Asi como podemos crear y modificar elementos, también, podemos
+          eliminarlos. Para ello usamos el método
+          <code class="txt-secondary">remove()</code> seleccionando el elemento
+          a eliminar.
+        </p>
+        <pre><code class="language-js">// Podemos eliminar un elemento creado en JS o uno ya existente.
+img.remove()// El img es el elemento que creamos antes. </code></pre>
+      </article>
+      <article class="card primary">
+        <h4 class="txt-green">Modificando el HTML</h4>
+        <p>
+          En la anterior lección se vio como modificar elementos, sin embargo,
+          existe una forma más de modificar/crear un elemento(s), pudiendo
+          <strong>remplazar el elemento interno</strong>. Para ello usaremos
+          <code class="txt-secondary"
+            >.innerHTML = `&lt;h1&gt;Manipulando DOM&lt;/h1&gt;`</code
+          > e igualándolo al elemento u elementos. Una recomendación es usar
+          "template literals" esto: <span class="txt-yellow">``</span> en lugar
+          de las comas ya que asi podremos escribir el o los elementos con
+          espacios.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;div id="changeDiv"&gt;Hola Mundo&lt;div/&gt;
+</code></pre>
+        <pre><code class="language-js">const changeDiv = document.querySelector("#changeDiv");
+changeDiv.innerHTML = `&lt;h1&gt;Manipulando DOM&lt;/h1&gt;`
+</code></pre>
+        <p>
+          También podemos aplicar trucos para crear elementos de forma más
+          cómoda usando los conocimientos previos.
+        </p>
+        <pre><code class="language-js">const newDiv = document.createElement("div"); // Creamos el elemento
+// Modificamos el elemento interno
+newDiv.innerHTML = `&lt;h1&gt; Manipulando el &lt;span style="color: #ff7000"&gt; DOM &lt;/span&gt; &lt;/h1&gt;`
+body.prepend(newDiv) // Agregar un elemento al inicio del body
+</code></pre>
+      </article>
+    </section>
+  </main>
+  <style>
+    section p {
+      margin: 0;
+      text-wrap: pretty;
+    }
+    ul {
+      margin-top: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    .card {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 90vw;
+    }
+  </style>
+</SubjectL>

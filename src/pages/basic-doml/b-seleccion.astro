@@ -1,0 +1,135 @@
+---
+import SubjectL from "../../layouts/BasicDom.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+
+const title = "Selección de Elementos";
+const description =
+  "Para usar la API de JavaScript para interactuar con el DOM, se debe primero obtener una referencia al elemento HTML que desean interactuar. A esto se le conoce como la selección de elementos del DOM.";
+---
+
+<SubjectL title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="16" />
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        {description}
+      </p>
+    </article>
+    <br />
+    <section class="grid col-4 md-col-1 sm-col-1">
+      <header class="span-4 md-span-4 sm-span-4 txt-center">
+        <h3>Tipos de Selección</h3>
+        <p>
+          Existen varias maneras de seleccionar elementos del DOM en JS, las
+          cuales se usan dependiendo del contexto.
+        </p>
+      </header>
+      <article class="card primary span-2 md-span-4 sm-span-4">
+        <h4 class="txt-green">Selección por Elementos | Etiquetas</h4>
+        <p>
+          Podemos hacer una selección refriéndose a la etiqueta/elemento HTML
+          directamente.
+        </p>
+        <pre><code class="language-js">// Seleccionar los elementos por Etiquetas
+const h1 = document.getElementsByTagName("h1"); 
+// Nos imprimirá un array con un objeto de los nodos de los elementos.
+console.log(h1); </code></pre>
+        <p>
+          Es util si deseamos seleccionar todos los elementos del DOM con la
+          etiqueta que especifiquemos.
+        </p>
+      </article>
+      <article class="card primary span-2 md-span-4 sm-span-4">
+        <h4 class="txt-green">Selección por Clase</h4>
+        <p>
+          Podemos hacer una selección refriéndose a la clase del elemento o los
+          elementos HTML.
+        </p>
+        <pre><code class="language-js">// Selección por clase
+const clase = document.getElementsByClassName("clase"); 
+/* Nos imprimirá un array con un objeto de los nodos de los elementos
+que coincidan con la clase. */
+console.log(clase); </code></pre>
+        <p>
+          Es util si deseamos seleccionar todos los elementos del DOM con la
+          clase que especifiquemos.
+        </p>
+      </article>
+      <article class="card primary span-4">
+        <h4 class="txt-green">Selección por ID</h4>
+        <p>
+          Podemos hacer una selección refriéndose al ID del elemento HTML. A
+          Diferencia de los demás al usar el ID nos garantizamos una selección
+          única.
+        </p>
+        <pre><code class="language-js">// Seleccionar por ID
+const btnEnviar = document.getElementById("send"); 
+/* Nos imprimirá un array con un objeto de los nodos de los elementos
+que coincidan con la clase. */
+console.log(clase); </code></pre>
+        <p>
+          Es util si deseamos seleccionar un elemento especifico del DOM. Por
+          ejemplo un Botón de acción.
+        </p>
+      </article>
+      <article class="card primary span-4">
+        <h4 class="txt-green">Selección usando selectores CSS</h4>
+        <p>
+          Existe otra forma de seleccionar elementos de un manera más flexible y
+          muy similar a como lo haríamos con CSS. Y para ello usamos el método <code
+            class="txt-yellow">querySelector</code
+          > o <code class="txt-yellow">querySelectorAll</code> si queremos
+          seleccionar más de un elemento. <br />
+           Esta forma nos permite dentro del método poner la selección como si
+          lo hiciéramos en CSS, simplemente poniendo <code class="txt-blue"
+            >".clase" o "#id"</code
+          > para las clases o id, y para los elementos usamos simplemente el
+          nombre del elemento <code class="txt-blue">h1</code> sin los símbolos
+          de mayor y menor que.
+          <pre><code class="language-js">// Seleccionar por querySelector
+const h1 = document.querySelector("h1"); // Por TAG
+const clase = document.querySelector(".clase"); // Por Clase          
+const btnEnviar = document.querySelector("#send"); // Por ID
+/* Nos imprimirá el elemento. */
+console.log(h1); // &lt;- Nos imprimirá el primer elemento que encuentre
+console.log(clase); // &lt;- Nos imprimirá el primer elemento que encuentre
+console.log(btnEnviar);  
+// Para seleccionar varios usamos querySelectorAll
+const botones = document.querySelectorAll('button')
+</code></pre>
+          <p>
+            El uso de <code class="txt-yellow">querySelector</code> sobre la
+            selección típica. Dependerá del uso. Generalmente usar <code
+              class="txt-yellow">querySelector</code
+            > es recomendable por su flexibilidad sin embargo, para la selección
+            por ID o si requieres de más información es µas eficiente <code
+              class="txt-secondary"
+              >getElementById
+            </code>
+          </p>
+        </p>
+      </article>
+    </section>
+  </main>
+  <style>
+    section p {
+      margin: 0;
+      text-wrap: pretty;
+    }
+    ul {
+      margin-top: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    .card {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 90vw;
+    }
+  </style>
+</SubjectL>

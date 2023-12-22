@@ -1,0 +1,122 @@
+---
+import SubjectL from "../../layouts/BasicDom.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+
+const title = "Modificando Valores";
+const description =
+  "JavaScript nos permite modificar valores usando métodos. Interactuando con el DOM, podemos manipular los elementos.";
+---
+
+<SubjectL title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="48" />
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        {description}
+      </p>
+    </article>
+    <br />
+    <section class="grid col-4 md-col-1 sm-col-1">
+      <header class="span-4 md-span-2 txt-center">
+        <h3>Modificando elementos</h3>
+      </header>
+      <article class="card primary span-2 md-span-4">
+        <h4 class="txt-green">Modificar el texto del elemento</h4>
+        <p>
+          Podemos modificar el texto del elemento seleccionado. Usando el método
+
+
+          <code class="txt-secondary">.textContent = "Nuevo Mundo"</code> e
+          igualándolo al valor nuevo.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;h1 id='hello'&gtHola Mundo&lt;/h1&gt;
+</code></pre>
+        <pre><code class="language-js">const helloText = document.getElementById('hello')
+// Modificado el texto del elemento
+helloText.textContent = "Nuevo mundo"; </code></pre>
+      </article>
+      <article class="card primary span-2 md-span-4">
+        <h4 class="txt-green">Modificando estilos</h4>
+        <p>
+          Podemos modificar el estilo de elemento seleccionado (no es
+          recomendado). Usando el método <code class="txt-secondary"
+            >.style</code
+          >+ <code class="txt-blue">.background = "#ff3";</code>la propiedad css
+          e igualándolo al valor nuevo.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;h1 id='hello'&gtHola Mundo&lt;/h1&gt;</code></pre>
+        <pre><code class="language-js">const helloText = document.getElementById('hello')
+// Modificado el texto del elemento
+helloText.textContent = "Nuevo mundo"; </code></pre>
+      </article>
+      <article class="card primary span-2 md-span-4">
+        <h4 class="txt-green">Modificar el valor del elemento</h4>
+        <p>
+          Podemos modificar el valor del elemento seleccionado. Usando el método
+
+
+          <code class="txt-secondary">.value = "Modificado desde JS"</code> e
+          igualándolo al valor nuevo.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;input type="text" id="input" placeholder="Escribe el Nombre"&gt;
+</code></pre>
+        <pre><code class="language-js">const input = document.getElementById('input')
+// Modificamos el valor del elemento
+input.value = "Modificado desde JS"; </code></pre>
+      </article>
+      <article class="card primary span-2 md-span-4">
+        <h4 class="txt-green">Modificar el placeHolder del elemento</h4>
+        <p>
+          Podemos modificar el placeHolder del elemento seleccionado. Usando el
+          método
+          <code class="txt-secondary">.placeholder = "Escribe tu Nombre.."</code
+          > e igualándolo al valor nuevo.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;input type="text" id="input" placeholder="Escribe el Nombre"&gt;
+</code></pre>
+        <pre><code class="language-js">// Modificamos el placeholder del elemento
+input.placeholder = "Escribe tu Nombre.."; </code></pre>
+      </article>
+      <article class="card primary span-4 md-span-4">
+        <h4 class="txt-green">Nota2</h4>
+        <p>
+          Al final podemos modificar multiples cosas de los elementos en si. Las
+          que vimos son algunas de las más usadas pero si quieres aprender más
+          checa <a
+            href="https://developer.mozilla.org/es/docs/Web"
+            target="_blank"
+            rel="noopener noreferrer">la web de MDN</a
+          >
+        </p>
+      </article>
+    </section>
+  </main>
+  <style>
+    section h4 {
+      margin-bottom: 10px;
+    }
+    section p {
+      margin: 0;
+      text-wrap: pretty;
+    }
+    ul {
+      margin-top: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    .card {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 90vw;
+    }
+  </style>
+</SubjectL>

@@ -1,0 +1,161 @@
+---
+import SubjectL from "../../layouts/BasicDom.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+
+const title = "Obteniendo Valores";
+const description =
+  "Ya que tenemos los elementos seleccionados. El siguiente paso es la obtención de información de los elementos seleccionados.";
+---
+
+<SubjectL title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="32" />
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        {description}
+      </p>
+    </article>
+    <br />
+    <section class="grid col-4 md-col-1 sm-col-1">
+      <header class="span-4 md-span-2 txt-center">
+        <h3>Manejo de Atributos.</h3>
+      </header>
+      <article class="card primary span-2">
+        <h4 class="txt-green">Obtener Valor</h4>
+        <p>
+          Podemos obtener el valor de un atributo del elemento seleccionado.
+          Usando el método <code class="txt-secondary"
+            >.getAttribute('placeholder')</code
+          > y pasándole el nombre del atributo entre comillas.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;input id='name' placeholder="HolaMundo"&gt;
+</code></pre>
+        <pre><code class="language-js">const inputName = document.getElementById('name')
+// Obtener el valor de un atributo
+const placeHolder = inputName.getAttribute('placeholder'); 
+console.log(placeHolder);</code></pre>
+      </article>
+      <article class="card primary span-2">
+        <h4 class="txt-green">Modificar Valor</h4>
+        <p>
+          Podemos modificar el valor de un atributo del elemento seleccionado.
+          Usando el método <code class="txt-secondary"
+            >.setAttribute('placeholder','modificado')</code
+          > y pasándole como primer argumento el atributo al que deseamos
+          modificar y el segundo argumento el nuevo valor.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;input id='name' placeholder="HolaMundo"&gt;</code></pre>
+        <pre><code class="language-js">// Modificar el valor de un atributo
+inputName.setAttribute("placeholder", "Modificado");
+console.log(inputName.getAttribute("placeholder"));</code></pre>
+      </article>
+    </section>
+    <section class="grid col-4 md-col-1 sm-col-1">
+      <header class="span-4 md-span-4 txt-center">
+        <h3>Manejo de Clases.</h3>
+        <p>
+          Con los métodos anteriores también podemos obtener y modificar las
+          clases que tenga un elemento, sin embargo, existe una mejor forma.
+        </p>
+      </header>
+      <article class="card primary span-2 md-span-4">
+        <h4 class="txt-green">Obtener clases</h4>
+        <p>
+          Podemos obtener las clases del elemento seleccionado. Usando el método
+
+
+          <code class="txt-yellow">.classList</code>
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;h1 id="title" class="red"&gt;Titulo&lt;/h1&gt;</code></pre>
+        <pre><code class="language-js">const titulo = document.getElementById('title')
+// Obtener las clases de un elemento
+console.log(titulo.classList);</code></pre>
+      </article>
+      <article class="card primary span-2 md-span-4">
+        <h4 class="txt-green">Agregar clases</h4>
+        <p>
+          Podemos agregar una clase al elemento seleccionado. Usando el método <code
+            class="txt-yellow">.classList.add("text")</code
+          > pasándole como argumento el nombre de la clase entre comillas.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;h1 id="title" class="red"&gt;Titulo&lt;/h1&gt;</code></pre>
+        <pre><code class="language-js">const titulo = document.getElementById('title')
+// Obtener las clases de un elemento
+console.log(titulo.classList);</code></pre>
+      </article>
+      <article class="card primary span-2 md-span-4">
+        <h4 class="txt-green">Eliminar clases</h4>
+        <p>
+          Podemos eliminar una clase al elemento seleccionado. Usando el método <code
+            class="txt-yellow">.classList.remove("text")</code
+          > pasándole como argumento el nombre de la clase entre comillas.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;h1 id="title" class="red"&gt;Titulo&lt;/h1&gt;</code></pre>
+        <pre><code class="language-js">// Eliminar una clase de un elemento
+titulo.classList.remove("text"); 
+console.log(titulo.classList);</code></pre>
+      </article>
+      <article class="card primary span-2 md-span-4">
+        <h4 class="txt-green">Verificar clases</h4>
+        <p>
+          Podemos verificar la existencia de una clase al elemento seleccionado.
+          Usando el método <code class="txt-yellow"
+            >.classList.contains("text")</code
+          > pasándole como argumento el nombre de la clase entre comillas.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;h1 id="title" class="red"&gt;Titulo&lt;/h1&gt;</code></pre>
+        <pre><code class="language-js">// Verificar si un elemento tiene una clase
+titulo.classList.contains("text"); 
+console.log(titulo.classList.contains("text"));</code></pre>
+      </article>
+      <article class="card primary span-4 md-span-4 sm-span-4">
+        <h4 class="txt-green">Toggle</h4>
+        <p>
+          Podemos agregar/eliminar una clase al elemento seleccionado. Usando el
+          método <code class="txt-yellow">.classList.toggle("text")</code>
+           pasándole como argumento el nombre de la clase entre comillas. Este
+          método funciona como un switch de luz; pone y quita la clase cuando se
+          llama. Generalmente se usa acompañado de un evento y va dentro de una
+          función. Asi que no te preocupes si no lo has entendido, en la lección
+          de eventos lo veras en acción.
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;p id="parrafo"&gt;Este es un párrafo&lt;/p&gt;</code></pre>
+        <pre><code class="language-js">const parrafo = document.getElementById('parrafo')
+// Agregar o eliminar una clase de un elemento
+parrafo.classList.toggle("red"); 
+console.log(parrafo.classList);</code></pre>
+      </article>
+    </section>
+  </main>
+  <style>
+    section h4 {
+      margin-bottom: 10px;
+    }
+    section p {
+      margin: 0;
+      text-wrap: pretty;
+    }
+    ul {
+      margin-top: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    .card {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 90vw;
+    }
+  </style>
+</SubjectL>

@@ -1,0 +1,120 @@
+---
+import SubjectL from "../../layouts/BasicDom.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+import Touch from "../../../../Guiavascript/src/components/dom/Touch.astro";
+import Tmove from "../../../../Guiavascript/src/components/dom/Tmove.astro";
+import Giros from "../../../../Guiavascript/src/components/dom/Giros.astro";
+const title = "Eventos Móviles";
+const description =
+  "Los eventos móviles son eventos que se producen en dispositivos móviles, como teléfonos inteligentes y tabletas. Estos eventos pueden ser causados por acciones del usuario, como tocar, deslizar o girar, o por cambios en el estado del dispositivo, como cambiar la orientación o la orientación.";
+---
+
+<SubjectL title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="100" />
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        {description}
+      </p>
+      <p>
+        Para poder probar los eventos es necesario que uses el modo responsive
+        de las devtools o accedas desde tu teléfono.
+      </p>
+    </article>
+    <br />
+    <section class="flex f-col" style="gap:15px">
+      <header class="center">
+        <h3>Eventos del mouse</h3>
+      </header>
+      <article class="card primary">
+        <h4 class="txt-green">Evento toque</h4>
+        <p>
+          Podemos agregar un evento para que escuche cuando se toque la
+          pantalla. Usando el el evento <strong>"touchstart"</strong>
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;p id='touch'&gtToca la pantalla&lt;/p&gt;
+</code></pre>
+        <pre><code class="language-js">const p = document.querySelector("#touch");
+const change = () => (p.innerText = "Toque de pantalla 😵‍💫");
+touch.addEventListener("touchstart", change);;</code></pre>
+        <footer>
+          <Touch client:idle />
+        </footer>
+      </article>
+      <article class="card primary">
+        <h4 class="txt-green">Evento touchmove</h4>
+        <p>
+          Podemos agregar un evento para que escuche cuando se mueve el dedo en
+          la pantalla. Usando el el evento <strong>"touchmove"</strong>
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;section class="flex center f-col br-secondary" id="w"&gt;&lt;p id='tmove'&gtDesliza el dedo sobre la sección&lt;/p&gt;&lt;/section&gt;</code></pre>
+        <pre><code class="language-js">const w = document.querySelector("#w");
+const p = document.querySelector("#tmove");
+const change = () => (p.innerText = "Deslizado");
+w.addEventListener("touchmove", change);</code></pre>
+        <footer>
+          <Tmove client:idle />
+        </footer>
+      </article>
+      <article class="card primary">
+        <h4 class="txt-green">Evento Giroscopio</h4>
+        <p>
+          Podemos agregar un evento para que escuche cuando se mueve el
+          dispositivo. Usando el el evento <strong>"deviceorientation"</strong>
+        </p>
+        <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;section class="flex center f-col br-secondary" id="giros"&gt;Gira el dispositivo y observa el color de fondo&lt;/section&gt;</code></pre>
+        <pre><code class="language-js">const sec = document.querySelector("#giros");
+const change = () => &lbrace;
+// Color temporal al girar
+sec.style.backgroundColor = "#182f4a";
+// Volver al color original tras 2 segundo
+setTimeout(() => &lbrace;
+sec.style.backgroundColor = "#2d2d2d";
+&rbrace;,2000);
+&rbrace;;
+window.addEventListener("deviceorientation", change);</code></pre>
+        <footer>
+          <Giros client:idle />
+        </footer>
+      </article>
+    </section>
+    <br />
+    <footer class="card primary">
+      <h3 class="txt-center">Felicidades ✨</h3>
+      <p class="txt-left">
+        Ahora ya sabes una parte de la magia que usan los frameworks JavaScript
+        modernos (angular,react,vue,svelte,astro,etc.) para manipular el DOM.
+        Existen aun más eventos y funciones que aprender, ya que se pueden
+        modificar muchas cosas de una pagina web, pero ya tienes unas bases
+        avanzadas de como hacerlo.
+      </p>
+    </footer>
+  </main>
+</SubjectL>
+<style>
+  section h4 {
+    margin-bottom: 10px;
+  }
+  section p {
+    margin: 0;
+    text-wrap: pretty;
+  }
+  ul {
+    margin-top: 0;
+  }
+  li {
+    margin-bottom: 5px;
+  }
+  .card {
+    margin: 0;
+  }
+
+  .container {
+    max-width: 90vw;
+  }
+</style>

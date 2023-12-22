@@ -1,0 +1,262 @@
+---
+import SubjectL from "../../layouts/BasicDom.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+import Click from "../../components/Click.astro";
+import Dbclick from "../../../../Guiavascript/src/components/dom/Dbclick.astro";
+import Mousenter from "../../../../Guiavascript/src/components/dom/Mousenter.astro";
+import Cmenu from "../../../../Guiavascript/src/components/dom/Cmenu.astro";
+import Kdwon from "../../../../Guiavascript/src/components/dom/Kdwon.astro";
+import Kup from "../../../../Guiavascript/src/components/dom/Kup.astro";
+import Resize from "../../../../Guiavascript/src/components/dom/Resize.astro";
+import Scroll from "../../../../Guiavascript/src/components/dom/Scroll.astro";
+import Load from "../../../../Guiavascript/src/components/dom/Load.astro";
+const title = "Eventos";
+const description =
+  "Los eventos son interacciones del usuario con el documento HTML, como hacer clic en un botón o pasar el cursor por encima de un elemento. Los eventos se pueden utilizar para controlar el comportamiento de la página web en respuesta a estas interacciones.";
+---
+
+<SubjectL title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="85" />
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        {description}
+      </p>
+      <p>Existen muchos eventos, aquí veremos algunos de los más usados.</p>
+    </article>
+    <br />
+    <section>
+      <header class="span-4 md-span-4 txt-center">
+        <h3>Eventos en JavaScript</h3>
+      </header>
+      <article class="card primary span-4 md-span-4 sm-span-4">
+        <h4 class="txt-center">Añadir eventos</h4>
+        <p>
+          Podemos añadir eventos a los elementos usando <code
+            class="txt-secondary">.addEventListener("evento",función)</code
+          >. Donde el primer argumento es el tipo de evento y el segundo es la
+          función, que deseamos realizar una vez se ejecute el evento.
+        </p>
+      </article>
+      <br />
+      <div class="grid col-4 md-col-1 sm-col-1">
+        <header class="span-4 md-span-4 center">
+          <h3>Eventos del mouse</h3>
+        </header>
+        <article class="card primary span-2 md-span-4">
+          <h4 class="txt-green">Evento click</h4>
+          <p>
+            Podemos agregar un evento para que escuche cuando se produzca un
+            clic sobre el elemento seleccionado. Usando el el evento <strong
+              >"click"</strong
+            >
+          </p>
+          <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;button id='hello'&gtSaludar🖐️&lt;/button&gt;
+</code></pre>
+          <pre><code class="language-js">  const helloBtn = document.getElementById("hello");
+// función saludar
+const saludar = () => (helloBtn.innerText = "HOLA 🖐️");
+helloBtn.addEventListener("click", saludar);</code></pre>
+          <footer>
+            <Click client:idle />
+          </footer>
+        </article>
+        <article class="card primary span-2 md-span-4">
+          <h4 class="txt-green">Evento doble click</h4>
+          <p>
+            Podemos agregar un evento para que escuche cuando se produzca un
+            clic doble sobre el elemento seleccionado. Usando el el evento <strong
+              >"dblclick"</strong
+            >
+          </p>
+          <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;button id='btn'&gt;Haz un click doble&lt;/button&gt;
+</code></pre>
+          <pre><code class="language-js">const hotBtn = document.getElementById("btn");
+const hot = () => (hotBtn.innerText = "Tranquilo vas a quemar el botón😳🔥");
+hotBtn.addEventListener("dblclick", hot);</code></pre>
+          <footer>
+            <Dbclick client:idle />
+          </footer>
+        </article>
+        <article class="card primary span-4 md-span-4">
+          <h4 class="txt-green">Evento mouseenter</h4>
+          <p>
+            Podemos agregar un evento para que escuche cuando el mouse este
+            sobre el elemento seleccionado. Usando el el evento <strong
+              >"mouseenter"</strong
+            >
+          </p>
+          <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;p id="p" &gt;Pon el mouse sobre mi&lt;/p&gt;</code></pre>
+          <pre><code class="language-js">const p = document.getElementById("p");
+const surprise = () => (p.innerText = "Hola 😏");
+p.addEventListener("mouseenter", surprise);;</code></pre>
+          <footer>
+            <Mousenter client:idle />
+          </footer>
+        </article>
+        <article class="card primary span-4 md-span-4">
+          <h4 class="txt-green">Evento click derecho</h4>
+          <p>
+            Podemos agregar un evento para que escuche cuando el mouse este
+            sobre el elemento seleccionado. Usando el el evento <strong
+              >"mouseenter"</strong
+            >
+          </p>
+          <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;p id="p" &gt;Pon el mouse sobre mi&lt;/p&gt;</code></pre>
+          <pre><code class="language-js">const p = document.getElementById("act");
+const surprise = (e) => &lbrace;e.preventDefault(); p.innerText = "Click derecho activado."&rbrace;
+p.addEventListener("contextmenu", surprise);</code></pre>
+          <p>
+            Para este caso también usamos<strong>e.preventDefault();</strong>,
+            que es para eliminar el comportamiento por defecto del navegador,
+            que en este casos seria mostrar el menu habitual del navegador. Y
+            por si te preguntas la <strong>e</strong> que se le pasa en la
+            función corresponde al evento.
+          </p>
+          <footer>
+            <Cmenu client:idle />
+          </footer>
+        </article>
+      </div>
+      <section class="grid col-4 md-col-1 sm-col-1">
+        <header class="span-4 md-span-4 txt-center">
+          <h3>Eventos del Teclado</h3>
+        </header>
+        <article class="card primary span-2 md-span-4">
+          <h4 class="txt-green">Evento keydown</h4>
+          <p>
+            Podemos agregar un evento para que escuche cuando se presione una
+            tecla. Usando el el evento <strong>"keydown"</strong>
+          </p>
+          <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;p id="key" &gt;Presiona una tecla.&lt;/p&gt;</code></pre>
+          <pre><code class="language-js">const p = document.getElementById("key");
+const change = (e) => (p.innerText = e.key);
+//Usamos document para leer todo el documento (la pagina.) 
+document.addEventListener("keydown", change);</code></pre>
+          <footer>
+            <Kdwon client:idle />
+          </footer>
+        </article>
+        <article class="card primary span-2 md-span-4">
+          <h4 class="txt-green">Evento keyup</h4>
+          <p>
+            Podemos agregar un evento para que escuche cuando se suelte una
+            tecla. Usando el el evento <strong>"keyup"</strong>
+          </p>
+          <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;p id="keyup" &gt;Mantén presionada una tecla y luego suelta.&lt;/p&gt;</code></pre>
+          <pre><code class="language-js">const p = document.getElementById("keyup");
+const change = (e) => (p.innerText = e.key); 
+document.addEventListener("keyup", change);</code></pre>
+          <footer>
+            <Kup client:idle />
+          </footer>
+        </article>
+      </section>
+      <section class="flex f-col" style="gap:13px">
+        <header class="txt-center">
+          <h3>Eventos de Pantalla</h3>
+        </header>
+        <article class="card primary">
+          <h4 class="txt-green">Evento resize</h4>
+          <p>
+            Podemos agregar un evento para que escuche cuando se cambie el
+            tamaño de la pantalla. Usando el el evento <strong>"resize"</strong>
+             Y refriéndose a <strong>"window"</strong> si desear medir toda la
+            pagina.
+          </p>
+          <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;p id="key" &gt;Altura de la ventana: &lt;span id="height"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p id="key" &gt;Ancho de la ventana: &lt;span id="width"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
+          <pre><code class="language-js">const h = document.querySelector("#height");
+const w = document.querySelector("#width");
+const change = () => &lbrace;
+// Accedemos al tamaño de la ventana usando el objeto global window y su valor en alto y ancho
+  h.textContent = window.innerHeight; 
+  w.textContent = window.innerWidth;
+&rbrace;;
+window.addEventListener("resize", change);</code></pre>
+          <footer>
+            <Resize client:idle />
+          </footer>
+          <br />
+          <p>
+            La magia del evento no es medir el ancho y alto, ya que eso es algo
+            que se puede hacer sin ejecutar ningún evento, el objetivo es que
+            esos valores se actualicen cada vez que cambie el tamaño
+          </p>
+        </article>
+        <article class="card primary">
+          <h4 class="txt-green">Evento resize</h4>
+          <p>
+            Podemos agregar un evento para que escuche cuando se carga la
+            pagina. Usando el el evento <strong>"load"</strong>
+             Y refriéndose a <strong>"window"</strong>
+          </p>
+          <pre><code class="language-js">const change = () => &lbrace;
+const body = document.querySelector("#section");
+body.style.backgroundColor = "#0000";
+console.log("Load");
+&rbrace;;
+window.addEventListener("load", change);</code></pre>
+          <footer>
+            <Scroll client:idle />
+          </footer>
+        </article>
+        <article class="card primary">
+          <h4 class="txt-green">Evento load</h4>
+          <p>
+            Podemos agregar un evento para que escuche cuando se cambie el
+            tamaño de la pantalla. Usando el el evento <strong>"resize"</strong>
+             Y refriéndose a <strong>"window"</strong> si desear medir toda la
+            pagina.
+          </p>
+          <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;section class="flex center f-col br-secondary" id="load"&gt;Recarga la pagina y observa el color de fondo&lt;/section&gt;</code></pre>
+          <pre><code class="language-js">const body = document.querySelector("#load");
+const change = () => &lbrace;
+// Color temporal al recargar
+body.style.backgroundColor = "#182f4a";
+// Volver al color original tras 2 segundo
+setTimeout(() => &lbrace;
+body.style.backgroundColor = "#2d2d2d";
+&rbrace;,2000);
+&rbrace;;
+window.addEventListener("scroll", change);</code></pre>
+          <footer>
+            <Load client:idle />
+          </footer>
+        </article>
+      </section>
+    </section>
+  </main>
+</SubjectL>
+<style>
+  section h4 {
+    margin-bottom: 10px;
+  }
+  section p {
+    margin: 0;
+    text-wrap: pretty;
+  }
+  ul {
+    margin-top: 0;
+  }
+  li {
+    margin-bottom: 5px;
+  }
+  .card {
+    margin: 0;
+  }
+
+  .container {
+    max-width: 90vw;
+  }
+</style>
