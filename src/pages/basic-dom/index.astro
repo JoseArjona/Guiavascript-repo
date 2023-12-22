@@ -1,0 +1,143 @@
+---
+import DomLayout from "../../layouts/DomLayout.astro";
+
+const title = "Básico del Dom";
+const description =
+  "El DOM, o Modelo de Objeto de Documento, es una representación en forma de árbol de una página web. Es una estructura de datos que representa los elementos HTML de una página, así como sus propiedades y relaciones.";
+---
+
+<DomLayout title={"Guiavascript-" + title} description={description}>
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <h3 class="txt-yellow">¿Qué es el dom?</h3>
+      <p class="grid col-2 md-col-2 sm-col-1">
+        <span class="span-2 sm-span-1">{description}</span>
+        <span
+          >El DOM se puede visualizar como un árbol, donde cada nodo del árbol
+          representa un elemento HTML. El nodo raíz del árbol representa el
+          documento HTML completo. Los nodos hijos del nodo raíz representan los
+          elementos HTML que están dentro del documento.</span
+        >
+        <span>
+          El DOM permite a JavaScript interactuar con los elementos HTML de una
+          página. Con JavaScript, podemos acceder a los elementos HTML del DOM,
+          modificar sus propiedades y relaciones, y crear nuevos elementos HTML.
+        </span>
+      </p>
+    </article>
+  </main>
+  <section class="container">
+    <article>
+      <h2 class="txtCenter">¿Por qué es importante?</h2>
+      <p class="card primary">
+        El DOM es una herramienta fundamental para el desarrollo web. Nos
+        permite interactuar con los elementos HTML de una página, lo que nos
+        permite crear experiencias web interactivas y dinámicas.
+      </p>
+    </article>
+    <section class="grid col-3 md-col-2 sm-col-1">
+      <h2 class="span-3 md-span-2 sm-span-1">
+        Algunos Ejemplos del uso del Dom
+      </h2>
+      <article class="card primary md-span-2 sm-span-1">
+        <picture>
+          <img
+            src="https://blush.design/api/download?shareUri=BrWTxTFg7&bg=e4f8ff&w=200&h=200&fm=png"
+            alt="aplicaciones"
+            id="firstImage"
+          />
+        </picture>
+        <h3>Formularios web</h3>
+        <p>
+          El DOM se utiliza para crear formularios web interactivos, donde los
+          usuarios pueden ingresar información y enviarla al servidor.
+        </p>
+      </article>
+      <article class="card primary">
+        <picture
+          ><img
+            src="https://blush.design/api/download?shareUri=77St4W4C6&bg=ffffee&w=200&h=200&fm=png"
+            alt="mando de juegos"
+          /></picture
+        >
+        <h3>Interfaz de usuario</h3>
+        <p>
+          El DOM se utiliza para crear interfaces de usuario atractivas e
+          interactivas.
+        </p>
+      </article>
+      <article class="card primary txtCenter">
+        <picture>
+          <img
+            src="https://blush.design/api/download?shareUri=N7K3sjPFs&bg=f1e9f4&w=200&h=200&fm=png"
+            alt="cli"
+          />
+        </picture>
+        <br />
+        <h3>Efectos</h3>
+        <p>
+          El DOM se utiliza para crear efectos web, como sombras, transiciones y
+          animaciones.
+        </p>
+      </article>
+    </section>
+  </section>
+  <section>
+    <h2 class="txt-center">Hola Dom ;&rbrace;</h2>
+    <article class="card primary">
+      <h3>Antes de iniciar</h3>
+      <p>Para seguir esta lección, necesitarás los siguientes conocimientos:</p>
+      <ul>
+        <li>
+          HTML básico: Debes tener una comprensión básica de cómo crear y
+          estructurar documentos HTML.
+        </li>
+        <li>
+          JavaScript básico: Debes tener una comprensión básica de cómo escribir
+          código JavaScript.
+        </li>
+      </ul>
+
+      <p><strong>Recomendaciones :</strong></p>
+      <a href="https://guiavascript.netlify.app/Basic-js" target="_blank"
+        >Aprende lo básico de JS</a
+      >
+      <br />
+      <a href="https://developer.mozilla.org/es/docs/Learn/HTML" target="_blank"
+        >HTML y CSS Básico</a
+      >
+    </article>
+  </section>
+  <style>
+    p {
+      margin-top: 0px;
+      text-wrap: pretty;
+    }
+
+    img {
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      max-width: 100%;
+    }
+    picture {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    a {
+      color: var(--yellow);
+    }
+
+    @media screen and (425 <= width <= 768) {
+      #firstImage {
+        width: 200px !important;
+        aspect-ratio: 1/1;
+        max-width: 200px !important;
+        margin: auto;
+      }
+    }
+  </style>
+</DomLayout>
