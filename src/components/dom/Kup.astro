@@ -1,0 +1,20 @@
+<section class="flex center f-col br-secondary">
+  <h2>Evento keyup</h2>
+  <p id="keyup">Mantén presionada una tecla y luego suelta.</p>
+</section>
+
+<script>
+  const p = document.getElementById("keyup");
+  const change = (e) => (p.innerText = e.key);
+  document.addEventListener("keyup", change);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+</style>

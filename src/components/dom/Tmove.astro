@@ -1,0 +1,21 @@
+<section class="flex center f-col br-secondary" id="w">
+  <h2>Evento Deslizar</h2>
+  <p id="tmove">Desliza el dedo sobre la sección</p>
+</section>
+
+<script>
+  const w = document.querySelector("#w");
+  const p = document.querySelector("#tmove");
+  const change = () => (p.innerText = "Deslizado");
+  w.addEventListener("touchmove", change);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+</style>

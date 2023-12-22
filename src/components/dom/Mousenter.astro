@@ -1,0 +1,20 @@
+<section class="flex center f-col br-secondary">
+  <h2>Evento mouseenter </h2>
+  <p id="p">Pon el mouse sobre mi</p>
+</section>
+
+<script>
+  const p = document.getElementById("p");
+  const surprise = () => (p.innerText = "Hola 😏");
+  p.addEventListener("mouseenter", surprise);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+</style>

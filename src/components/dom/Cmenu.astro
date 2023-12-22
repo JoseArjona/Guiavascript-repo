@@ -1,0 +1,23 @@
+<section class="flex center f-col br-secondary">
+  <h2>Evento Click Derecho </h2>
+  <p id="act" class="br-yellow">Haz click derecho sobre mí</p>
+</section>
+
+<script>
+  const p = document.getElementById("act");
+  const surprise = (e) => {e.preventDefault(); p.innerText = "Click derecho activado."};
+  p.addEventListener("contextmenu", surprise);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+  #act{
+    padding: 2px
+  }
+</style>

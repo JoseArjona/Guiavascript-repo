@@ -1,0 +1,30 @@
+<section class="flex center f-col br-secondary">
+  <h2>Evento resize</h2>
+  <p>Ajusta el tamaño de la ventana</p>
+  <p>Altura de la ventana: <span id="height"></span></p>
+  <p>Ancho de la ventana: <span id="width"></span></p>
+</section>
+
+<script>
+  const h = document.querySelector("#height");
+  const w = document.querySelector("#width");
+  const change = () => {
+    h.textContent = window.innerHeight;
+    w.textContent = window.innerWidth;
+  };
+  window.addEventListener("resize", change);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+
+  section > p {
+    margin: 2px;
+  }
+</style>

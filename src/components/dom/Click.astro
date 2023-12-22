@@ -1,0 +1,21 @@
+<section class="flex center f-col br-secondary">
+  <h2>Evento click</h2>
+  <button class="btn" id="hello">Saludar🖐️</button>
+</section>
+
+<script>
+  const helloBtn = document.getElementById("hello");
+  // funcion saludar
+  const saludar = () => (helloBtn.innerText = "HOLA 🖐️");
+  helloBtn.addEventListener("click", saludar);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+</style>

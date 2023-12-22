@@ -1,0 +1,32 @@
+<section class="flex center f-col br-secondary">
+  <h2>Evento Scroll </h2>
+  <p>Haz un scroll y después espera 1 seg <span id="scroll"></span></p>
+</section>
+
+<script>
+  const scroll = document.querySelector("#scroll");
+  const change = () => {
+    scroll.textContent = "Scrolleando...";
+    // Color temporal al hacer scroll
+    scroll.style.color = "lightblue";
+    // Volver al color original tras 1 segundo
+    setTimeout(() => {
+      scroll.style.color = "#fff";
+    }, 1000);
+  };
+  window.addEventListener("scroll", change);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+
+  section > p {
+    margin: 2px;
+  }
+</style>

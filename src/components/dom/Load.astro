@@ -1,0 +1,29 @@
+<section class="flex center f-col br-secondary" id="load">
+  <h2>Evento Load</h2>
+  <p>Recarga la pagina y observa el color de fondo</p>
+</section>
+
+<script>
+  const body = document.querySelector("#load");
+  const change = () => {
+    body.style.backgroundColor = "#182f4a";
+    setTimeout(() => {
+      body.style.backgroundColor = "#2d2d2d";
+    }, 2000);
+  };
+  window.addEventListener("load", change);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+
+  section > p {
+    margin: 2px;
+  }
+</style>

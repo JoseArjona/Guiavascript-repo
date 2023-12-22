@@ -1,0 +1,20 @@
+<section class="flex center f-col br-secondary">
+  <h2>Evento doble click</h2>
+  <button class="btn" id="btn">Haz un click doble</button>
+</section>
+
+<script>
+  const hotBtn = document.getElementById("btn");
+  const hot = () => (hotBtn.innerText = "Tranquilo vas a quemar el botón😳🔥");
+  hotBtn.addEventListener("dblclick", hot);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+</style>

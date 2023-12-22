@@ -1,0 +1,29 @@
+<section class="flex center f-col br-secondary" id="giros">
+  <h2>Evento Giroscopio</h2>
+  <p>Gira el dispositivo y observa el color de fondo.</p>
+</section>
+
+<script>
+  const sec = document.querySelector("#giros");
+  const change = () => {
+    sec.style.backgroundColor = "#182f4a";
+    setTimeout(() => {
+      sec.style.backgroundColor = "#2d2d2d";
+    }, 2000);
+  };
+  window.addEventListener("deviceorientation", change);
+</script>
+
+<style>
+  section {
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: #fff;
+  }
+
+  section > p {
+    margin: 2px;
+  }
+</style>
