@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import BaseHead from "../components/BaseHead.astro";
 import "../styles/prism.css";
 import Prismc from "../components/Prismc.astro";
-import BaseNav from "../components/dom/BaseNav.astro";
+import BaseNavDm from "../components/dom/BaseNavDm.astro";
 
 export interface Props {
   title: string;
@@ -15,7 +15,7 @@ const { description } = Astro.props;
 
 const URLBG = Astro.url.protocol + "//" + Astro.url.host + "/img/bg.svg";
 
-const NamePages = await Astro.glob("../pages/basic-doml/*.astro");
+const NamePagesDom = await Astro.glob("../pages/basic-doml/*.astro");
 ---
 
 <!doctype html>
@@ -24,10 +24,10 @@ const NamePages = await Astro.glob("../pages/basic-doml/*.astro");
     <BaseHead title={title} description={description} />
   </head>
   <body class="txt-white" style=`background-image: url(${URLBG});`>
-    <Header NamePages={NamePages} />
+    <Header NamePages={NamePagesDom} />
     <main class="container">
       <slot />
-      <BaseNav NamePages={NamePages} />
+      <BaseNavDm NamePagesDom={NamePagesDom} />
     </main>
     <footer>
       <p>
