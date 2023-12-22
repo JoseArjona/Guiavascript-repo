@@ -5,7 +5,7 @@ export interface Props {
 
 const { NamePages } = Astro.props;
 
-// Añadimos la ruta "/" y "/Basic-js/" al array de rutas
+// Añadimos la ruta "/" y "/basic-js/" al array de rutas
 const pages = ["/", ...Object.values(NamePages.map((page) => page.url))];
 // Obtenemos la primera y última página
 const firstPage = pages[pages.length - 1];
