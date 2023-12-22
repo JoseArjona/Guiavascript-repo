@@ -27,7 +27,7 @@ const NamePages = await Astro.glob("../pages/Basic-js/*.astro");
     <Header NamePages={NamePages} />
     <main class="container">
       <slot />
-      <BaseNav NamePages={NamePages} currentLeasson="/Basic-js" />
+      <BaseNav NamePages={NamePages} />
     </main>
     <footer>
       <p>

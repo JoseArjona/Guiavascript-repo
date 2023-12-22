@@ -1,10 +1,9 @@
 ---
 export interface Props {
   NamePages: object;
-  currentLeasson: string;
 }
 
-const { NamePages, currentLeasson } = Astro.props;
+const { NamePages } = Astro.props;
 
 // Añadimos la ruta "/" y "/Basic-js/" al array de rutas
 const pages = ["/", ...Object.values(NamePages.map((page) => page.url))];
@@ -13,9 +12,9 @@ const firstPage = pages[pages.length - 1];
 const lastPage = pages[0];
 
 pages.sort((a, b) => {
-  if (a === currentLeasson) {
+  if (a === "/Basic-js") {
     return -1;
-  } else if (b === currentLeasson) {
+  } else if (b === "/Basic-js") {
     return 1;
   }
   return a.localeCompare(b); // Sort other elements alphabetically
