@@ -1,0 +1,273 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+
+export interface Props {
+  NamePages: object;
+}
+
+const { NamePages } = Astro.props;
+/* const baseUrl = Astro.url.pathname;
+console.log(baseUrl);*/
+---
+
+<header>
+  <nav>
+    <div class="wrapper">
+      <div class="logo"><a href="/">Guiavascript</a></div>
+      <input type="radio" name="slider" id="menu-btn" />
+      <input type="radio" name="slider" id="close-btn" />
+      <ul class="nav-links">
+        <label for="close-btn" class="btn close-btn"
+          ><!--?xml version="1.0" encoding="UTF-8"?-->
+          <svg
+            width="20px"
+            height="20px"
+            stroke-width="1.5"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            color="#000000"
+            ><path
+              d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path></svg
+          ></label
+        >
+        <li><a href=`./`>◈ Principio</a></li>
+        <li>
+          <a href="#" class="desktop-item">⇲ Lecciones</a>
+          <input type="checkbox" id="showDrop" />
+          <label for="showDrop" class="mobile-item">⇲ Lecciones</label>
+          <ul class="drop-menu">
+            {
+              NamePages.map((lesson) => (
+                <li>
+                  <HeaderLink href={lesson.url}>
+                    {lesson.url.split("/")[2]}
+                  </HeaderLink>
+                </li>
+              ))
+            }
+          </ul>
+        </li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"
+        ><!--?xml version="1.0" encoding="UTF-8"?-->
+        <svg
+          width="20px"
+          height="20px"
+          stroke-width="1.5"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          color="#000000"
+          ><path
+            d="M3 5H21"
+            stroke="#000000"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path><path
+            d="M3 12H21"
+            stroke="#000000"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path><path
+            d="M3 19H21"
+            stroke="#000000"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path></svg
+        ></label
+      >
+    </div>
+  </nav>
+</header>
+
+<style>
+  nav {
+    position: relative;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    background: var(--primary);
+  }
+  nav .wrapper {
+    position: relative;
+    max-width: 1300px;
+    padding: 0px 30px;
+    height: 70px;
+    line-height: 70px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wrapper .logo a {
+    color: #fbae3c;
+    font-size: 30px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .wrapper .nav-links {
+    display: inline-flex;
+  }
+  .nav-links li {
+    list-style: none;
+  }
+  .nav-links li a {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  .nav-links li a:hover {
+    border-radius: 10px;
+    background: var(--accent);
+  }
+  .nav-links .mobile-item {
+    display: none;
+  }
+  .nav-links .drop-menu {
+    position: absolute;
+    background: #000000;
+    width: 180px;
+    line-height: 45px;
+    top: 85px;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  .nav-links li:hover .drop-menu {
+    transition: all 0.3s ease;
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+  }
+  .drop-menu li a {
+    width: 100%;
+    display: block;
+    padding: 0 0 0 15px;
+    font-weight: 400;
+    border-radius: 0px;
+  }
+  .content .row img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .content .row header {
+    color: #f2f2f2;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .wrapper .btn {
+    color: #000000 !important;
+    background-color: #fbae3c;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+  }
+  .wrapper .btn.close-btn {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+  }
+
+  @media screen and (max-width: 970px) {
+    .wrapper .btn {
+      display: block;
+    }
+    .wrapper .nav-links {
+      position: fixed;
+      height: 100vh;
+      width: 100%;
+      max-width: 350px;
+      top: 0;
+      left: -100%;
+      background: #121418;
+      display: block;
+      padding: 50px 10px;
+      line-height: 50px;
+      overflow-y: auto;
+      box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.18);
+      transition: all 0.3s ease;
+    }
+    /* custom scroll bar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #242526;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3a3b3c;
+    }
+    #menu-btn:checked ~ .nav-links {
+      left: 0%;
+    }
+    #menu-btn:checked ~ .btn.menu-btn {
+      display: none;
+    }
+    #close-btn:checked ~ .btn.menu-btn {
+      display: block;
+    }
+    .nav-links li {
+      margin: 15px 10px;
+    }
+    .nav-links li a {
+      padding: 0 20px;
+      display: block;
+      font-size: 20px;
+    }
+    .nav-links .drop-menu {
+      position: static;
+      opacity: 1;
+      top: 65px;
+      visibility: visible;
+      padding-left: 20px;
+      width: 100%;
+      max-height: 0px;
+      overflow: hidden;
+      box-shadow: none;
+      transition: all 0.3s ease;
+    }
+    #showDrop:checked ~ .drop-menu {
+      max-height: 100%;
+    }
+    .nav-links .desktop-item {
+      display: none !important;
+    }
+    .nav-links .mobile-item {
+      display: block;
+      color: #f2f2f2;
+      font-size: 20px;
+      font-weight: 500;
+      padding-left: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .nav-links .mobile-item:hover {
+      background: #3a3b3c;
+    }
+    .drop-menu li {
+      margin: 0;
+    }
+    .drop-menu li a {
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    .content .row header {
+      font-size: 19px;
+    }
+  }
+  nav input {
+    display: none;
+  }
+</style>

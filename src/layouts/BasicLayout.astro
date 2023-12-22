@@ -1,0 +1,61 @@
+---
+import Header from "../components/Header.astro";
+import BaseHead from "../components/BaseHead.astro";
+import "../styles/prism.css";
+import Prismc from "../components/Prismc.astro";
+import BaseNav from "../components/BaseNav.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title } = Astro.props;
+const { description } = Astro.props;
+
+const URLBG = Astro.url.protocol + "//" + Astro.url.host + "/img/bg.svg";
+
+const NamePages = await Astro.glob("../pages/Basic-js/*.astro");
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="txt-white" style=`background-image: url(${URLBG});`>
+    <Header NamePages={NamePages} />
+    <main class="container">
+      <slot />
+      <BaseNav NamePages={NamePages} currentLeasson="/Basic-js" />
+    </main>
+    <footer>
+      <p>
+        <a href="https://developer.mozilla.org/es/docs/Web/JavaScript"
+          >Consulta más en MDN</a
+        >
+      </p>
+      <Prismc codep="^_~" />
+    </footer>
+    <style>
+      body {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+      }
+      footer p a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        margin: 0;
+        margin-right: 10px;
+      }
+    </style>
+  </body>
+</html>

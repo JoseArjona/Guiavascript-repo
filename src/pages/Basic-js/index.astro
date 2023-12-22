@@ -1,0 +1,108 @@
+---
+import BasicLayout from "../../layouts/BasicLayout.astro";
+
+const title = "Javascript";
+const description =
+  "JavaScript es un lenguaje de programación que se utiliza para crear páginas web interactivas. Es un lenguaje de programación de propósito general, lo que significa que se puede utilizar para crear todo tipo de aplicaciones, no solo páginas web.";
+---
+
+<BasicLayout title={"Guiavascript-" + title} description={description}>
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <h3 class="txt-yellow">¿Qué es JavaScript?</h3>
+      <p class="grid col-2 md-col-1 sm-col-1">
+        {description}
+        <br />
+        <span
+          >JavaScript es un lenguaje de programación relativamente fácil de
+          aprender, incluso para principiantes. Hay muchos recursos disponibles
+          para ayudar a los desarrolladores a aprender JavaScript, incluyendo
+          libros, tutoriales, cursos y comunidades en línea.</span
+        >
+      </p>
+    </article>
+  </main>
+  <section class="container">
+    <h2 class="txtCenter">
+      ¿Por qué aprender JavaScript?, Porque puedes hacer
+    </h2>
+    <section class="grid col-3 md-col-2 sm-col-1">
+      <article class="card primary txtCenter md-span-2 sm-span-1">
+        <picture> <img src="./img/apps.png" alt="aplicaciones" /></picture>
+        <h3>Aplicaciones</h3>
+        <p>
+          En JavaScript es posible hacer todo tipo de aplicaciones web,para
+          servidores, móviles e incluso de escritorio
+        </p>
+      </article>
+      <article class="card primary txtCenter">
+        <picture><img src="./img/games.png" alt="mando de juegos" /></picture>
+        <h3>Videojuegos</h3>
+        <p>
+          Hay muchos recursos disponibles para ayudar a los desarrolladores a
+          aprender cómo crear juegos con JavaScript.
+        </p>
+      </article>
+      <article class="card primary txtCenter">
+        <picture>
+          <img src="./img/tools.png" alt="cli" />
+        </picture>
+        <br />
+        <h3>Herramientas de desarrollo</h3>
+        <p>
+          Tanto como CLI como herramientas de desarrollo para el navegador,
+          servidor e inclusive herramientas más complejas.
+        </p>
+      </article>
+    </section>
+  </section>
+  <section>
+    <h2 class="txt-center">Hola Mundo ;&rbrace;</h2>
+    <article class="card primary">
+      <h3>Abre la consola del navegador</h3>
+      <p>
+        El primer programa que se escribe en cualquier lenguaje de programación
+        es el programa "Hola Mundo". Este programa simplemente imprime "Hola
+        Mundo" en la pantalla. Para empezar a escribir código de JS debes abrir
+        la consola del navegador, para ello puedes usar la tecla <strong
+          >F12</strong
+        > o <strong>Ctrl + Shift + I</strong>
+      </p>
+      <p>
+        En JavaScript, el programa "Hola Mundo" se puede escribir de la
+        siguiente manera:
+      </p>
+      <pre><code class="language-js">/*console.log() Es una instrucción que usamos para imprimir 
+en la consola del navegador */
+console.log("Hola Mundo") </code></pre>
+      <p>
+        A partir de aquí el código que veamos puedes probarlo en el navegador. O
+        usar un editor de código como VSCODE, Sublime Text, Atom, etc.
+      </p>
+      <p><strong>Puede interesarte:</strong></p>
+      <a href="https://blog.mexic0de.page/blog" target="_blank"
+        >Ejecutar Javascript con NodeJS</a
+      >
+      <br />
+      <a
+        href="https://www.freecodecamp.org/espanol/news/como-enlazar-a-un-documento-javascript-en-html/"
+        target="_blank">¿Como enlazar el código JS a un HTML?</a
+      >
+    </article>
+  </section>
+  <style>
+    p {
+      margin-top: 0px;
+      text-wrap: pretty;
+    }
+    picture {
+      display: contents;
+      height: 200px;
+      margin-bottom: 15px;
+    }
+    a {
+      color: var(--yellow);
+    }
+  </style>
+</BasicLayout>
