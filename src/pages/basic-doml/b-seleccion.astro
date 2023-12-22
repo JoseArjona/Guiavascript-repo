@@ -1,5 +1,5 @@
 ---
-import SubjectL from "../../layouts/BasicDom.astro";
+import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
 
 const title = "Selección de Elementos";
@@ -7,7 +7,7 @@ const description =
   "Para usar la API de JavaScript para interactuar con el DOM, se debe primero obtener una referencia al elemento HTML que desean interactuar. A esto se le conoce como la selección de elementos del DOM.";
 ---
 
-<SubjectL title={"Guiavascript-" + title} description={description}>
+<DomLayout title={"Guiavascript-" + title} description={description}>
   <ProgressBar progress="16" />
   <main class="container">
     <h2>{title}</h2>
@@ -132,4 +132,4 @@ const botones = document.querySelectorAll('button')
       max-width: 90vw;
     }
   </style>
-</SubjectL>
+</DomLayout>

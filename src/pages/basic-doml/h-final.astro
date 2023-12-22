@@ -1,5 +1,5 @@
 ---
-import SubjectL from "../../layouts/BasicDom.astro";
+import DomLayout from "../../layouts/DomLayout.astro";
 import ShowSolution from "../../components/ShowSolution.astro";
 import type { Code } from "astro:components";
 const title = "Reto Final";
@@ -7,7 +7,7 @@ const description =
   "En esta sección aprenderemos a crear una agenda de tareas con JavaScript, aplicando lo conceptos del DOM.";
 ---
 
-<SubjectL title={"Guiavascript-" + title} description={description}>
+<DomLayout title={"Guiavascript-" + title} description={description}>
   <h1 class="display-3 txt-center">
     Felicidades has completado la lección ! 🎊
   </h1>
@@ -224,4 +224,4 @@ for(let tarea of tareas) &lbrace;
       });
     });
   </script>
-</SubjectL>
+</DomLayout>

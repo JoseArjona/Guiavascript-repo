@@ -1,5 +1,5 @@
 ---
-import SubjectL from "../../layouts/BasicDom.astro";
+import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
 
 const title = "Obteniendo Valores";
@@ -7,7 +7,7 @@ const description =
   "Ya que tenemos los elementos seleccionados. El siguiente paso es la obtención de información de los elementos seleccionados.";
 ---
 
-<SubjectL title={"Guiavascript-" + title} description={description}>
+<DomLayout title={"Guiavascript-" + title} description={description}>
   <ProgressBar progress="32" />
   <main class="container">
     <h2>{title}</h2>
@@ -158,4 +158,4 @@ console.log(parrafo.classList);</code></pre>
       max-width: 90vw;
     }
   </style>
-</SubjectL>
+</DomLayout>

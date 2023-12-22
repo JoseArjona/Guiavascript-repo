@@ -1,5 +1,5 @@
 ---
-import SubjectL from "../../layouts/BasicDom.astro";
+import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
 
 const title = "Creando elementos";
@@ -7,7 +7,7 @@ const description =
   "En HTML, los elementos se crean utilizando etiquetas.Sin embargo, a veces es necesario crear elementos dinámicamente con JavaScript. Ahí es donde radica la importancia de este tema.";
 ---
 
-<SubjectL title={"Guiavascript-" + title} description={description}>
+<DomLayout title={"Guiavascript-" + title} description={description}>
   <ProgressBar progress="64" />
   <main class="container">
     <h2>{title}</h2>
@@ -120,4 +120,4 @@ body.prepend(newDiv) // Agregar un elemento al inicio del body
       max-width: 90vw;
     }
   </style>
-</SubjectL>
+</DomLayout>

@@ -1,5 +1,5 @@
 ---
-import SubjectL from "../../layouts/BasicDom.astro";
+import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
 import Touch from "../../../../Guiavascript/src/components/dom/Touch.astro";
 import Tmove from "../../../../Guiavascript/src/components/dom/Tmove.astro";
@@ -9,7 +9,7 @@ const description =
   "Los eventos móviles son eventos que se producen en dispositivos móviles, como teléfonos inteligentes y tabletas. Estos eventos pueden ser causados por acciones del usuario, como tocar, deslizar o girar, o por cambios en el estado del dispositivo, como cambiar la orientación o la orientación.";
 ---
 
-<SubjectL title={"Guiavascript-" + title} description={description}>
+<DomLayout title={"Guiavascript-" + title} description={description}>
   <ProgressBar progress="100" />
   <main class="container">
     <h2>{title}</h2>
@@ -95,7 +95,7 @@ window.addEventListener("deviceorientation", change);</code></pre>
       </p>
     </footer>
   </main>
-</SubjectL>
+</DomLayout>
 <style>
   section h4 {
     margin-bottom: 10px;

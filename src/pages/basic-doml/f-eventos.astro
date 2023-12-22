@@ -1,5 +1,5 @@
 ---
-import SubjectL from "../../layouts/BasicDom.astro";
+import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
 import Click from "../../components/Click.astro";
 import Dbclick from "../../../../Guiavascript/src/components/dom/Dbclick.astro";
@@ -15,7 +15,7 @@ const description =
   "Los eventos son interacciones del usuario con el documento HTML, como hacer clic en un botón o pasar el cursor por encima de un elemento. Los eventos se pueden utilizar para controlar el comportamiento de la página web en respuesta a estas interacciones.";
 ---
 
-<SubjectL title={"Guiavascript-" + title} description={description}>
+<DomLayout title={"Guiavascript-" + title} description={description}>
   <ProgressBar progress="85" />
   <main class="container">
     <h2>{title}</h2>
@@ -237,7 +237,7 @@ window.addEventListener("scroll", change);</code></pre>
       </section>
     </section>
   </main>
-</SubjectL>
+</DomLayout>
 <style>
   section h4 {
     margin-bottom: 10px;

@@ -1,5 +1,5 @@
 ---
-import SubjectL from "../../layouts/BasicDom.astro";
+import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
 
 const title = "Modificando Valores";
@@ -7,7 +7,7 @@ const description =
   "JavaScript nos permite modificar valores usando métodos. Interactuando con el DOM, podemos manipular los elementos.";
 ---
 
-<SubjectL title={"Guiavascript-" + title} description={description}>
+<DomLayout title={"Guiavascript-" + title} description={description}>
   <ProgressBar progress="48" />
   <main class="container">
     <h2>{title}</h2>
@@ -119,4 +119,4 @@ input.placeholder = "Escribe tu Nombre.."; </code></pre>
       max-width: 90vw;
     }
   </style>
-</SubjectL>
+</DomLayout>
