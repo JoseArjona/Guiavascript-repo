@@ -8,12 +8,13 @@ export interface Props {
 }
 
 const { title, description, image = "./guiavascript.png" } = Astro.props;
+const favicon = Astro.url.protocol + "//" + Astro.url.host + "/favicon.png";
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/png" href="./favicon.png" />
+<link rel="icon" type="image/png" href={favicon} />
 <meta name="generator" content={Astro.generator} />
 <meta
   data-react-helmet="true"
