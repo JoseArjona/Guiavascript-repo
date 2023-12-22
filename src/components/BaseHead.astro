@@ -9,6 +9,7 @@ export interface Props {
 
 const { title, description, image = "./guiavascript.png" } = Astro.props;
 const favicon = Astro.url.protocol + "//" + Astro.url.host + "/favicon.png";
+const manifest = Astro.url.protocol + "//" + Astro.url.host + "/manifest.json";
 ---
 
 <!-- Global Metadata -->
@@ -41,4 +42,4 @@ const favicon = Astro.url.protocol + "//" + Astro.url.host + "/favicon.png";
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<link rel="manifest" href="manifest.json" />
+<link rel="manifest" href={manifest} />

@@ -26,7 +26,6 @@ const NamePages = await Astro.glob("../pages/basicjs/*.astro");
   <body class="txt-white" style=`background-image: url(${URLBG});`>
     <Header NamePages={NamePages} />
     <main class="container">
-      <h1>The current URL is: {Astro.url}</h1>
       <slot />
       <BaseNav NamePages={NamePages} />
     </main>
