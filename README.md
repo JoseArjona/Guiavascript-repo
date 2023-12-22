@@ -1,54 +1,31 @@
-# Astro Starter Kit: Basics
+<picture>
+<img src="https://phx02pap002files.storage.live.com/y4mVfRvCI7-gEwQwtILinJHeBLQoYBTF9X1SUqT3b8gkVQH9xB0XoGDd-TXPfC5mZ4BxVAuMsJNW6NVELOV1dsB-HFAE7rJbh2I8fwL_ueNUW01cqZhGqaY2Mfg6thwU4oUg9ZQHfWmYmwU8pEbOCtCbt3DVnNSObt9I6YEJb-qu5hatDaX2gsqtUeJ7GQt_sk_?width=256&height=256&cropmode=none" width="200" height="200" />
+</picture>
 
-```sh
-npm create astro@latest -- --template basics
-```
+# Aprendiendo JavaScript 👋
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Es una guia de Javascript que te ayudara a repasar o comprender JavaScript basico, el objetivo no es ser un curso o una documentación, simplemente es un apoyo una recopilacion de mi conocimento sobre este lenguaje. Con el tiempo se agregara más contenido
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tecnologias ⌨️
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+La pagina esta construida con:
 
-## 🚀 Project Structure
+- [Astro](https://astro.build/)
+- [Cactus css](https://cactus-css.vercel.app/) //Modificado
+- [iconoir](https://iconoir.com/)
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Contenido 📒
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- [x] JavaScript → Basico
+- [x] JavaScript → DOM
+- []  JavaScript -> Intermedio
+- [] JavaScript → Orientado a Objetos
+- [] JavaScript → JavaScript para la web
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Basado en 📖
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [MDN Web Docs](https://developer.mozilla.org/es/docs/Learn/JavaScript)
