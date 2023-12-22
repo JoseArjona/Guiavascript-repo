@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&display=swap");
+
+:root {
+  --font1: "Albert Sans", sans-serif;
+  --font2: "Albert Sans", sans-serif;
+  --cont-wh: 1200px;
+  --primary: #212322;
+  --secondary: #ea5530;
+  --accent: #2c2b47;
+  --font-color: #161616;
+  --background: #facc5a;
+  --green: #86ee60;
+  --red: #fe6760;
+  --blue: #60a5ee;
+  --yellow: #fcdc00;
+  --radius: 1.5rem
+}
+
+body::-webkit-scrollbar {
+  background: #2c2b47;
+  width: 8px;
+  height: 8px;
+  scrollbar-width: thin;
+}
+
+/* :root[data-theme='dark'] {
+  --primary: #98f098;
+  --font-color: #f9fafb;
+  --background: #16181d;
+  --secondary: #232529;
+  --accent: #727fa1
+} */

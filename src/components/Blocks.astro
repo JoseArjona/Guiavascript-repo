@@ -1,0 +1,102 @@
+---
+export interface Props {
+  title: string;
+  body: string;
+  href: string;
+  img: string;
+}
+
+const { href, title, body, img } = Astro.props;
+---
+
+<article class="card accent">
+  <a href={href}>
+    <img src={img} alt={"pic" + title} />
+    <h2>
+      {title}
+      <span>&rarr;</span>
+    </h2>
+    <p class="txt-center">
+      {body}
+    </p>
+  </a>
+</article>
+<style>
+  /*   .link-card {
+    box-shadow: 0 4px 6px -1px rgba(39, 5, 210, 0.1),
+      0 2px 4px -2px rgba(2, 17, 152, 0.1);
+    animation-duration: 2s;
+    animation-name: animate__flipInX;
+    animation-iteration-count: 1;
+  } */
+
+  .card {
+    animation-duration: 2s;
+    animation-name: animate__flipInX;
+    animation-iteration-count: 1;
+    transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .card:hover {
+    box-shadow:
+      0px 8px 17px 2px rgba(0, 0, 0, 0.14),
+      0px 3px 14px 2px rgba(0, 0, 0, 0.12),
+      0px 5px 5px -3px rgba(0, 0, 0, 0.2);
+  }
+
+  .card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 0.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .card > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--blue);
+    text-wrap: balance;
+  }
+
+  .link-card > a:hover {
+    box-shadow:
+      0 4px 6px -1px rgba(39, 5, 210, 0.1),
+      0 2px 4px -2px rgba(2, 17, 152, 0.1);
+    transform: translateY(-0.25rem);
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: rgb(255, 255, 255);
+  }
+
+  @keyframes animate__flipInX {
+    0% {
+      transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    40% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+      animation-timing-function: ease-in;
+    }
+    60% {
+      transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+      opacity: 1;
+    }
+    80% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+    100% {
+      transform: perspective(400px);
+    }
+  }
+</style>
