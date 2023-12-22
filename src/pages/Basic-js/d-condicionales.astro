@@ -1,0 +1,95 @@
+---
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+const title = "Condicionales";
+const description =
+  "Las condicionales son estructuras de control que nos permiten ejecutar un bloque de código si se cumple una condición, y otro bloque de código si no se cumple.";
+---
+
+<BasicLayout title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="42" />
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        Las condicionales son estructuras de control que nos permiten ejecutar
+        un bloque de código si se cumple una condición, y otro bloque de código
+        si no se cumple. En la vida real nosotros aplicamos esta lógica, por
+        ejemplo, si tenemos sed, tomamos agua, si no, simplemente no tomamos
+        agua. En programación y en la vida es lo mismo, las condicionales nos
+        ayudan a evaluar situaciones y atenderlas según corresponda.
+      </p>
+    </article>
+    <article class="card primary container-lg">
+      <h3><span class="txt-blue">if condicional, else if Y else</span></h3>
+      <p>
+        La palabra reservada <span class="txt-green">if</span> nos permite
+        ejecutar un bloque de código si se cumple una condición. frecuentemente
+        se suele acompañar con
+        <span class="txt-red">else</span> el cual es la condición contraria; es
+        decir si no se cumple una condición. Adicionalmente también tenemos
+        <span class="txt-orange">else if</span> nos permite evaluar una segunda
+        condición si la primera no se cumple.
+      </p>
+      <pre><code class="language-js">let dinero = 30; //Declarando la variable edad
+if(dinero &gt;= 45)&lbrace; // Evaluando la primer condición 
+// si cumple la condición se ejecuta este bloque de código
+console.log("Puedes comprar tu queso"); 
+&rbrace;else if(dinero &gt;= 20)&lbrace; // Evaluando la segunda condición
+console.log("Dinero insuficiente para el queso, pero puedes comprar tu agua");
+&rbrace;else&lbrace;
+// si no cumple ninguna condición se ejecuta este bloque de código
+console.log("No tienes dinero suficiente"); 
+&rbrace;</code></pre>
+    </article>
+    <article class="card primary container-lg">
+      <h3><span class="txt-blue">Operador ternario</span></h3>
+      <p>
+        El operador ternario es una forma abreviada de escribir una condicional,
+        es decir, nos permite evaluar una condición y ejecutar un bloque de
+        código si se cumple, y otro bloque de código si no se cumple. Es muy
+        utilizado y se representa con
+        <span class="txt-green">?</span>.
+      </p>
+      <pre><code class="language-js">let edad = 18;
+let rol = (edad &gt;= 18) ? 'adulto' : 'menor'; // Evaluando la condición
+// si es mayor de edad se le asigna el rol de adulto , si no se le asigna el rol de menor
+        </code></pre>
+    </article>
+    <article class="card primary container-lg">
+      <h3><span class="txt-blue">Switch</span></h3>
+      <p>
+        El switch es una estructura de control que nos permite evaluar una
+        condición y ejecutar un bloque de código dependiendo de la condición que
+        se cumpla. Veamos cómo qué switch es un guardia y case son las salas del
+        cine, dependiendo de nuestro boleto podemos acceder a cierta sala de
+        cine por ende una película distinta, y break serían las paredes del
+        cine, son las que limitan las salas.
+      </p>
+      <pre><code class="language-js">let boleto = "SALA A1"; //Declarando la variable boleto
+switch(boleto)&lbrace; // Evaluando la condicion
+case "SALA A1": // si tu boleto es SALA A1 se ejecuta este bloque de código
+  console.log("Película de Spiderman");
+  break; // el break es para que no se siga ejecutando el código
+case "SALA B1": // si es SALA B1 se ejecuta este bloque de código y asi por cada sala
+  console.log("Película de Batman");
+  break;
+case "SALA C1 +":
+  console.log("Película de Disney");
+  break;
+case "SALA A2":
+  console.log("Película de Viernes 13");
+  break;
+case "SALA B2":
+  console.log("Partido de futbol");
+  break;
+case "SALA C2":
+  console.log("Película de Harry Potter");
+  break;
+default:  // si no es ningún de ninguna sala se ejecuta este bloque de codigo
+  console.log("No tienes boleto para ninguna sala");
+&rbrace; </code></pre>
+    </article>
+  </main>
+</BasicLayout>

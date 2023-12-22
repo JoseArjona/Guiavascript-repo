@@ -1,0 +1,84 @@
+---
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+
+const title = "Tipos de datos";
+const description =
+  "Los tipos de datos son los que definen el tipo de dato que es una variable, en este caso, los tipos de datos son: String, Number, Boolean, Arrays y Objects.";
+---
+
+<BasicLayout title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="0" />
+  <main class="container">
+    <h2>{title}</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        {description}
+      </p>
+    </article>
+
+    <section class="grid col-3 md-col-2 sm-col-1">
+      <article class="card primary">
+        <h3 class="txt-blue">String</h3>
+        <p>
+          Los strings son cadenas de texto, se pueden escribir entre comillas
+          simples o dobles.
+        </p>
+        <code class="txt-green">'Hola soy un String'</code>
+      </article>
+      <br />
+      <article class="card primary">
+        <h3 class="txt-blue">Number</h3>
+        <p>Los number son números, se pueden escribir con o sin decimales.</p>
+        <code class="txt-green">23.2</code>
+      </article>
+      <article class="card primary">
+        <h3 class="txt-blue">Boolean</h3>
+        <p>Los booleanos son valores que solo pueden ser verdadero o falso.</p>
+        <code class="txt-green">true <span class="txt-red">false</span></code>
+      </article>
+      <article class="card primary">
+        <h3 class="txt-blue">Arrays</h3>
+        <p>
+          Los arrays son listas de datos, se pueden escribir entre corchetes y
+          separados por comas.
+        </p>
+        <code class="txt-green">[0,1,1,1,2,21,1]</code>
+      </article>
+      <article class="card primary">
+        <h3 class="txt-blue">Objetos</h3>
+        <p>
+          Los objetos son listas de datos, se pueden escribir entre llaves y
+          separados por comas.
+        </p>
+        <code class="txt-green"
+          >&lbrace;"nombre": "Pablo", "edad": 17&rbrace;</code
+        >
+      </article>
+      <article class="card primary">
+        <h3 class="txt-yellow">Declarando Arrays y Objects</h3>
+        <p>
+          Los arrays y los objetos se pueden declarar de dos formas, la primera
+          es con <span class="txt-blue">const</span> y la segunda es con <span
+            class="txt-blue">let</span
+          >.
+        </p>
+        <pre><code class="language-js">const arreglo=[0,1,2,3]
+const person =
+&lbrace;"name": "Pedro",
+"edad": 22&rbrace;</code></pre>
+      </article>
+    </section>
+  </main>
+</BasicLayout>
+
+<style>
+  .card {
+    margin: 0;
+  }
+
+  .container {
+    max-width: 90vw;
+  }
+</style>

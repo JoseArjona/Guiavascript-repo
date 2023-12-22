@@ -1,0 +1,45 @@
+---
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+const title = "Interacciones Bonus";
+const description = "Interacciones simples con el navegador";
+---
+
+<BasicLayout title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="100" />
+  <main class="container">
+    <h2>Bonus ~ Interacciones</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        Existen 2 formas sencillas de interactuar con el navegador y con el
+        usuario, y para ello hacemos uso de las siguientes funciones: La primera
+        es <span class="txt-orange">prompt()</span> y la segunda es <span
+          class="txt-orange">alert()</span
+        >
+      </p>
+    </article>
+    <article class="card primary container-lg">
+      <span class="txt-blue">prompt()</span>
+      <p>
+        Esta función nos permite mostrar un mensaje al usuario y esperar que
+        este ingrese un valor. El valor ingresado por el usuario se guarda en
+        una variable.
+      </p>
+      <pre><code class="language-js "> let nombre = prompt("Dame tu nombre")</code></pre>
+      <p>
+        Esto abrirá una ventana emergente en el navegador con el mensaje que le
+        dimos en el prompt. El usuario podrá ingresar un valor y este se
+        guardara en la variable asignada , en este caso nombre.
+      </p>
+    </article>
+    <article class="card primary container-lg">
+      <span class="txt-blue">alert()</span>
+      <p>
+        Esta función nos permite mostrar un mensaje al usuario. No espera que el
+        usuario ingrese un valor.
+      </p>
+      <pre><code class="language-js"> alert("Hola soy una alerta");</code></pre>
+    </article>
+  </main>
+</BasicLayout>

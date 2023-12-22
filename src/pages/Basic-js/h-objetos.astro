@@ -1,0 +1,195 @@
+---
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+---
+
+<BasicLayout
+  title={"Guiavascript - Objects"}
+  description={"Los arrays son una estructura de datos que nos permite almacenar varios valores en una misma variable."}
+>
+  <ProgressBar progress="85" />
+  <main class="container">
+    <h2>Obejcts | Objetos</h2>
+    <article class="card primary">
+      <span class="txt-yellow">Nota</span>
+      <p class="grid col-2 md-col-2 sm-col-1">
+        <span
+          >En JavaScript, un objeto es como un locker que puede contener
+          diferentes tipos de información u objetos, llamados propiedades. Cada
+          propiedad tiene un nombre y un valor.
+        </span><span
+          >Imagina un objeto como una caja con compartimentos, donde cada
+          compartimento tiene una etiqueta (nombre) y algo dentro (valor).
+        </span>
+        <span class="span-2 md-span-2 sm-span-1"
+          >Puedes guardar números, texto, listas e incluso otras cajas mágicas
+          (objetos) dentro de esta caja principal. Los objetos son útiles para
+          representar cosas del mundo real y organizar la información de manera
+          estructurada.</span
+        >
+      </p>
+      <picture class="img"
+        ><img src="../assets/objects.png" alt="objects-guivascript" />
+      </picture>
+      <div class="container" style="max-width: 90%">
+        Para crear un objeto en JS escribe la siguiente sintaxis:<br />
+        <pre><code class="language-js">const persona =
+&lbrace; 
+   nombre:       “Juan Riquelme”,  // 🔑clave : 💎valor
+   edad:         17,
+   pasatiempos:  [”Programar”,”Leer”]   
+&rbrace;</code></pre><br
+        />
+        <p>
+          En este caso <strong>persona</strong> es el nombre asignado a mi
+          objeto,<span class="txt-blue">nombre</span> es una de sus llaves que
+          apuntan a un valor <span class="txt-green">"Juan Riquelme"</span>, y
+          para acceder a ello solo debo usar la sintaxis <strong>persona</strong
+          >.<span class="txt-blue">nombre</span>
+        </p>
+      </div>
+    </article>
+    <article class="card primary container-lg">
+      <h2><span class="txt-blue">Función Constructora</span></h2>
+      <p class="grid col-2 md-col-2 sm-col-1">
+        <span
+          >Las funciones constructoras en JavaScript son como plantillas para
+          crear objetos especiales. Imagina que estás fabricando juguetes con
+          diferentes partes y características. Una función constructora es como
+          un molde que te ayuda a hacer juguetes similares.</span
+        >
+        <span
+          >Definimos cómo deben lucir y comportarse esos juguetes, y luego
+          podemos crear varios juguetes únicos basados en ese molde. Estas
+          funciones constructoras nos permiten crear objetos con propiedades y
+          métodos predefinidos, lo que hace que sea más fácil y eficiente crear
+          varios objetos similares.</span
+        >
+      </p>
+      <pre><code class="language-js">function juguete(marca, material, año) &lbrace;
+     this.marca = marca;
+     this.material = material;
+     this.año = año;
+&rbrace;
+let trompo = new juguete("Cobra", "Plástico", 2007); 
+let maxSteel = new juguete("mattel", "Plástico", 2010 )
+console.log(trompo); // Imprime: juguete &rbrace; marca: 'Cobra', material: 'Plástico', año: 2007 &lbrace;
+console.log(maxSteel.material); //Imprime Plástico  </code></pre>
+    </article>
+    <section class="card primary container-lg">
+      <h2><span class="txt-blue">Métodos de los Objetos</span></h2>
+      <p>
+        Los objetos tienen varios métodos que nos permiten
+        manipularlos,recorrerlos algunos de ellos son:
+      </p>
+      <pre><code class="language-js">let articulos = &lbrack;
+    &lbrace; nombre: "Bici", costo: 3000 &rbrace;,
+    &lbrace; nombre: "Tv", costo: 2500 &rbrace;,
+    &lbrace; nombre: "Libro", costo: 320 &rbrace;,
+    &lbrace; nombre: "Celular", costo: 10000 &rbrace;,
+    &lbrace; nombre: "Laptop", costo: 20000 &rbrace;,
+    &lbrace; nombre: "Teclado", costo: 500 &rbrace;,
+    &lbrace; nombre: "Audífonos", costo: 1700 &rbrace;,
+&rbrack;</code></pre>
+      <article>
+        <h3><span class="txt-secondary">Filter</span></h3>
+        <p>El método filter nos permite filtrar elementos de un objeto</p>
+        <pre><code class="language-js">let articulosFiltrados = articulos.filter&lpar;function &lpar;articulo&rpar; &lbrace;
+        return articulo.costo <= 500;
+    &rbrace;
+&rpar;;
+//Resultado: &lbrace;nombre: 'Libro', costo: 320&rbrace; y &lbrace;nombre: 'Teclado', costo: 500&rbrace;
+</code></pre>
+      </article>
+      <article>
+        <h3><span class="txt-secondary">Map</span></h3>
+        <p>El método push nos permite mapear ciertos elementos de un objeto</p>
+        <pre><code class="language-js">// Crea un nuevo array con los elementos de un array que cumplan una condición, en este caso creamos un nuevo array con los nombres de los artículos
+        let nombreArticulos = articulos.map&lpar;function &lpar;articulo&rpar; &lbrace;
+            return articulo.nombre;
+&rbrace;&rpar;;
+console.log(nombreArticulos);
+//Imprime  ['Bici', 'Tv', 'Libro', 'Celular', 'Laptop', 'Teclado', 'Audífonos']</code></pre>
+      </article>
+      <article>
+        <h3><span class="txt-secondary">Find</span></h3>
+        <p>El método find nos permite buscar elementos de un objeto</p>
+        <pre><code class="language-js">// Busca un elemento de un array que cumpla una condición, en este caso buscamos el elemento que tenga un nombre igual a "Laptop"
+ let encuentraArticulo = articulos.find(function (articulo)  &lbrace;
+     return articulo.nombre === "Laptop";
+&rbrace;);
+console.log(encuentraArticulo);
+//Imprime &lbrace;nombre: 'Laptop', costo: 20000&rbrace;</code></pre>
+      </article>
+      <article>
+        <h3><span class="txt-secondary">Some</span></h3>
+        <p>El método some valida elementos de un objeto</p>
+        <pre><code class="language-js">// Valida si algún elemento de un array cumple una condición, en este caso validamos si algún articulo tiene un costo menor o igual a 700
+  let articulosBaratos = articulos.some(function (articulo) &lbrace;
+      return articulo.nombre != undefined;
+  &rbrace;);
+  console.log(articulosBaratos);</code></pre>
+      </article>
+      <article>
+        <h3><span class="txt-secondary">forEach</span></h3>
+        <p>El método forEach nos permite recorrer los objetos</p>
+        <pre><code class="language-js">// Recorre todos los elementos de un array y ejecuta una función por cada elemento, en este caso imprimimos el nombre de cada articulo
+articulos.forEach(function (articulo) &lbrace;
+    console.log(articulo.nombre);
+&rbrace;);</code></pre>
+      </article>
+      <article>
+        <h3><span class="txt-secondary">forIn</span></h3>
+        <p>
+          El for In es un bucle utilizado para recorrer las propiedades
+          enumerables de un objeto. Este se centra en las claves o índices de
+          las propiedades.
+        </p>
+        <pre><code class="language-js">let persona = &lbrace;
+    nombre: 'Juan',
+    edad: 25,
+    ciudad: 'Madrid'
+&rbrace;
+
+for (let propiedad in persona) &lbrace;
+    console.log(propiedad + ': ' + persona[propiedad]);
+&rbrace;</code></pre>
+      </article>
+      <article>
+        <h3><span class="txt-secondary">forOf</span></h3>
+        <p>
+          El for of es un bucle utilizado para recorrer elementos de objetos
+          iterables, como arrays, cadenas, mapas, conjuntos, etc. Este se centra
+          en los valores las propiedades.
+        </p>
+        <pre><code class="language-js">let frutas = ['manzana', 'plátano', 'fresa'];
+  for (let fruta of frutas) &lbrace;
+  console.log(fruta);
+  &rbrace;</code></pre>
+      </article>
+    </section>
+
+    <style>
+      p {
+        text-wrap: pretty;
+      }
+      .img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .img img {
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .card {
+        gap: 5px;
+      }
+
+      .container {
+        max-width: 80vw;
+      }
+    </style>
+  </main>
+</BasicLayout>

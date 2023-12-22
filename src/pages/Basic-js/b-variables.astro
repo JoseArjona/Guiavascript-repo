@@ -1,0 +1,61 @@
+---
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+
+const title = "Variables";
+const description =
+  "Las variables nos sirven como una forma de guardar valores";
+---
+
+<BasicLayout title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="14" />
+  <main class="container-lg">
+    <h2>Variables</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        Las variables nos sirven como una forma de guardar valores. Las
+        variables no pueden ser nombradas empezando con números, ni con
+        símbolos, los únicos símbolos aceptados son:
+        <span class="txt-green">$</span> y<span class="txt-green">
+          guiones bajos</span
+        >. <br />Una buena práctica es usar
+        <span class="txt-orange">camelCase</span> para nombrar las variables; es
+        decir que la primera letra de la variable sea minúscula y la primera
+        letra de cada palabra posterior sea mayúscula.
+      </p>
+      <pre><code class="language-js">let camelCase="Declarando camelCase"</code></pre>
+      <p>
+        Es importante que las variables tengan nombres que nos ayuden a saber lo
+        que guardan.
+      </p>
+    </article>
+    <section class="grid col-4 md-col-1 sm-col-1">
+      <article class="card primary span-2">
+        <h3><span class="txt-blue">let</span></h3>
+        <p>
+          La palabra reservada let nos permite declarar una variable, la cual
+          puede ser modificada y reasignada. Se usa para guardar datos que
+          pueden
+          <span class="txt-orange">'variar'</span> es decir; que pueden cambiar.
+        </p>
+        <pre><code class="language-js">let variable="Hola soy una variable"
+// También podemos crear varias variables en una sola linea separando con una coma
+let nombre="Juan", edad=20, sexo="Masculino";</code></pre>
+      </article>
+      <article class="card primary span-2">
+        <h3><span class="txt-blue">const</span></h3>
+        <p>
+          La palabra reservada const nos permite declarar una variable, la cual
+          no puede ser modificada, su valor sera
+          <span class="txt-orange">'constante'</span>,dicho de otra manera, se
+          mantendrá. Una buena practica es nombrar las constantes en mayúsculas
+          y usando guiones bajos para separar las palabras, esto se conoce como
+          'Screaming Snake Case'
+        </p>
+        <pre><code class="language-js">const VALOR_PI=3.1415 ✅
+const VALOR_PI= 232323 ❌ //Una vez declarada no se puede volver a reasignar su valor</code></pre>
+      </article>
+    </section>
+  </main>
+</BasicLayout>

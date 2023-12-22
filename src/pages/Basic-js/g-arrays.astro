@@ -1,0 +1,126 @@
+---
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+---
+
+<BasicLayout
+  title={"Guiavascript - Arrays"}
+  description={"Los arrays son una estructura de datos que nos permite almacenar varios valores en una misma variable."}
+>
+  <ProgressBar progress="85" />
+  <main class="container">
+    <h2>Arrays | Matrices</h2>
+    <article class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        Las arrays son una estructura de datos que nos permite almacenar varios
+        valores en una misma variable. Las matrices como se les conoce en
+        español tienen una representación visual como la siguiente:
+      </p>
+      <picture class="img"
+        ><img src="../assets/arrays.png" alt="arrays-guivascript" />
+      </picture>
+      <p>
+        Los arrays funcionan mediante índices, es decir, cada valor tiene un
+        índice que va desde el 0 hasta el número de elementos que tenga el
+        array. Para declarar un array se utiliza la siguiente sintaxis: <br />
+        <span class="txt-secondary">const</span>
+        <span class="txt-blue">nombreArray</span>= <span class="txt-opacity"
+          >[valor1, valor2, valor3, ...]</span
+        >
+      </p>
+    </article>
+    <article class="card primary container-lg">
+      <h2><span class="txt-blue">Mutabilidad en Arrays</span></h2>
+      <p>
+        La mutabilidad en los arrays es muy importante, ya que nos permite
+        cambiar el valor de un elemento en el array. Para esto se utiliza el
+        índice del elemento que queremos cambiar y se le asigna el nuevo valor.
+      </p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+</code></pre>
+    </article>
+    <article class="card primary container">
+      <h2><span class="txt-blue">Métodos de los Arrays</span></h2>
+      <p>
+        Los arrays tienen varios métodos que nos permiten manipularlos, algunos
+        de ellos son:
+      </p>
+      <h3><span class="txt-secondary">Length</span></h3>
+      <p>El método length nos permite obtener el tamaño de una array</p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+console.log(frutas.length); // Imprime 4</code></pre>
+
+      <h3><span class="txt-secondary">Push</span></h3>
+      <p>El método push nos permite agregar un elemento al final del array</p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+frutas.push('🍋')
+console.log=(frutas) // Imprime ['🍇', '🍈','🍉','🍊','🍋']</code></pre>
+
+      <h3><span class="txt-secondary">Pop</span></h3>
+      <p>El método pop nos permite eliminar el ultimo elemento del array</p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+frutas.pop()
+console.log=(frutas) // Imprime ['🍇', '🍈','🍉']</code></pre>
+
+      <h3><span class="txt-secondary">Unshift</span></h3>
+      <p>
+        El método Unshift nos permite agregar un elemento al inicio del array
+      </p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+frutas.unshift('🍋');
+console.log=(frutas) // Imprime ['🍋','🍇', '🍈','🍉','🍊']</code></pre>
+
+      <h3><span class="txt-secondary">Shift</span></h3>
+      <p>El método Shift nos permite eliminar el primer elemento del array</p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+frutas.shift();
+console.log=(frutas) // Imprime ['🍈','🍉','🍊']</code></pre>
+
+      <h3><span class="txt-secondary">IndexOf</span></h3>
+      <p>El método indexOf devuelve el indice del elemento buscado</p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+console.log=(frutas.indexOf('🍈');) // Imprime 1
+//recuerda que los arrays empiezan del 0, por lo que '🍈' es 1</code></pre>
+
+      <h3><span class="txt-secondary">Includes</span></h3>
+      <p>
+        El método includes devuelve true o false si el elemento buscado se
+        encuentra en el array
+      </p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+console.log=(frutas.includes('🍈');) // Imprime true
+</code></pre>
+      <h3><span class="txt-secondary">Join</span></h3>
+      <p>El método join devuelve un string con todos los elementos del array</p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+console.log=(frutas.join('');) // Imprime 🍇🍈🍉🍊
+</code></pre>
+      <h3><span class="txt-secondary">Slice</span></h3>
+      <p>
+        El método slice devuelve un nuevo array con los elementos seleccionados,
+        como el nombre lo indica es como cortar el array.
+      </p>
+      <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+// Ingresa los indices de inicio y fin     
+console.log=(frutas.slice(1,3);) // Imprime ['🍈','🍉']  un array con los elementos seleccionados
+</code></pre>
+    </article>
+
+    <style>
+      .img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .img img {
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .container {
+        max-width: 80vw;
+      }
+    </style>
+  </main>
+</BasicLayout>

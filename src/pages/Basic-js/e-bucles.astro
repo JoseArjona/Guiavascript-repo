@@ -1,0 +1,87 @@
+---
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import ProgressBar from "../../components/ProgressBar.astro";
+import BaseNav from "../../components/BaseNav.astro";
+const title = "Bucles";
+const description =
+  "Los bucles son estructuras de control que nos permiten ejecutar un bloque de código repetidas veces. En JavaScript tenemos 3 tipos de bucles que son: for, while y do while.";
+---
+
+<BasicLayout title={"Guiavascript-" + title} description={description}>
+  <ProgressBar progress="56" />
+  <main class="container">
+    <h2>{title}</h2>
+    <section class="card primary container-lg">
+      <span class="txt-yellow">Nota</span>
+      <p>
+        Los bucles son estructuras de control que nos permiten ejecutar un
+        bloque de código repetidas veces. En JavaScript tenemos 3 tipos de
+        bucles que son: <span class="txt-green">for</span>,
+        <span class="txt-green">while</span> y
+        <span class="txt-green">do while</span>.
+      </p>
+      <div
+        class="tenor-gif-embed container"
+        data-postid="18956258"
+        data-share-method="host"
+        data-aspect-ratio="1.65803"
+        data-width="50%"
+      >
+        <a
+          href="https://tenor.com/view/loop-infinite-qwertyuiopasdfghjklzxcvbnm-gif-18956258"
+          >Loop Infinite GIF</a
+        >from <a href="https://tenor.com/search/loop-gifs">Loop GIFs</a>
+      </div>
+      <script type="text/javascript" async src="https://tenor.com/embed.js"
+      ></script>
+    </section>
+    <article class="card primary container-lg">
+      <h3><span class="txt-blue">while</span></h3>
+      <p>
+        La palabra reservada <span class="txt-green">while</span> nos permite
+        ejecutar un bloque de código repetidas veces, hasta que se cumpla una
+        condición. Un ejemplo sería que tu entrenador te pone a correr 10
+        vueltas al campo y no puedes descansar mientras no termines las 10
+        vueltas.
+      </p>
+      <pre><code class="language-js">let vueltas=0; //Declarando la variable vueltas
+while(vueltas < 10)&lbrace; //Evaluando la condición
+// si cumple la condición se ejecuta este bloque de código
+console.log("Vuelta: " + vueltas); 
+vueltas++; //Incrementando el contador
+&rbrace;
+console.log("Terminaste las 10 vueltas"); //Se ejecuta una vez que termine el ciclo</code></pre>
+    </article>
+    <article class="card primary container-lg">
+      <h3><span class="txt-blue">do while</span></h3>
+      <p>
+        La palabra reservada <span class="txt-green">do while</span> nos permite
+        ejecutar un bloque de código repetidas veces, hasta que se cumpla una
+        condición, pero nos permite ejecutar el código al menos 1 vez ya que la
+        condición es al final.
+      </p>
+      <pre><code class="language-js">let vueltas=0; //Declarando la variable vueltas
+do&lbrace; 
+// si cumple la condición se ejecuta este bloque de código
+console.log("Vuelta: " + vueltas);
+vueltas++; //Incrementando el contador
+&rbrace;while(vueltas < 10); //Evaluando la condición
+console.log("Terminaste las 10 vueltas"); //Se ejecuta una vez que termine el ciclo</code></pre>
+    </article>
+    <article class="card primary container-lg">
+      <h3><span class="txt-blue">for</span></h3>
+      <p>
+        La palabra reservada <span class="txt-green">for</span> nos permite
+        ejecutar un bloque de código repetidas veces, al igual que el while y do
+        while, pero nos permite declarar e incrementar el contador en la misma
+        línea, y al igual que el while se evalúa primero la condición.
+      </p>
+      <pre><code class="language-js">// la estructura es: for ( declaramos un contador; evaluamos la condicion; incrementamos el contador)
+for(let vueltas = 0; vueltas < 10; vueltas++)&lbrace; //Evaluando la condición
+// si cumple la condición se ejecuta este bloque de código
+console.log("Vuelta: " + vueltas); 
+&rbrace;
+console.log("Terminaste las 10 vueltas"); //Se ejecuta una vez que termine el ciclo</code></pre>
+    </article>
+  </main>
+</BasicLayout>
