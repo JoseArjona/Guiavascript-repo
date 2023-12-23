@@ -3,7 +3,7 @@
   <p id="keyup">Mantén presionada una tecla y luego suelta.</p>
 </section>
 
-<script>
+<script is:inline>
   const p = document.getElementById("keyup");
   const change = (e) => (p.innerText = e.key);
   document.addEventListener("keyup", change);

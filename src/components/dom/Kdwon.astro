@@ -3,7 +3,7 @@
   <p id="key">Presiona una tecla.</p>
 </section>
 
-<script>
+<script is:inline>
   const p = document.getElementById("key");
   const change = (e) => (p.innerText = e.key);
   document.addEventListener("keydown", change);

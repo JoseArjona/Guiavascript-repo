@@ -3,7 +3,7 @@
   <button class="btn" id="btn">Haz un click doble</button>
 </section>
 
-<script>
+<script is:inline>
   const hotBtn = document.getElementById("btn");
   const hot = () => (hotBtn.innerText = "Tranquilo vas a quemar el botón😳🔥");
   hotBtn.addEventListener("dblclick", hot);

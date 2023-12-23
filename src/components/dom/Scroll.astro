@@ -3,7 +3,7 @@
   <p>Haz un scroll y después espera 1 seg <span id="scroll"></span></p>
 </section>
 
-<script>
+<script is:inline>
   const scroll = document.querySelector("#scroll");
   const change = () => {
     scroll.textContent = "Scrolleando...";

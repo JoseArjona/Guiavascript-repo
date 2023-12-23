@@ -17,6 +17,7 @@ const URLBG = Astro.url.protocol + "//" + Astro.url.host + "/img/bgDom.svg";
 
 const NamePagesDom = await Astro.glob("../pages/basic-doml/*.astro");
 console.log(NamePagesDom);
+console.log(Astro.url);
 ---
 
 <!doctype html>

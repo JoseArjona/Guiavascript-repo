@@ -3,7 +3,7 @@
   <p id="p">Pon el mouse sobre mi</p>
 </section>
 
-<script>
+<script is:inline>
   const p = document.getElementById("p");
   const surprise = () => (p.innerText = "Hola 😏");
   p.addEventListener("mouseenter", surprise);

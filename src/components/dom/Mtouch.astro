@@ -3,7 +3,7 @@
   <p id="touch">Toca el texto</p>
 </section>
 
-<script>
+<script is:inline>
   const p = document.querySelector("#touch");
   const change = () => (p.innerText = "Toque de pantalla 😵‍💫");
   touch.addEventListener("touchstart", change);
