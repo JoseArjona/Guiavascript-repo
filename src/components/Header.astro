@@ -6,8 +6,8 @@ export interface Props {
 }
 
 const { NamePages } = Astro.props;
-/* const baseUrl = Astro.url.pathname;
-console.log(baseUrl);*/
+const baseUrl = Astro.url.pathname;
+const mainUrl = `/${baseUrl.split("/")[1]}/`;
 ---
 
 <header>
@@ -35,7 +35,7 @@ console.log(baseUrl);*/
               stroke-linejoin="round"></path></svg
           ></label
         >
-        <li><a href=`./`>◈ Principio</a></li>
+        <li><a href={mainUrl}>◈ Principio</a></li>
         <li>
           <a href="#" class="desktop-item">⇲ Lecciones</a>
           <input type="checkbox" id="showDrop" />
