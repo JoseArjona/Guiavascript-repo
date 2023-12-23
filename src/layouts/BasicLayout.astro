@@ -13,6 +13,7 @@ export interface Props {
 const { title } = Astro.props;
 const { description } = Astro.props;
 
+if (Astro.url.host === "localhost") return;
 const URLBG = Astro.url.protocol + "//" + Astro.url.host + "/img/bg.svg";
 
 const NamePages = await Astro.glob("../pages/basicjs/*.astro");
