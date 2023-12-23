@@ -13,12 +13,12 @@ const currentPage = pages.indexOf(Astro.url.pathname);
 const prevLink =
   currentPage === 0 ? pages[currentPage] : pages[currentPage - 1];
 const nextLink =
-  currentPage === pages[pages.length - 1]
-    ? pages[currentPage]
+  currentPage === pages.length - 1
+    ? pages[0]
     : pages[currentPage + 1];
 
 let btnNxt = "Siguiente";
-if (currentPage === pages[pages.length - 1]) {
+if (currentPage === pages.length - 1) {
   btnNxt = "Finalizar";
 }
 ---
@@ -47,6 +47,7 @@ if (currentPage === pages[pages.length - 1]) {
        Atrás
     </a>
   </div>
+  <p>{currentPage}</p>
   <div>
     <a href={nextLink} class="btn gray" style="margin-left: 10px"
       >{btnNxt}
