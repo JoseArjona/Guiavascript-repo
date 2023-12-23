@@ -9,11 +9,11 @@ export interface Props {
 
 const { title, description, image = "./guiavascript.png" } = Astro.props;
 const favicon =
-  Astro.url.host === "localhost"
+  Astro.url.hostname === "localhost"
     ? "https://guiavascript.netlify.app/favicon.png"
     : Astro.url.protocol + "//" + Astro.url.host + "/favicon.png";
 const manifest =
-  Astro.url.host === "localhost"
+  Astro.url.hostname === "localhost"
     ? "https://guiavascript.netlify.app/manifest.json"
     : Astro.url.protocol + "//" + Astro.url.host + "/manifest.json";
 ---
