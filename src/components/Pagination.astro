@@ -1,28 +1,18 @@
 ---
 export interface Props {
-  NamePagesDom: object;
+  NamePages: object;
 }
 
-const { NamePagesDom } = Astro.props;
+const { NamePages } = Astro.props;
 
-// Añadimos la ruta "/" y "/basic-dom/" al array de rutas
-const pages = [
-  "/",
-  ...Object.values(NamePagesDom.map((page) => page.url + "/")),
-];
+const pages = ["/", ...Object.values(NamePages.map((page) => page.url + "/"))];
 pages.sort((a, b) => a.localeCompare(b));
 
 // Obtenemos el número de la página actual
 const currentPage = pages.indexOf(Astro.url.pathname);
-
-console.log(currentPage);
-
-console.log(pages);
-console.log(pages[currentPage]);
-
 const prevLink =
   currentPage === 0 ? pages[currentPage] : pages[currentPage - 1];
-let nextLink =
+const nextLink =
   currentPage === pages[pages.length - 1]
     ? pages[currentPage]
     : pages[currentPage + 1];
@@ -30,17 +20,12 @@ let nextLink =
 let btnNxt = "Siguiente";
 if (currentPage === pages[pages.length - 1]) {
   btnNxt = "Finalizar";
-  nextLink = "https://guiavascript.netlify.app/";
 }
 ---
 
-<div class="container" style="display: flex; justify-content: flex-end">
+<div class="container" style="display: flex; justify-content: space-between">
   <div>
-    <a
-      href={prevLink}
-      class="btn gray margin-top margin-bottom"
-      style="margin-right: 10px"
-    >
+    <a href={prevLink} class="btn primary" style="margin-right: 10px">
       <!--?xml version="1.0" encoding="UTF-8"?-->
       <svg
         style="transform: scaleX(-1); vertical-align: top"
@@ -63,17 +48,7 @@ if (currentPage === pages[pages.length - 1]) {
     </a>
   </div>
   <div>
-    {pages.map((page) => <li>{page}</li>)}
-    <p>{Astro.url.pathname}</p>
-    <p>{prevLink}</p>
-    <p>{nextLink}</p>
-    <p>{currentPage}</p>
-  </div>
-  <div>
-    <a
-      href={nextLink}
-      class="btn gray margin-top margin-bottom"
-      style="margin-left: 10px"
+    <a href={nextLink} class="btn gray" style="margin-left: 10px"
       >{btnNxt}
       <!--?xml version="1.0" encoding="UTF-8"?-->
       <svg

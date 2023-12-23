@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import BaseHead from "../components/BaseHead.astro";
 import "../styles/prism.css";
 import Prismc from "../components/Prismc.astro";
-import PaginationDom from "../components/dom/PaginationDom.astro";
+import PaginationDom from "../components/Pagination.astro";
 export interface Props {
   title: string;
   description: string;
@@ -16,8 +16,7 @@ const URLBG =
   Astro.url.hostname === "localhost"
     ? "https://guiavascript.netlify.app/img/bgDom.svg"
     : Astro.url.protocol + "//" + Astro.url.host + "/img/bgDom.svg";
-const NamePagesDom = await Astro.glob("../pages/basic-doml/*.astro");
-console.log(NamePagesDom);
+const NamePages = await Astro.glob("../pages/basic-doml/*.astro");
 ---
 
 <!doctype html>
@@ -26,10 +25,10 @@ console.log(NamePagesDom);
     <BaseHead title={title} description={description} />
   </head>
   <body class="txt-white" style=`background-image: url(${URLBG});`>
-    <Header NamePages={NamePagesDom} />
+    <Header NamePages={NamePages} />
     <main class="container">
       <slot />
-      <PaginationDom NamePagesDom={NamePagesDom} />
+      <PaginationDom NamePages={NamePages} />
     </main>
     <footer>
       <p>

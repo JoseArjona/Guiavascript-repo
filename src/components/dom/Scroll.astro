@@ -5,7 +5,7 @@
 
 <script is:inline>
   const scroll = document.querySelector("#scroll");
-  const change = () => {
+  const changeScroll = () => {
     scroll.textContent = "Scrolleando...";
     // Color temporal al hacer scroll
     scroll.style.color = "lightblue";
@@ -14,7 +14,7 @@
       scroll.style.color = "#fff";
     }, 1000);
   };
-  window.addEventListener("scroll", change);
+  window.addEventListener("scroll", changeScroll);
 </script>
 
 <style>

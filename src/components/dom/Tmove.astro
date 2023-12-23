@@ -5,9 +5,9 @@
 
 <script is:inline>
   const w = document.querySelector("#w");
-  const p = document.querySelector("#tmove");
-  const change = () => (p.innerText = "Deslizado");
-  w.addEventListener("touchmove", change);
+  const pTmove = document.querySelector("#tmove");
+  const changeTmove = () => (pTmove.innerText = "Deslizado");
+  w.addEventListener("touchmove", changeTmove);
 </script>
 
 <style>

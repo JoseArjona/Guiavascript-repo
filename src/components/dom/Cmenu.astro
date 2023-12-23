@@ -4,12 +4,12 @@
 </section>
 
 <script is:inline>
-  const p = document.getElementById("act");
-  const surprise = (e) => {
+  const act = document.getElementById("act");
+  const actSuprise = (e) => {
     e.preventDefault();
-    p.innerText = "Click derecho activado.";
+    act.innerText = "Click derecho activado.";
   };
-  p.addEventListener("contextmenu", surprise);
+  act.addEventListener("contextmenu", actSuprise);
 </script>
 
 <style>

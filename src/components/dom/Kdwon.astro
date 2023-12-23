@@ -4,9 +4,9 @@
 </section>
 
 <script is:inline>
-  const p = document.getElementById("key");
-  const change = (e) => (p.innerText = e.key);
-  document.addEventListener("keydown", change);
+  const pKeydown = document.getElementById("key");
+  const changeKeydown = (e) => (pKeydown.innerText = e.key);
+  document.addEventListener("keydown", changeKeydown);
 </script>
 
 <style>

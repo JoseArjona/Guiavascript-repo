@@ -4,14 +4,14 @@
 </section>
 
 <script is:inline>
-  const body = document.querySelector("#load");
-  const change = () => {
-    body.style.backgroundColor = "#182f4a";
+  const bodyLoad = document.querySelector("#load");
+  const changeLoad = () => {
+    bodyLoad.style.backgroundColor = "#182f4a";
     setTimeout(() => {
-      body.style.backgroundColor = "#2d2d2d";
+      bodyLoad.style.backgroundColor = "#2d2d2d";
     }, 2000);
   };
-  window.addEventListener("load", change);
+  window.addEventListener("load", changeLoad);
 </script>
 
 <style>

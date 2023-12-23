@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import BaseHead from "../components/BaseHead.astro";
 import "../styles/prism.css";
 import Prismc from "../components/Prismc.astro";
-import BaseNav from "../components/BaseNav.astro";
+import Pagination from "../components/Pagination.astro";
 
 export interface Props {
   title: string;
@@ -30,7 +30,7 @@ const NamePages = await Astro.glob("../pages/basicjs/*.astro");
     <Header NamePages={NamePages} />
     <main class="container">
       <slot />
-      <BaseNav NamePages={NamePages} />
+      <Pagination NamePages={NamePages} />
     </main>
     <footer>
       <p>

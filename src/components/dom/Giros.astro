@@ -4,14 +4,14 @@
 </section>
 
 <script is:inline>
-  const sec = document.querySelector("#giros");
-  const change = () => {
-    sec.style.backgroundColor = "#182f4a";
+  const secGiros = document.querySelector("#giros");
+  const changeGiros = () => {
+    secGiros.style.backgroundColor = "#182f4a";
     setTimeout(() => {
-      sec.style.backgroundColor = "#2d2d2d";
+      secGiros.style.backgroundColor = "#2d2d2d";
     }, 2000);
   };
-  window.addEventListener("deviceorientation", change);
+  window.addEventListener("deviceorientation", changeGiros);
 </script>
 
 <style>
