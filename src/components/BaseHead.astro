@@ -10,12 +10,12 @@ export interface Props {
 const { title, description, image = "./guiavascript.png" } = Astro.props;
 const favicon =
   Astro.url.host === "localhost"
-    ? Astro.url.protocol + "//" + Astro.url.host + "/favicon.png"
-    : "https://guiavascript.netlify.app/basicjs/favicon.png";
+    ? "https://guiavascript.netlify.app/favicon.png"
+    : Astro.url.protocol + "//" + Astro.url.host + "/favicon.png";
 const manifest =
   Astro.url.host === "localhost"
-    ? Astro.url.protocol + "//" + Astro.url.host + "/manifest.json"
-    : "https://guiavascript.netlify.app/basicjs/manifest.json";
+    ? "https://guiavascript.netlify.app/manifest.json"
+    : Astro.url.protocol + "//" + Astro.url.host + "/manifest.json";
 ---
 
 <!-- Global Metadata -->
