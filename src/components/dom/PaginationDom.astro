@@ -6,7 +6,10 @@ export interface Props {
 const { NamePagesDom } = Astro.props;
 
 // Añadimos la ruta "/" y "/basic-dom/" al array de rutas
-const pages = ["/", ...Object.values(NamePagesDom.map((page) => page.url))];
+const pages = [
+  "/",
+  ...Object.values(NamePagesDom.map((page) => page.url + "/")),
+];
 pages.sort((a, b) => a.localeCompare(b));
 
 // Obtenemos el número de la página actual
