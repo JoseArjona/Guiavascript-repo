@@ -3,8 +3,7 @@ import Header from "../components/Header.astro";
 import BaseHead from "../components/BaseHead.astro";
 import "../styles/prism.css";
 import Prismc from "../components/Prismc.astro";
-import BaseNavDm from "../components/dom/BaseNavDm.astro";
-
+import PaginationDom from "../components/dom/PaginationDom.astro";
 export interface Props {
   title: string;
   description: string;
@@ -30,7 +29,7 @@ console.log(NamePagesDom);
     <Header NamePages={NamePagesDom} />
     <main class="container">
       <slot />
-      <BaseNavDm NamePagesDom={NamePagesDom} />
+      <PaginationDom NamePagesDom={NamePagesDom} />
     </main>
     <footer>
       <p>

@@ -45,7 +45,7 @@ if (currentPage == pages.length - 1) {
 ---
 
 <div class="container" style="display: flex; justify-content: flex-end">
-  <
+  <div>
     <a
       href={currentPage == 2 ? pages[currentPage - 2] : pages[currentPage - 1]}
       class="btn gray margin-top margin-bottom"
@@ -71,9 +71,9 @@ if (currentPage == pages.length - 1) {
       </svg>
        Atrás
     </a>
-    {pages.map((item) => (
-      <li>{page}</li>
-    ))}
+  </div>
+  <div>
+    {pages.map((page) => <li>{page}</li>)}
   </div>
   <div>
     <a
