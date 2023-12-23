@@ -11,6 +11,7 @@ pages.sort((a, b) => a.localeCompare(b));
 
 // Obtenemos el número de la página actual
 const currentPage = pages.indexOf(Astro.url.pathname);
+
 console.log(currentPage);
 
 console.log(pages);
@@ -19,12 +20,12 @@ console.log(pages[currentPage]);
 const prevLink =
   currentPage === 0 ? pages[currentPage] : pages[currentPage - 1];
 let nextLink =
-  currentPage === pages.length - 1
+  currentPage === pages[pages.length - 1]
     ? pages[currentPage]
     : pages[currentPage + 1];
 
 let btnNxt = "Siguiente";
-if (currentPage === pages.length - 1) {
+if (currentPage === pages[pages.length - 1]) {
   btnNxt = "Finalizar";
   nextLink = "https://guiavascript.netlify.app/";
 }
@@ -61,6 +62,9 @@ if (currentPage === pages.length - 1) {
   <div>
     {pages.map((page) => <li>{page}</li>)}
     <p>{Astro.url.pathname}</p>
+    <p>{prevLink}</p>
+    <p>{nextLink}</p>
+    <p>{currentPage}</p>
   </div>
   <div>
     <a
