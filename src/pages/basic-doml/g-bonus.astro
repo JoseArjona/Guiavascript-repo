@@ -42,7 +42,7 @@ const description =
 const change = () => (p.innerText = "Toque de pantalla 😵‍💫");
 touch.addEventListener("touchstart", change);;</code></pre>
         <footer>
-          <Touch client:idle />
+          <Touch />
         </footer>
       </article>
       <article class="card primary">
@@ -58,7 +58,7 @@ const p = document.querySelector("#tmove");
 const change = () => (p.innerText = "Deslizado");
 w.addEventListener("touchmove", change);</code></pre>
         <footer>
-          <Tmove client:idle />
+          <Tmove />
         </footer>
       </article>
       <article class="card primary">
@@ -80,7 +80,7 @@ sec.style.backgroundColor = "#2d2d2d";
 &rbrace;;
 window.addEventListener("deviceorientation", change);</code></pre>
         <footer>
-          <Giros client:idle />
+          <Giros />
         </footer>
       </article>
     </section>
