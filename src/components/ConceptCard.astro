@@ -1,0 +1,39 @@
+<article class="card accent">
+  <slot />
+</article>
+
+<style>
+  .card {
+    isolation: isolate;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+    --gradient: linear-gradient(to bottom, #ffd23d, #eeb54a, var(--secondary));
+    /* --color: #32a6ff; */
+  }
+  .card:before {
+    position: absolute;
+    content: "";
+    inset: 0.0625rem;
+    border-radius: 0.9375rem;
+    z-index: 2;
+  }
+  .card:after {
+    position: absolute;
+    content: "";
+    width: 0.25rem;
+    inset: 0.65rem auto 0.65rem 0.5rem;
+    border-radius: 0.155rem;
+    background: var(--gradient);
+    transition: transform 300ms ease;
+    z-index: 4;
+    transform: scale(1);
+  }
+  .card:hover:after {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  .card:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+</style>
