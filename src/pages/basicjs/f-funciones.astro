@@ -1,6 +1,5 @@
 ---
 import BasicLayout from "../../layouts/BasicLayout.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
 import ProgressBar from "../../components/ProgressBar.astro";
 ---
 
@@ -16,8 +15,11 @@ import ProgressBar from "../../components/ProgressBar.astro";
       <p>
         Las funciones son un conjunto de instrucciones que se pueden ejecutar
         varias veces, para no tener que escribir el mismo código otra vez.
-        Además, a las funciones se le pueden pasar parámetros, lo que permite
-        tener un mismo código con diferentes resultados según el parámetro.
+        Además, a las funciones se le pueden pasar <a
+          href="../t&c/#param"
+          class="txt-blue">parámetros</a
+        >, lo que permite tener un mismo código con diferentes resultados según
+        el parámetro.
       </p>
     </div>
     <div class="card primary container-lg">
@@ -27,7 +29,11 @@ import ProgressBar from "../../components/ProgressBar.astro";
         del nombre de la función, los parámetros que recibe van dentro de los
         paréntesis y el código que ejecuta la función va dentro de las llaves.
         Una función debe ser llamada para que se ejecute, para llamarla solo se
-        escribe el nombre de la función y los parámetros que recibe.
+        escribe el nombre de la función y los <a
+          class="txt-blue"
+          href="../t&c/"
+          target="_blank">argumentos</a
+        > que recibe.
       </p>
       <pre><code class="language-js">function suma(a,b)&lbrace; //a y b son parámetros
 let resultado = a + b //aquí se ejecuta el código de la función
@@ -36,9 +42,9 @@ console.log(resultado); //aquí se imprime el resultado
 suma(2,2); //llamamos la función - imprime 4
 suma(3,3); // podemos llamar la función con diferentes parámetros - imprime 6</code></pre>
       <p>
-        Podemos agregarle un <span class="txt-orange">return</span> para
-        retornar el valor. De esta forma la función no imprime el resultado,
-        solo lo retorna y lo que hace más fácil manipular los datos.
+        Podemos agregarle un <span class="txt-orange">return</span> para retornar
+        el valor. De esta forma la función no imprime el resultado, solo lo retorna
+        y lo que hace más fácil manipular los datos.
       </p>
       <pre><code class="language-js">function suma(a,b)&lbrace;
 let resultado = a+b;
@@ -50,8 +56,12 @@ console.log(suma(2,2)); //imprime 4
     <div class="card primary container-lg">
       <h3><span class="txt-blue">Arrow function</span></h3>
       <p>
-        Las arrow function son una forma más corta de escribir funciones, se
-        escriben de la siguiente manera:
+        Las arrow function son una forma más corta de escribir funciones. Además
+        que estas funciones nombradas "anónimas" no sufren de <a
+          href="../t&c/#hoisting"
+          target="_blank"
+          class="txt-blue">Hoisting</a
+        > como las funciones normales. Se escriben de la siguiente manera:
       </p>
       <pre><code class="language-js">//si la función solo tiene una linea de código se puede escribir asi
 const suma = (a,b) => a+b; 

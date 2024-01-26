@@ -27,8 +27,8 @@ const description =
     <h2 class="txtCenter">
       ¿Por qué aprender JavaScript?, Porque puedes hacer
     </h2>
-    <section class="grid col-3 md-col-2 sm-col-1">
-      <article class="card primary txtCenter md-span-2 sm-span-1">
+    <section class="grid col-3 md-col-3 sm-col-1" id="whySection">
+      <article class="card primary txtCenter">
         <picture> <img src="../img/apps.png" alt="aplicaciones" /></picture>
         <h3>Aplicaciones</h3>
         <p>
@@ -49,11 +49,13 @@ const description =
           <img src="../img/tools.png" alt="cli" />
         </picture>
         <br />
-        <h3>Herramientas de desarrollo</h3>
-        <p>
-          Tanto como CLI como herramientas de desarrollo para el navegador,
-          servidor e inclusive herramientas más complejas.
-        </p>
+        <div class="card-body">
+          <h3>Herramientas de desarrollo</h3>
+          <p>
+            Tanto como CLI como herramientas de desarrollo para el navegador,
+            servidor e inclusive herramientas más complejas.
+          </p>
+        </div>
       </article>
     </section>
   </section>
@@ -103,6 +105,37 @@ console.log("Hola Mundo") </code></pre>
     }
     a {
       color: var(--yellow);
+    }
+
+    @media (576px<= width <= 730px) {
+      #whySection {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      #whySection article:nth-child(3) {
+        flex-direction: row;
+        grid-column: span 2;
+      }
+
+      #whySection .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 1em;
+      }
+
+      #whySection article:nth-child(3) picture {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 600px;
+      }
+      #whySection article:nth-child(3) img {
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </BasicLayout>

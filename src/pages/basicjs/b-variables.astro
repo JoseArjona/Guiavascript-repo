@@ -20,9 +20,9 @@ const description =
         <span class="txt-green">$</span> y<span class="txt-green">
           guiones bajos</span
         >. <br />Una buena práctica es usar
-        <span class="txt-orange">camelCase</span> para nombrar las variables; es
-        decir que la primera letra de la variable sea minúscula y la primera
-        letra de cada palabra posterior sea mayúscula.
+        <i>camelCase</i> para nombrar las variables; es decir que la primera letra
+        de la variable sea minúscula y la primera letra de cada palabra posterior
+        sea mayúscula.
       </p>
       <pre><code class="language-js">let camelCase="Declarando camelCase"</code></pre>
       <p>
@@ -49,12 +49,24 @@ let nombre="Juan", edad=20, sexo="Masculino";</code></pre>
           La palabra reservada const nos permite declarar una variable, la cual
           no puede ser modificada, su valor sera
           <span class="txt-orange">'constante'</span>,dicho de otra manera, se
-          mantendrá. Una buena practica es nombrar las constantes en mayúsculas
-          y usando guiones bajos para separar las palabras, esto se conoce como
-          'Screaming Snake Case'
+          mantendrá. Una buena practica es nombrar las constantes que sabemos
+          que nunca van a cambiar es ponerlas en mayúsculas y usando guiones
+          bajos para separar las palabras, esto se conoce como <i
+            >'Screaming Snake Case'</i
+          >
         </p>
         <pre><code class="language-js">const VALOR_PI=3.1415 ✅
 const VALOR_PI= 232323 ❌ //Una vez declarada no se puede volver a reasignar su valor</code></pre>
+        <p>
+          <strong>Nota:</strong> tanto <span class="txt-yellow">const</span> como
+          <span class="txt-green">let</span> tienen un <a
+            href="../t&c/#scope"
+            class="txt-blue"
+            target="_blank">scope</a
+          > por bloque, esto lo hace una mejor practica que usar <span
+            class="txt-secondary">var</span
+          >
+        </p>
       </article>
     </section>
   </main>
