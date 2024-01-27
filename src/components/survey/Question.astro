@@ -1,0 +1,139 @@
+---
+interface Question {
+  statement: string;
+  answer1: {
+    answer: string;
+    value: string;
+    note: string;
+  };
+  answer2: {
+    answer: string;
+    value: string;
+    note: string;
+  };
+  answer3: {
+    answer: string;
+    value: string;
+    note: string;
+  };
+}
+interface Props {
+  question: Question;
+}
+
+const { question } = Astro.props;
+---
+
+<div class="form flex f-col">
+  <p>{question.statement}</p>
+  <input
+    type="radio"
+    id="answer1"
+    name="value-radio"
+    value={question.answer1.value}
+    data-note={question.answer1.note}
+  />
+  <label for="answer1">{question.answer1.answer}</label>
+  <input
+    type="radio"
+    id="answer2"
+    name="value-radio"
+    value={question.answer2.value}
+    data-note={question.answer2.note}
+  />
+  <label for="answer2">{question.answer2.answer}</label>
+  <input
+    type="radio"
+    id="answer3"
+    name="value-radio"
+    value={question.answer3.value}
+    data-note={question.answer3.note}
+  />
+  <label for="answer3">{question.answer3.answer}</label>
+  <span class="result success"> ✨ Correcto</span>
+  <span class="result error">❌ Incorrecto</span>
+</div>
+
+<script>
+  const inputs = document.querySelectorAll("input");
+  const successSpan = document.querySelector(".success");
+  const errorSpan = document.querySelector(".error");
+  inputs.forEach((input) => {
+    input.addEventListener("change", () => {
+      if (input.value === "correct") {
+        successSpan.innerHTML = `✨ Correcto: ${input.dataset.note}`;
+      } else {
+        errorSpan.innerHTML = `❌ Incorrecto: ${input.dataset.note}`;
+      }
+    });
+  });
+</script>
+
+<style>
+  p {
+    margin: 0;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+  }
+  .form input {
+    display: none;
+  }
+  .form label {
+    display: flex;
+    background-color: #d1cbcb;
+    padding: 14px;
+    margin: 8px 0 0 0;
+    font-size: 0.82em;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(187, 187, 187, 0.164);
+    color: #000;
+    transition: 0.3s ease;
+  }
+
+  .form label:hover {
+    background-color: rgba(24, 24, 24, 0.13);
+    border: 1px solid #bbb;
+    color: #fff;
+  }
+
+  .result {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 0.8em;
+    display: none;
+    transition: display 0.4s ease;
+  }
+
+  .result.success {
+    color: rgb(120, 192, 120);
+  }
+
+  .result.error {
+    color: var(--red);
+  }
+
+  .form input:checked + label {
+    border-color: var(--red);
+    color: var(--red);
+    background: var(--primary);
+  }
+
+  .form input[value="correct"]:checked + label {
+    border-color: var(--green);
+    color: rgb(16, 184, 16);
+    background: var(--primary);
+  }
+
+  .form:has(input[value="correct"]:checked) .result.success {
+    display: flex;
+  }
+
+  .form:has(input:not([value="correct"]):checked) .result.error {
+    display: flex;
+  }
+</style>
