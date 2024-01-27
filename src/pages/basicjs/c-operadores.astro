@@ -1,7 +1,31 @@
 ---
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
-import BaseNav from "../../components/BaseNav.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import Question from "../../components/survey/Question.astro";
+
+const questions = [
+  {
+    statement: "¿Cuál de las siguientes declaraciones es incorrecta?",
+    answer1: {
+      answer:
+        "Los operadores Lógicos nos ayudan a evaluar ciertas condiciones.",
+      value: "incorrect",
+      note: "si lo hacen, ya que al ser usar expresiones con los operadores lógicos retornamos valores true/false",
+    },
+    answer2: {
+      answer:
+        "Usualmente para realizar operaciones numérico matemáticas usamos los Operadores Aritméticos",
+      value: "incorrect",
+      note: "Los Operadores Aritméticos deben su clasificación precisamente por ello.",
+    },
+    answer3: {
+      answer: "El operador % nos sirve para sacar el porcentaje.",
+      value: "correct",
+      note: "Perfecto, en nuestras calculadoras esto funciona, sin embargo, en programación este símbolo se refiere al modulo.",
+    },
+  },
+];
 const title = "Operadores";
 const description =
   "Los operadores son símbolos que nos permiten realizar operaciones matemáticas, comparaciones, lógicas, etc.";
@@ -55,4 +79,7 @@ const description =
       </article>
     </section>
   </main>
+  <KnoledgeForm>
+    {questions.map((question) => <Question question={question} />)}
+  </KnoledgeForm>
 </BasicLayout>

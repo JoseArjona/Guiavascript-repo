@@ -1,7 +1,30 @@
 ---
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import Question from "../../components/survey/Question.astro";
 
+const questions = [
+  {
+    statement: "¿Cuál de las siguientes declaraciones es correcta?",
+    answer1: {
+      answer: "Usando let no podemos reasignar su valor ",
+      value: "incorrect",
+      note: "let si puede reasignar su valor",
+    },
+    answer2: {
+      answer:
+        "Una buena practica es usar 'Screaming Snake Case' en variables let ",
+      value: "incorrect",
+      note: "Recuerda que 'Screaming Snake Case' es para las const que sabemos que no cambiaran.",
+    },
+    answer3: {
+      answer: "const $titulo = 'Bienvenido'",
+      value: "correct",
+      note: "Como ya sabes si podemos usar $ para nombrar una variable. Incluso se recomienda su uso si te estas refiriendo a un elemento del DOM",
+    },
+  },
+];
 const title = "Variables";
 const description =
   "Las variables nos sirven como una forma de guardar valores";
@@ -70,4 +93,7 @@ const VALOR_PI= 232323 ❌ //Una vez declarada no se puede volver a reasignar su
       </article>
     </section>
   </main>
+  <KnoledgeForm>
+    {questions.map((question) => <Question question={question} />)}
+  </KnoledgeForm>
 </BasicLayout>

@@ -1,6 +1,41 @@
 ---
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import Question from "../../components/survey/Question.astro";
+
+const questions = [
+  {
+    statement: "Selecciona el código erróneo",
+    answer1: {
+      answer: `const tieneSed = false ;
+      let acción = (tieneSed) ? 'hidratarse' : 'seguir caminando';`,
+      value: "incorrect",
+      note: "El código es correcto, y se trata de una operación ternaria.",
+    },
+    answer2: {
+      answer: `const nacionalidad = 'Sueco' \n
+      switch(nacionalidad){
+        case "Sueco": 
+          console.log("Jag talar svenska");
+        case "Mexicano": 
+          console.log("Unos tacos al pasto?");
+        case "Colombiano":
+          console.log("Es hora de tomar un buen café");
+          break;`,
+      value: "correct",
+      note: "Asi es, los 'case' no cuentan con su respectivo 'break', por lo que el código imprime de forma errónea los primeros 2 resultados.",
+    },
+    answer3: {
+      answer: `const programador = true;
+      if(programador){
+        console.log("Hola Mundo ;)");
+      } `,
+      value: "incorrect",
+      note: "El uso del if es correcto, y no requiere de un else obligatoriamente.",
+    },
+  },
+];
 const title = "Condicionales";
 const description =
   "Las condicionales son estructuras de control que nos permiten ejecutar un bloque de código si se cumple una condición, y otro bloque de código si no se cumple.";
@@ -24,13 +59,13 @@ const description =
     <article class="card primary container-lg">
       <h3><span class="txt-blue">if condicional, else if Y else</span></h3>
       <p>
-        La palabra reservada <span class="txt-green">if</span> nos permite
-        ejecutar un bloque de código si se cumple una condición. frecuentemente
-        se suele acompañar con
-        <span class="txt-red">else</span> el cual es la condición contraria; es
-        decir si no se cumple una condición. Adicionalmente también tenemos
-        <span class="txt-orange">else if</span> nos permite evaluar una segunda
-        condición si la primera no se cumple.
+        La palabra reservada <span class="txt-green">if</span> nos permite ejecutar
+        un bloque de código si se cumple una condición. frecuentemente se suele acompañar
+        con
+        <span class="txt-red">else</span> el cual es la condición contraria; es decir
+        si no se cumple una condición. Adicionalmente también tenemos
+        <span class="txt-orange">else if</span> nos permite evaluar una segunda condición
+        si la primera no se cumple.
       </p>
       <pre><code class="language-js">let dinero = 30; //Declarando la variable edad
 if(dinero &gt;= 45)&lbrace; // Evaluando la primer condición 
@@ -75,7 +110,7 @@ case "SALA A1": // si tu boleto es SALA A1 se ejecuta este bloque de código
 case "SALA B1": // si es SALA B1 se ejecuta este bloque de código y asi por cada sala
   console.log("Película de Batman");
   break;
-case "SALA C1 +":
+case "SALA C1":
   console.log("Película de Disney");
   break;
 case "SALA A2":
@@ -92,4 +127,7 @@ default:  // si no es ningún de ninguna sala se ejecuta este bloque de codigo
 &rbrace; </code></pre>
     </article>
   </main>
+  <KnoledgeForm>
+    {questions.map((question) => <Question question={question} />)}
+  </KnoledgeForm>
 </BasicLayout>
