@@ -3,37 +3,58 @@ import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
 import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
 import Question from "../../components/survey/Question.astro";
+import QuestionVue from "../../components/survey/Question.vue";
 
 const questions = [
   {
-    statement: "Selecciona el código erróneo",
-    answer1: {
-      answer: `const tieneSed = false ;
-      let acción = (tieneSed) ? 'hidratarse' : 'seguir caminando';`,
-      value: "incorrect",
-      note: "El código es correcto, y se trata de una operación ternaria.",
-    },
-    answer2: {
-      answer: `const nacionalidad = 'Sueco' \n
-      switch(nacionalidad){
-        case "Sueco": 
-          console.log("Jag talar svenska");
-        case "Mexicano": 
-          console.log("Unos tacos al pasto?");
-        case "Colombiano":
-          console.log("Es hora de tomar un buen café");
-          break;`,
-      value: "correct",
-      note: "Asi es, los 'case' no cuentan con su respectivo 'break', por lo que el código imprime de forma errónea los primeros 2 resultados.",
-    },
-    answer3: {
-      answer: `const programador = true;
-      if(programador){
-        console.log("Hola Mundo ;)");
-      } `,
-      value: "incorrect",
-      note: "El uso del if es correcto, y no requiere de un else obligatoriamente.",
-    },
+    id: "1",
+    statement:
+      "Selecciona el código erróneo ( por cuestiones de practicas vamos a suponer que la variable 'tieneSed' ya fue declarada) ",
+    answers: [
+      {
+        id: "1",
+        answer: "let acción = (tieneSed) ? 'hidratarse' : 'seguir caminando'",
+        value: "incorrect",
+        note: "El código es correcto, y se trata de una operación ternaria.",
+      },
+      {
+        id: "2",
+        answer: `let acción = (tieneSed) ? 'hidratarse' ; 'seguir caminando'`,
+        value: "correct",
+        note: "Asi es, bien visto el punto y coma ';' no debe ir, en su lugar se pone los dos puntos':'",
+      },
+      {
+        id: "3",
+        answer: `let acción = (!tieneSed) ? 'seguir caminando': 'hidratarse'`,
+        value: "incorrect2",
+        note: "El código es correcto, simplemente se esta evaluando de forma negativa.",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement:
+      "Dentro de un Switch que palabra reservada impide que un caso se siga ejecutando y termine en otros casos",
+    answers: [
+      {
+        id: "1",
+        answer: "default",
+        value: "incorrect",
+        note: "default. Es usado cuando no se cumple ninguno de los casos anteriores.",
+      },
+      {
+        id: "2",
+        answer: "break",
+        value: "correct",
+        note: "Asi es, break es la pared que impide que dentro de un caso pase a otro.",
+      },
+      {
+        id: "3",
+        answer: "return",
+        value: "incorrect2",
+        note: "Usaremos return para retornar un valor y por consecuente terminar una operación dentro de una función o bucle.",
+      },
+    ],
   },
 ];
 const title = "Condicionales";
@@ -128,6 +149,11 @@ default:  // si no es ningún de ninguna sala se ejecuta este bloque de codigo
     </article>
   </main>
   <KnoledgeForm>
-    {questions.map((question) => <Question question={question} />)}
+    <!-- {questions.map((question) => <Question question={question} />)} -->
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
   </KnoledgeForm>
 </BasicLayout>

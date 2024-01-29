@@ -1,5 +1,6 @@
 ---
 interface Question {
+  id: string;
   statement: string;
   answer1: {
     answer: string;
@@ -24,7 +25,7 @@ interface Props {
 const { question } = Astro.props;
 ---
 
-<div class="form flex f-col">
+<div class="form flex f-col" id=`q-${question.id}`>
   <p>{question.statement}</p>
   <input
     type="radio"
@@ -54,10 +55,11 @@ const { question } = Astro.props;
   <span class="result error">❌ Incorrecto</span>
 </div>
 
-<script>
-  const inputs = document.querySelectorAll("input");
-  const successSpan = document.querySelector(".success");
-  const errorSpan = document.querySelector(".error");
+<script define:vars={{ question }}>
+  const form = document.getElementById(`q-${question.id}`);
+  const inputs = form.querySelectorAll("input");
+  const successSpan = form.querySelector(".success");
+  const errorSpan = form.querySelector(".error");
   inputs.forEach((input) => {
     input.addEventListener("change", () => {
       if (input.value === "correct") {
