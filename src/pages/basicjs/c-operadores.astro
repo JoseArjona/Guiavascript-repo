@@ -2,29 +2,34 @@
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
 import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
-import Question from "../../components/survey/Question.astro";
+import QuestionVue from "../../components/survey/Question.vue";
 
 const questions = [
   {
     id: "1",
     statement: "¿Cuál de las siguientes declaraciones es incorrecta?",
-    answer1: {
-      answer:
-        "Los operadores Lógicos nos ayudan a evaluar ciertas condiciones.",
-      value: "incorrect",
-      note: "si lo hacen, ya que al ser usar expresiones con los operadores lógicos retornamos valores true/false",
-    },
-    answer2: {
-      answer:
-        "Usualmente para realizar operaciones numérico matemáticas usamos los Operadores Aritméticos",
-      value: "incorrect",
-      note: "Los Operadores Aritméticos deben su clasificación precisamente por ello.",
-    },
-    answer3: {
-      answer: "El operador % nos sirve para sacar el porcentaje.",
-      value: "correct",
-      note: "Perfecto, en nuestras calculadoras esto funciona, sin embargo, en programación este símbolo se refiere al modulo.",
-    },
+    answers: [
+      {
+        id: "1",
+        answer:
+          "Los operadores Lógicos nos ayudan a evaluar ciertas condiciones.",
+        value: "incorrect",
+        note: "si lo hacen, ya que al ser usar expresiones con los operadores lógicos retornamos valores true/false",
+      },
+      {
+        id: "2",
+        answer:
+          "Usualmente para realizar operaciones numérico matemáticas usamos los Operadores Aritméticos",
+        value: "no",
+        note: "Los Operadores Aritméticos deben su clasificación precisamente por ello.",
+      },
+      {
+        id: "3",
+        answer: "El operador % nos sirve para sacar el porcentaje.",
+        value: "correct",
+        note: "Perfecto, en nuestras calculadoras esto funciona, sin embargo, en programación este símbolo se refiere al modulo.",
+      },
+    ],
   },
 ];
 const title = "Operadores";
@@ -81,6 +86,10 @@ const description =
     </section>
   </main>
   <KnoledgeForm>
-    {questions.map((question) => <Question question={question} />)}
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
   </KnoledgeForm>
 </BasicLayout>
