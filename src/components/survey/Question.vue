@@ -39,7 +39,7 @@ const showNote = async (note:string) => {
   <article class="form flex f-col" >
     <p>{{ question.statement }}</p>
     <div v-for="answer in answers" :key="answer.id">
-      <input type="radio" :id="'answer-' + question.id + '-' + answer.id" name="value-radio" :value="answer.value"
+      <input type="radio" :id="'answer-' + question.id + '-' + answer.id"  :name="'value-radio-' + question.id" :value="answer.value"
         @change="showNote(answer.note)" v-model="currentValue"/>
       <label :for="'answer-' + question.id + '-' + answer.id">{{answer.answer}}</label>
     </div>
