@@ -1,6 +1,88 @@
 ---
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+
+const questions = [
+  {
+    id: "1",
+    statement: "¿Qué es una función constructora?",
+    answers: [
+      {
+        id: "1",
+        answer: "Una función que se utiliza para crear objetos",
+        value: "correct",
+        note: "Una función constructora es una función que se utiliza para crear objetos como si de un plano se tratase",
+      },
+      {
+        id: "2",
+        answer: "Una función que se utiliza para devolver un objeto",
+        value: "incorrect",
+        note: "Una función constructora no necesariamente devuelve un objeto",
+      },
+      {
+        id: "3",
+        answer:
+          "Una función que se utiliza para inicializar los valores de un objeto",
+        value: "incorrect2",
+        note: "Una función constructora se puede utilizar para inicializar los valores de un objeto, pero no es su función principal",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement:
+      "¿Cuál es la principal diferencia entre los métodos forOf y forIn?",
+    answers: [
+      {
+        id: "1",
+        answer:
+          "forOf itera sobre los valores de las propiedades de un objeto, mientras que forIn itera sobre los nombres de las propiedades de un objeto.",
+        value: "correct",
+        note: "Excelente dominar estos métodos te puede llegar a solucionar problemas.",
+      },
+      {
+        id: "2",
+        answer:
+          "forIn itera sobre los valores de las propiedades de un objeto, mientras que forOf itera sobre los nombres de las propiedades de un objeto.",
+        value: "incorrect",
+        note: "Al contrario mi amigo. forOf itera sobre los valores y forIn itera sobre los nombres ",
+      },
+      {
+        id: "3",
+        answer: "El nombre",
+        value: "incorrect2",
+        note: "Muy Original, puedes crear una app para un circo seguro!.",
+      },
+    ],
+  },
+  {
+    id: "3",
+    statement:
+      "¿Cuál de los siguientes métodos de un array se puede usar para encontrar el primer objeto que cumple una condición?",
+    answers: [
+      {
+        id: "1",
+        answer: "indexOf()",
+        value: "incorrect",
+        note: "El método `indexOf()` devuelve el índice del primer elemento que coincide con un valor especificado",
+      },
+      {
+        id: "2",
+        answer: "find()",
+        value: "correct",
+        note: "El método `find()` devuelve el primer elemento que cumple una condición especificada",
+      },
+      {
+        id: "3",
+        answer: "some()",
+        value: "incorrect2",
+        note: "El método `some()` devuelve `true` si al menos un elemento cumple una condición especificada",
+      },
+    ],
+  },
+];
 ---
 
 <BasicLayout
@@ -29,7 +111,10 @@ import ProgressBar from "../../components/ProgressBar.astro";
         >
       </p>
       <picture class="img"
-        ><img src="../assets/objects.png" alt="objects-guivascript" />
+        ><img
+          src="https://guiavascript.netlify.app/img/objects.png"
+          alt="objects-guivascript"
+        />
       </picture>
       <div class="container" style="max-width: 90%">
         Para crear un objeto en JS escribe la siguiente sintaxis:<br />
@@ -108,7 +193,7 @@ console.log(maxSteel.material); //Imprime Plástico  </code></pre>
       </article>
       <article>
         <h3><span class="txt-secondary">Map</span></h3>
-        <p>El método push nos permite mapear ciertos elementos de un objeto</p>
+        <p>El método map nos permite mapear ciertos elementos de un objeto</p>
         <pre><code class="language-js">// Crea un nuevo array con los elementos de un array que cumplan una condición, en este caso creamos un nuevo array con los nombres de los artículos
         let nombreArticulos = articulos.map&lpar;function &lpar;articulo&rpar; &lbrace;
             return articulo.nombre;
@@ -197,4 +282,11 @@ for (let propiedad in persona) &lbrace;
       }
     </style>
   </main>
+  <KnoledgeForm>
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
 </BasicLayout>

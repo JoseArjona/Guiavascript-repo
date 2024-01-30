@@ -1,6 +1,56 @@
 ---
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+
+const questions = [
+  {
+    id: "1",
+    statement:
+      "¿Cuál es la diferencia entre una función declarada con `function()` y una arrow function?",
+    answers: [
+      {
+        id: "1",
+        answer:
+          "Las funciones declaradas con `function()` pueden tener una expresión de retorno, mientras que las flechas no",
+        value: "incorrect",
+        note: "Tanto las funciones declaradas con `function()` como las flechas pueden tener una expresión de retorno",
+      },
+      {
+        id: "2",
+        answer:
+          "Las funciones de flecha son funciones anónimas por lo tanto no sufren de Hoisting.",
+        value: "correct",
+        note: "Bien hecho. Las funciones normales tienen un scope global, a diferencia de las arrow function; el cual es local.",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement: "Secciona el código cuando nos referimos a argumento",
+    answers: [
+      {
+        id: "1",
+        answer: "miFuncion(parametro1, parametro2)",
+        value: "correct",
+        note: "Muy bien, cuando invocamos una función y le pasamos valores nos referimos como argumentos.",
+      },
+      {
+        id: "2",
+        answer: "function suma(num1, num2) { ... }",
+        value: "incorrect",
+        note: "Cuando creamos una función y definimos valores a tratar (que nos van a enviar) le llamamos parámetros.",
+      },
+      {
+        id: "3",
+        answer: "let arg = 'Yo soy el argumento'",
+        value: "incorrect",
+        note: "Tentador pero incorrecto, esto es una declaración de variable.",
+      },
+    ],
+  },
+];
 ---
 
 <BasicLayout
@@ -76,4 +126,12 @@ console.log(suma(2,2)); //imprime 4
 </code></pre>
     </div>
   </section>
+  <KnoledgeForm>
+    <!-- {questions.map((question) => <Question question={question} />)} -->
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
 </BasicLayout>
