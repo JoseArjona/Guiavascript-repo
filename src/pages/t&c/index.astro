@@ -1,14 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import ChipAnchor from "../../components/ChipAnchor.astro";
+import Layout from "../../layouts/ConceptLayout.astro";
 import ConceptCard from "../../components/ConceptCard.astro";
 import Search from "../../components/Search.astro";
-const SITE_TITLE = "GS-Tips&Conceptos";
-const SITE_DESCRIPTION =
-  "Tips y concejos que te ayudaran a mejorar tu entendimiento de Javascript y sus temas relacionados";
+
+const posts = await Astro.glob("./*.{md,mdx}");
 ---
 
-<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<Layout href="/">
+  <Search />
   <div class="area">
     <ul class="circles">
       <li></li>
@@ -23,94 +22,17 @@ const SITE_DESCRIPTION =
       <li></li>
     </ul>
   </div>
-  <header class="flex center f-col">
-    <h1 class="txt-center display-2 txt-white">Tips & Conceptos</h1>
-    <ChipAnchor href="/" target="_self" color="white br-primary">
-      Ir al Inicio
-    </ChipAnchor>
-  </header>
-  <Search />
   <main class="grid col-3 md-col-2 sm-col-2 txt-white" id="posts">
-    <ConceptCard>
-      <h2 id="scope">Scope/Alcance</h2>
-      <p>
-        El alcance es el área de un programa en el que una variable o función es
-        visible/usable. En otras palabras, es el lugar donde se puede acceder a
-        una variable o función.
-      </p>
-      <p>
-        En JavaScript las variables <span class="txt-blue">const y let</span> tiene
-        un alcance por bloque a diferencia de <span class="txt-red">var</span>.
-        Es por ello que no se recomienda su uso.
-      </p>
-    </ConceptCard>
-    <ConceptCard>
-      <h2 id="hoisting">Hoisting/Elevación</h2>
-      <p>
-        La elevación es un comportamiento especial de JavaScript que hace que
-        las variables declaradas en la parte superior de un bloque de código
-        sean visibles desde el principio del bloque.
-      </p>
-      <p>
-        En otras palabras hace que una variable o función tengan un scope global
-        en el archivo.
-      </p>
-    </ConceptCard>
-    <ConceptCard>
-      <h2 id="param">Parámetros</h2>
-      <p>
-        Un parámetro es una variable que se pasa a una función como entrada.
-      </p>
-      <pre><code>function miFuncion(<span class="txt-green">parametro</span>) &lbrace;
-  console.log(parametro);
-&rbrace; </code></pre>
-    </ConceptCard>
-    <ConceptCard>
-      <h2 id="arg">Argumento</h2>
-      <p>
-        Un argumento es el valor que se pasa a una función cuando se invoca.
-      </p>
-      <pre><code>miFuncion(<span class="txt-green">"Juan"</span>);</code> // Juan es el argumentó</pre>
-    </ConceptCard>
-    <ConceptCard>
-      <h2 id="gclaus">Guard Clauses</h2>
-      <p>
-        Las Guard Clauses son una técnica de refactorización que se utiliza para
-        mejorar la legibilidad y la mantenibilidad del código. Consisten en
-        reemplazar una serie de condiciones anidadas por una única condición que
-        evalúa si la variable en cuestión tiene un valor válido. Ejemplo:
-      </p>
-
-      <!-- TODO EXAMPLE  -->
-
-      <!-- function userIsAdmin(user) {
- if (user.role == 'admin') {
-  if (user.manager == true) {
-   return true;
-  }
-  else {
-  return false;
-  }
- }
- else {
-  return false;
- }
-} -->
-
-      <!-- function userIsAdmin(user) {
- if (user.role == 'admin') {
-  if (user.manager == true) {
-   return true;
-  }
-  else {
-  return false;
-  }
- }
- else {
-  return false;
- }
-} -->
-    </ConceptCard>
+    {
+      posts.map((post) => (
+        <a href={post.url}>
+          <ConceptCard>
+            <h2 id="scope">{post.frontmatter.title}</h2>
+            <p>{post.frontmatter.description}</p>
+          </ConceptCard>
+        </a>
+      ))
+    }
   </main>
 </Layout>
 
@@ -127,6 +49,11 @@ const SITE_DESCRIPTION =
     margin: 0;
     margin-top: 5px;
     text-wrap: pretty;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 
   main {
@@ -146,6 +73,7 @@ const SITE_DESCRIPTION =
     width: 100%;
     height: 100%;
     overflow: hidden;
+    z-index: -1;
   }
 
   .circles li {
@@ -157,7 +85,7 @@ const SITE_DESCRIPTION =
     background: rgba(231, 221, 71, 0.87);
     animation: animate 25s linear infinite;
     bottom: -150px;
-    z-index: -1;
+    z-index: -999;
   }
 
   .circles li:nth-child(1) {
