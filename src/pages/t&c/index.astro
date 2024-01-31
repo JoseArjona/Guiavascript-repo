@@ -29,6 +29,9 @@ const posts = await Astro.glob("./*.{md,mdx}");
           <ConceptCard>
             <h2 id="scope">{post.frontmatter.title}</h2>
             <p>{post.frontmatter.description}</p>
+            <p>
+              <i>clic para más</i>
+            </p>
           </ConceptCard>
         </a>
       ))
