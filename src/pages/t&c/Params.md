@@ -1,14 +1,24 @@
 ---
 layout: "../../layouts/ContentLayout.astro"
 title: "Parámetro"
-description: "Un parámetro es una variable que se pasa a una función como entrada."
+description: "Los parámetros son las variables que se definen dentro de una función."
 related: [{ href: "Arguments", title: "Argumento" }]
 ---
 
-Un parámetro es una variable que se pasa a una función como entrada.
+Los parámetros son las variables que se definen dentro de una función para recibir los datos que necesita para realizar su tarea.
+
+Las funciones pueden tener cero o más parámetros. Los parámetros se definen entre paréntesis después del nombre de la función.
 
 ```js
-function miFuncion(parametro) {
-  console.log(parametro);
+function sumar(numero1, numero2) {
+  return numero1 + numero2;
 }
+
+const resultado = sumar(5, 10); // 15
+
+// En este ejemplo:
+// "sumar" es la función
+ "numero1" y "numero2" son los parámetros de la función
+// 5 y 10 son los argumentos que se le pasan a la función
+// "resultado" es la variable que almacena el valor devuelto por la función
 ```

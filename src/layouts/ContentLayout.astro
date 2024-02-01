@@ -19,10 +19,9 @@ const {
 ---
 
 <Layout href="./">
-  <main class="txt-white" style="z-index: 999; margin-bottom: 80px;">
+  <main class="txt-white" style="z-index: 999;">
     <article class="container card primary" style="margin: auto; ">
       <h1>{title}</h1>
-      <br />
       <div>
         <slot />
       </div>
@@ -47,3 +46,16 @@ const {
     </footer>
   </main>
 </Layout>
+
+<style>
+  h1 {
+    margin-bottom: 0;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+  li code {
+    color: rgb(171, 206, 226) !important;
+  }
+</style>

@@ -1,16 +1,27 @@
 ---
 layout: "../../layouts/ContentLayout.astro"
 title: "Hoisting"
-description:
-  " La elevación es un comportamiento especial de JavaScript que hace que
-  las variables declaradas en la parte superior de un bloque de código
-  sean visibles desde el principio del bloque."
+description: "El Hoisting es un comportamiento del motor de JavaScript que eleva las declaraciones de variables y funciones."
 related: [{ href: "Scope", title: "Alcance" }]
 ---
 
-La elevación es un comportamiento especial de JavaScript que hace que
-las variables declaradas en la parte superior de un bloque de código
-sean visibles desde el principio del bloque.
+El Hoisting es un comportamiento del motor de JavaScript que eleva las declaraciones de variables y funciones al principio del ámbito en el que se encuentran, antes de que se ejecuten otras líneas de código en el mismo ámbito.
 
-En otras palabras hace que una variable o función tengan un scope global
-en el archivo.
+Esto significa que las variables y funciones pueden ser utilizadas antes de ser declaradas.
+
+```js
+console.log(miVariable);
+
+var miVariable = "Hola mundo!";
+
+// En este ejemplo:
+// "miVariable" se usa antes de ser declarada
+// El motor de JavaScript eleva la declaración de "miVariable" al principio del ámbito
+```
+
+#### Puntos importantes:
+
+- El Hoisting permite usar variables y funciones antes de declararlas.
+- Las variables y funciones se elevan al principio del ámbito en el que se encuentran.
+- Es importante tener cuidado al usar el Hoisting, ya que puede generar errores si no se utiliza correctamente.
+- Se puede usar las palabras clave <span class="txt-blue">const y let</span> para evitar el Hoisting de variables.
