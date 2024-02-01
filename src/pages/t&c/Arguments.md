@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/ContentLayout.astro"
-title: "Argumento"
+title: "Argumentos"
 description: "Un argumento es el valor que se pasa a una función cuando se invoca."
 related: [{ href: "Params", title: "Parámetro" }]
 ---
