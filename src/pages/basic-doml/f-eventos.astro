@@ -10,6 +10,113 @@ import Kup from "../../components/dom/Kup.astro";
 import Resize from "../../components/dom/Resize.astro";
 import Scroll from "../../components/dom/Scroll.astro";
 import Load from "../../components/dom/Load.astro";
+
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+
+const questions = [
+  {
+    id: "1",
+    statement:
+      "¿Cuál de las siguientes expresiones agrega un evento `click` al elemento con el ID `miid`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').onclick = function() { alert('Hola') }`,
+        value: "incorrect2",
+        note: "La propiedad `onclick` está en desuso, se recomienda usar `addEventListener`",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').addEventListener('click', function() { alert('Hola') })`,
+        value: "correct",
+        note: "El método `addEventListener` es la forma moderna de agregar eventos a los elementos",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('miid').click()`,
+        value: "incorrect",
+        note: "El método `click()` simula un clic en el elemento, no agrega un evento",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement:
+      "¿Cuál de las siguientes expresiones se ejecuta cuando el usuario hace doble clic en el elemento con el ID `miid`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').onclick = function() { alert('Hola') }`,
+        value: "incorrect",
+        note: "El evento `onclick` se ejecuta con un solo clic, no con un doble clic",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').addEventListener('dblclick', function() { alert('Hola') })`,
+        value: "correct",
+        note: "El evento `dblclick` se ejecuta cuando el usuario hace doble clic en el elemento",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('miid').onmousedown = function() { alert('Hola') }`,
+        value: "incorrect2",
+        note: "El evento `onmousedown` se ejecuta cuando el usuario presiona el botón del mouse sobre el elemento, no con un doble clic",
+      },
+    ],
+  },
+  {
+    id: "3",
+    statement:
+      "¿Cuál de las siguientes expresiones se ejecuta cuando se presiona una tecla en el elemento con el ID `miid`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').addEventListener('keydown', function() { ... });`,
+        value: "correct",
+        note: "El evento `keydown` se ejecuta cuando se presiona una tecla en el elemento",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').addEventListener('keypress', function() { ... });`,
+        value: "incorrect",
+        note: "El evento `keypress` se ejecuta cuando se presiona una tecla y se libera, no solo cuando se presiona",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('miid').addEventListener('keyup', function() { ... });`,
+        value: "incorrect2",
+        note: "El evento `keyup` se ejecuta cuando se libera una tecla después de presionarla",
+      },
+    ],
+  },
+  {
+    id: "4",
+    statement:
+      "¿Cuál de las siguientes expresiones se ejecuta cuando se redimensiona la ventana del navegador?",
+    answers: [
+      {
+        id: "1",
+        answer: `window.addEventListener('resize', function() { ... });`,
+        value: "correct",
+        note: "El evento `resize` se ejecuta cuando se redimensiona la ventana del navegador",
+      },
+      {
+        id: "2",
+        answer: `document.body.addEventListener('resize', function() { ... });`,
+        value: "incorrect",
+        note: "El evento `resize` no se puede agregar al elemento `body`, solo al objeto `window`",
+      },
+      {
+        id: "3",
+        answer: `document.addEventListener('scroll', function() { ... });`,
+        value: "incorrect2",
+        note: "El evento `scroll` se ejecuta cuando se desplaza la página, no cuando se redimensiona la ventana",
+      },
+    ],
+  },
+];
+
 const title = "Eventos";
 const description =
   "Los eventos son interacciones del usuario con el documento HTML, como hacer clic en un botón o pasar el cursor por encima de un elemento. Los eventos se pueden utilizar para controlar el comportamiento de la página web en respuesta a estas interacciones.";
@@ -61,7 +168,7 @@ const description =
 const saludar = () => (helloBtn.innerText = "HOLA 🖐️");
 helloBtn.addEventListener("click", saludar);</code></pre>
           <footer>
-            <Click  />
+            <Click />
           </footer>
         </article>
         <article class="card primary span-2 md-span-4">
@@ -79,7 +186,7 @@ helloBtn.addEventListener("click", saludar);</code></pre>
 const hot = () => (hotBtn.innerText = "Tranquilo vas a quemar el botón😳🔥");
 hotBtn.addEventListener("dblclick", hot);</code></pre>
           <footer>
-            <Dbclick  />
+            <Dbclick />
           </footer>
         </article>
         <article class="card primary span-4 md-span-4">
@@ -96,7 +203,7 @@ hotBtn.addEventListener("dblclick", hot);</code></pre>
 const surprise = () => (p.innerText = "Hola 😏");
 p.addEventListener("mouseenter", surprise);;</code></pre>
           <footer>
-            <Mousenter  />
+            <Mousenter />
           </footer>
         </article>
         <article class="card primary span-4 md-span-4">
@@ -116,11 +223,11 @@ p.addEventListener("contextmenu", surprise);</code></pre>
             Para este caso también usamos<strong>e.preventDefault();</strong>,
             que es para eliminar el comportamiento por defecto del navegador,
             que en este casos seria mostrar el menu habitual del navegador. Y
-            por si te preguntas la <strong>e</strong> que se le pasa en la
-            función corresponde al evento.
+            por si te preguntas la <strong>e</strong> que se le pasa en la función
+            corresponde al evento.
           </p>
           <footer>
-            <Cmenu  />
+            <Cmenu />
           </footer>
         </article>
       </div>
@@ -141,7 +248,7 @@ const change = (e) => (p.innerText = e.key);
 //Usamos document para leer todo el documento (la pagina.) 
 document.addEventListener("keydown", change);</code></pre>
           <footer>
-            <Kdwon  />
+            <Kdwon />
           </footer>
         </article>
         <article class="card primary span-2 md-span-4">
@@ -156,7 +263,7 @@ document.addEventListener("keydown", change);</code></pre>
 const change = (e) => (p.innerText = e.key); 
 document.addEventListener("keyup", change);</code></pre>
           <footer>
-            <Kup  />
+            <Kup />
           </footer>
         </article>
       </section>
@@ -169,8 +276,7 @@ document.addEventListener("keyup", change);</code></pre>
           <p>
             Podemos agregar un evento para que escuche cuando se cambie el
             tamaño de la pantalla. Usando el el evento <strong>"resize"</strong>
-             Y refriéndose a <strong>"window"</strong> si desear medir toda la
-            pagina.
+            Y refriéndose a <strong>"window"</strong> si desear medir toda la pagina.
           </p>
           <pre><code class="language-html">&lt;!--HTML--&gt;
 &lt;p id="key" &gt;Altura de la ventana: &lt;span id="height"&gt;&lt;/span&gt;&lt;/p&gt;
@@ -184,7 +290,7 @@ const change = () => &lbrace;
 &rbrace;;
 window.addEventListener("resize", change);</code></pre>
           <footer>
-            <Resize  />
+            <Resize />
           </footer>
           <br />
           <p>
@@ -194,49 +300,64 @@ window.addEventListener("resize", change);</code></pre>
           </p>
         </article>
         <article class="card primary">
-          <h4 class="txt-green">Evento resize</h4>
+          <h4 class="txt-green">Evento scroll</h4>
           <p>
-            Podemos agregar un evento para que escuche cuando se carga la
-            pagina. Usando el el evento <strong>"load"</strong>
-             Y refriéndose a <strong>"window"</strong>
+            Podemos agregar un evento para que escuche cuando se hace scroll en
+            la pagina. Usando el el evento <strong>"scroll"</strong>
+            Y pasandole como argumento nuestra función.
           </p>
-          <pre><code class="language-js">const change = () => &lbrace;
-const body = document.querySelector("#section");
-body.style.backgroundColor = "#0000";
-console.log("Load");
+          <pre><code class="language-html">&lt;!--HTML--&gt;
+&lt;section class="flex center f-col br-secondary"&gt;
+&lt;h2&gt;Evento Scroll&lt;/h2&gt;
+&lt;p&gt;Haz un scroll y después espera 1 seg &lt;span id="scroll"&gt;Scrolleando...&lt;/span&gt;&lt;/p&gt; &lt;/section&gt;</code></pre>
+          <pre><code class="language-js">const scroll = document.querySelector("#scroll");
+const changeScroll = () => &lbrace;
+  scroll.textContent = "Scrolleando...";
+  // Color temporal al hacer scroll
+  scroll.style.color = "lightblue";
+  // Volver al color original tras 1 segundo
+  setTimeout(() => &lbrace;
+    scroll.style.color = "#fff";
+  &rbrace;, 1000);
 &rbrace;;
-window.addEventListener("load", change);</code></pre>
+window.addEventListener("scroll", changeScroll);</code></pre>
           <footer>
-            <Scroll  />
+            <Scroll />
           </footer>
         </article>
         <article class="card primary">
           <h4 class="txt-green">Evento load</h4>
           <p>
             Podemos agregar un evento para que escuche cuando se cambie el
-            tamaño de la pantalla. Usando el el evento <strong>"resize"</strong>
-             Y refriéndose a <strong>"window"</strong> si desear medir toda la
-            pagina.
+            tamaño de la pantalla. Usando el el evento <strong>"load"</strong> y
+            pasando como argumento nuestra función.
           </p>
           <pre><code class="language-html">&lt;!--HTML--&gt;
 &lt;section class="flex center f-col br-secondary" id="load"&gt;Recarga la pagina y observa el color de fondo&lt;/section&gt;</code></pre>
           <pre><code class="language-js">const body = document.querySelector("#load");
 const change = () => &lbrace;
-// Color temporal al recargar
-body.style.backgroundColor = "#182f4a";
-// Volver al color original tras 2 segundo
-setTimeout(() => &lbrace;
-body.style.backgroundColor = "#2d2d2d";
-&rbrace;,2000);
+ // Color temporal al recargar
+ body.style.backgroundColor = "#182f4a";
+ // Volver al color original tras 2 segundo
+ setTimeout(() => &lbrace;
+ body.style.backgroundColor = "#2d2d2d";
+ &rbrace;,2000);
 &rbrace;;
-window.addEventListener("scroll", change);</code></pre>
+window.addEventListener("load", change);</code></pre>
           <footer>
-            <Load  />
+            <Load />
           </footer>
         </article>
       </section>
     </section>
   </main>
+  <KnoledgeForm>
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
 </DomLayout>
 <style>
   section h4 {

@@ -1,6 +1,86 @@
 ---
 import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+
+const questions = [
+  {
+    id: "1",
+    statement:
+      "¿Cuál de las siguientes expresiones devuelve el primer elemento con la etiqueta `<div>`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.querySelector('div')`,
+        value: "correct",
+        note: "La expresión `document.querySelector('div')` devuelve el primer elemento con la etiqueta `<div>`",
+      },
+      {
+        id: "2",
+        answer: `document.getElementsByTagName('div')`,
+        value: "incorrect",
+        note: "La expresión `document.getElementsByTagName('div') devuelve todos los elementos con la etiqueta `<div>`",
+      },
+      {
+        id: "3",
+        answer: `document.querySelectorAll('div')`,
+        value: "nop",
+        note: "La expresión `document.querySelectorAll('div')` devuelve una colección de todos los elementos con la etiqueta `<div>`",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement:
+      "¿Cuál de las siguientes expresiones devuelve todos los elementos con la clase `miclase`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.selectAllClasses('miclase')`,
+        value: "incorrect2",
+        note: "selectAllClasses no existe.",
+      },
+      {
+        id: "2",
+        answer: `document.querySelector('.miclase')`,
+        value: "incorrect",
+        note: "La expresión `document.querySelector('.miclase')` devuelve el primer elemento con la clase `miclase`",
+      },
+      {
+        id: "3",
+        answer: `document.querySelectorAll('.miclase')`,
+        value: "correct",
+        note: "La expresión `document.querySelectorAll('.miclase')` devuelve una colección de todos los elementos con la clase `miclase`",
+      },
+    ],
+  },
+  {
+    id: "3",
+    statement:
+      "¿Cuál de las siguientes expresiones nos permite usar selectores CSS?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementsByTagName('h1')`,
+        value: "incorrect",
+        note: "La expresión `document.getElementsByTagName('h1')` es usada unicamente para seleccionar por nombre de etiqueta.",
+      },
+      {
+        id: "2",
+        answer: `document.querySelector('#miid')`,
+        value: "correct",
+        note: "La expresión `document.querySelector('miid')` noe esta bien escrita, para que devuelva el id se tiene que usar el # antes del id: ",
+      },
+      {
+        id: "3",
+        answer: `document.getByCSS('.clase')`,
+        value: "no",
+        note: "La expresión `document.getByCSS('.clase')` no existe.",
+      },
+    ],
+  },
+];
 
 const title = "Selección de Elementos";
 const description =
@@ -80,14 +160,14 @@ console.log(clase); </code></pre>
           Existe otra forma de seleccionar elementos de un manera más flexible y
           muy similar a como lo haríamos con CSS. Y para ello usamos el método <code
             class="txt-yellow">querySelector</code
-          > o <code class="txt-yellow">querySelectorAll</code> si queremos
-          seleccionar más de un elemento. <br />
-           Esta forma nos permite dentro del método poner la selección como si
-          lo hiciéramos en CSS, simplemente poniendo <code class="txt-blue"
+          > o <code class="txt-yellow">querySelectorAll</code> si queremos seleccionar
+          más de un elemento. <br />
+          Esta forma nos permite dentro del método poner la selección como si lo
+          hiciéramos en CSS, simplemente poniendo <code class="txt-blue"
             >".clase" o "#id"</code
-          > para las clases o id, y para los elementos usamos simplemente el
-          nombre del elemento <code class="txt-blue">h1</code> sin los símbolos
-          de mayor y menor que.
+          > para las clases o id, y para los elementos usamos simplemente el nombre
+          del elemento <code class="txt-blue">h1</code> sin los símbolos de mayor
+          y menor que.
           <pre><code class="language-js">// Seleccionar por querySelector
 const h1 = document.querySelector("h1"); // Por TAG
 const clase = document.querySelector(".clase"); // Por Clase          
@@ -100,8 +180,8 @@ console.log(btnEnviar);
 const botones = document.querySelectorAll('button')
 </code></pre>
           <p>
-            El uso de <code class="txt-yellow">querySelector</code> sobre la
-            selección típica. Dependerá del uso. Generalmente usar <code
+            El uso de <code class="txt-yellow">querySelector</code> sobre la selección
+            típica. Dependerá del uso. Generalmente usar <code
               class="txt-yellow">querySelector</code
             > es recomendable por su flexibilidad sin embargo, para la selección
             por ID o si requieres de más información es µas eficiente <code
@@ -113,6 +193,13 @@ const botones = document.querySelectorAll('button')
       </article>
     </section>
   </main>
+  <KnoledgeForm>
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
   <style>
     section p {
       margin: 0;

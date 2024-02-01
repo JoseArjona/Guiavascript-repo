@@ -1,6 +1,85 @@
 ---
 import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+const questions = [
+  {
+    id: "1",
+    statement:
+      "¿Cuál de las siguientes expresiones modifica el texto del elemento con el ID `miid`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').innerHTML = 'Nuevo texto'`,
+        value: "incorrect",
+        note: "La propiedad `innerHTML` modifica el contenido HTML del elemento, no solo el texto",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').textContent = 'Nuevo texto'`,
+        value: "correct",
+        note: "La propiedad `textContent` modifica el texto del elemento",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('miid').text = 'Nuevo texto'`,
+        value: "nop",
+        note: "La propiedad `.text ` no existe",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement:
+      "¿Cuál de las siguientes expresiones cambia el color de fondo del elemento con el ID `miid` a rojo?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').style.backgroundColor = 'red'`,
+        value: "correct",
+        note: "La propiedad `style` permite modificar estilos CSS del elemento",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').backgroundColor = 'red'`,
+        value: "incorrect",
+        note: "No se puede acceder directamente a la propiedad `backgroundColor` del elemento",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('miid').bgColor('red')`,
+        value: "nop",
+        note: "'.bgColor('red')' no existe",
+      },
+    ],
+  },
+  {
+    id: "3",
+    statement:
+      "¿Cuál de las siguientes expresiones modifica el valor del elemento input con el ID `miid`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').value = 'Nuevo valor'`,
+        value: "correct",
+        note: "La propiedad `value` modifica el valor del elemento input",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').innerHTML = 'Nuevo valor'`,
+        value: "incorrect",
+        note: "La propiedad `innerHTML` modifica el contenido HTML del elemento, no el valor",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('miid').textContent = 'Nuevo valor'`,
+        value: "incorrect2",
+        note: "La propiedad `textContent` modifica el texto del elemento, no el valor",
+      },
+    ],
+  },
+];
 
 const title = "Modificando Valores";
 const description =
@@ -27,9 +106,8 @@ const description =
         <p>
           Podemos modificar el texto del elemento seleccionado. Usando el método
 
-
-          <code class="txt-secondary">.textContent = "Nuevo Mundo"</code> e
-          igualándolo al valor nuevo.
+          <code class="txt-secondary">.textContent = "Nuevo Mundo"</code> e igualándolo
+          al valor nuevo.
         </p>
         <pre><code class="language-html">&lt;!--HTML--&gt;
 &lt;h1 id='hello'&gtHola Mundo&lt;/h1&gt;
@@ -50,17 +128,16 @@ helloText.textContent = "Nuevo mundo"; </code></pre>
         <pre><code class="language-html">&lt;!--HTML--&gt;
 &lt;h1 id='hello'&gtHola Mundo&lt;/h1&gt;</code></pre>
         <pre><code class="language-js">const helloText = document.getElementById('hello')
-// Modificado el texto del elemento
-helloText.textContent = "Nuevo mundo"; </code></pre>
+// Modificado el color de texto del elemento
+helloText.style.color = "#ff3"; </code></pre>
       </article>
       <article class="card primary span-2 md-span-4">
         <h4 class="txt-green">Modificar el valor del elemento</h4>
         <p>
           Podemos modificar el valor del elemento seleccionado. Usando el método
 
-
-          <code class="txt-secondary">.value = "Modificado desde JS"</code> e
-          igualándolo al valor nuevo.
+          <code class="txt-secondary">.value = "Modificado desde JS"</code> e igualándolo
+          al valor nuevo.
         </p>
         <pre><code class="language-html">&lt;!--HTML--&gt;
 &lt;input type="text" id="input" placeholder="Escribe el Nombre"&gt;
@@ -97,6 +174,13 @@ input.placeholder = "Escribe tu Nombre.."; </code></pre>
       </article>
     </section>
   </main>
+  <KnoledgeForm>
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
   <style>
     section h4 {
       margin-bottom: 10px;

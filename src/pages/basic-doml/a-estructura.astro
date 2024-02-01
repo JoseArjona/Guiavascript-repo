@@ -1,6 +1,77 @@
 ---
 import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+
+const questions = [
+  {
+    id: "1",
+    statement: "¿Cuál de los siguientes es un tipo de nodo del DOM?",
+    answers: [
+      {
+        id: "1",
+        answer: "Element",
+        value: "correct",
+        note: "Los elementos son los nodos más comunes del DOM. Representan elementos HTML, como `div`, `p` y `img`.",
+      },
+      {
+        id: "2",
+        answer: "href",
+        value: "incorrect",
+        note: "href es el nombre de un atributo. Pero no es catalogado de forma directa un tipo de nodo.",
+      },
+      {
+        id: "3",
+        answer: "CSS",
+        value: "incorrect2",
+        note: "CSS no es un tipo de nodo",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement: "La relación más importante es la relación padre-hijo.",
+    answers: [
+      {
+        id: "1",
+        answer: "Falso",
+        value: "incorrect",
+        note: "La relación más importante es la de padre-hijo, cada nodo tiene un nodo padre ",
+      },
+      {
+        id: "2",
+        answer: "Verdadero",
+        value: "correct",
+        note: "Genial.",
+      },
+    ],
+  },
+  {
+    id: "3",
+    statement: "¿Cuál es la relación entre un elemento y su contenido?",
+    answers: [
+      {
+        id: "1",
+        answer: "El elemento es el padre del contenido",
+        value: "correct",
+        note: "El contenido siempre está dentro de un elemento. Por lo tanto, el elemento es el padre del contenido.",
+      },
+      {
+        id: "2",
+        answer: "El contenido es el padre del elemento",
+        value: "incorrect",
+        note: "El contenido nunca puede estar dentro de otro elemento. Por lo tanto, el contenido no puede ser el padre del elemento.",
+      },
+      {
+        id: "3",
+        answer: "Los dos no están relacionados",
+        value: "incorrect2",
+        note: "Los elementos y el contenido están relacionados. El elemento es el padre del contenido.",
+      },
+    ],
+  },
+];
 
 const title = "Estructura del Dom";
 const description =
@@ -47,16 +118,16 @@ DOM
             de texto.
           </li>
           <li>
-            <span class="txt-blue">Nodo de comentario:</span> Representa un
-            comentario HTML.
+            <span class="txt-blue">Nodo de comentario:</span> Representa un comentario
+            HTML.
           </li>
           <li>
-            <span class="txt-blue">Nodo de atributo:</span> Representa un
-            atributo de un elemento HTML.
+            <span class="txt-blue">Nodo de atributo:</span> Representa un atributo
+            de un elemento HTML.
           </li>
           <li>
-            <span class="txt-blue">Nodo de documento:</span> Representa el
-            documento HTML completo.
+            <span class="txt-blue">Nodo de documento:</span> Representa el documento
+            HTML completo.
           </li>
         </ul>
       </article>
@@ -70,7 +141,7 @@ DOM
           elementos HTML dentro de un contenedor <span class="txt-secondary"
             >&lt;div/&gt;</span
           >
-           son nodos hijos del <span class="txt-secondary">&lt;div/&gt;</span>.
+          son nodos hijos del <span class="txt-secondary">&lt;div/&gt;</span>.
         </p>
         <p>Otras relaciones</p>
         <ul>
@@ -111,7 +182,13 @@ DOM
       </article>
     </section>
   </main>
-
+  <KnoledgeForm>
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
   <style>
     ul {
       margin-top: 0;
