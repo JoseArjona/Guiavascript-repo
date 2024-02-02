@@ -1,6 +1,78 @@
 ---
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+
+const questions = [
+  {
+    id: "1",
+    statement: "¿Los arrays son mutables o inmutables?",
+    answers: [
+      {
+        id: "1",
+        answer: "Mutables",
+        value: "correct",
+        note: "Los arrays son mutables, es decir, se pueden modificar después de su creación",
+      },
+      {
+        id: "2",
+        answer: "Inmutables",
+        value: "incorrect",
+        note: "Los arrays son mutables, es decir, se pueden modificar después de su creación",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement:
+      "¿Cuál es el método correcto para agregar un elemento al final de un array?",
+    answers: [
+      {
+        id: "1",
+        answer: "array.push(elemento)",
+        value: "correct",
+        note: "El método `push()` agrega un elemento al final de un array",
+      },
+      {
+        id: "2",
+        answer: "array.append(elemento)",
+        value: "incorrect",
+        note: "El método `append()` no existe en JS",
+      },
+      {
+        id: "3",
+        answer: "array.insert(0, elemento)",
+        value: "incorrect2",
+        note: "El método `insert()` inserta un elemento en una posición determinada",
+      },
+    ],
+  },
+  {
+    id: "3",
+    statement: "¿Cuál de los siguientes métodos devuelve un nuevo array?",
+    answers: [
+      {
+        id: "1",
+        answer: "push()",
+        value: "incorrect",
+        note: "El método `push()` modifica el array original",
+      },
+      {
+        id: "2",
+        answer: "pop()",
+        value: "incorrect2",
+        note: "El método `pop()` modifica el array original",
+      },
+      {
+        id: "3",
+        answer: "slice()",
+        value: "correct",
+        note: "El método `slice()` devuelve un nuevo array con los elementos seleccionados",
+      },
+    ],
+  },
+];
 ---
 
 <BasicLayout
@@ -18,7 +90,10 @@ import ProgressBar from "../../components/ProgressBar.astro";
         español tienen una representación visual como la siguiente:
       </p>
       <picture class="img"
-        ><img src="../assets/arrays.png" alt="arrays-guivascript" />
+        ><img
+          src="	https://guiavascript.netlify.app/img/arrays.png"
+          alt="arrays-guivascript"
+        />
       </picture>
       <p>
         Los arrays funcionan mediante índices, es decir, cada valor tiene un
@@ -34,10 +109,13 @@ import ProgressBar from "../../components/ProgressBar.astro";
       <h2><span class="txt-blue">Mutabilidad en Arrays</span></h2>
       <p>
         La mutabilidad en los arrays es muy importante, ya que nos permite
-        cambiar el valor de un elemento en el array. Para esto se utiliza el
-        índice del elemento que queremos cambiar y se le asigna el nuevo valor.
+        cambiar el valor de un elemento en el array posterior a su declaración.
+        Para esto se utiliza el índice del elemento que queremos cambiar y se le
+        asigna el nuevo valor.
       </p>
       <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
+frutas[0] = '🍓';
+console.log(frutas);  // Imprime ['🍓', '🍈','🍉','🍊']
 </code></pre>
     </article>
     <article class="card primary container">
@@ -92,7 +170,14 @@ console.log=(frutas.indexOf('🍈');) // Imprime 1
 console.log=(frutas.includes('🍈');) // Imprime true
 </code></pre>
       <h3><span class="txt-secondary">Join</span></h3>
-      <p>El método join devuelve un string con todos los elementos del array</p>
+      <p>
+        El método join() es un método de los objetos array que se utiliza para
+        concatenar los elementos de un array en una sola cadena.El método
+        devuelve una nueva cadena que contiene los elementos especificados. <br
+        />
+        Como argumento se le pasa el separador a tratar. Si no se especifica, el
+        separador predeterminado es una coma.
+      </p>
       <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
 console.log=(frutas.join('');) // Imprime 🍇🍈🍉🍊
 </code></pre>
@@ -101,6 +186,19 @@ console.log=(frutas.join('');) // Imprime 🍇🍈🍉🍊
         El método slice devuelve un nuevo array con los elementos seleccionados,
         como el nombre lo indica es como cortar el array.
       </p>
+      <p>
+        Los argumentos a pasar son: <br />
+      </p>
+      <ul>
+        <li>
+          inicio: Índice del primer elemento a extraer. Si no se especifica, el
+          inicio se establece en 0.
+        </li>
+        <li>
+          fin: Índice del último elemento a extraer. Si no se especifica, el fin
+          se establece en el número de elementos del array.
+        </li>
+      </ul>
       <pre><code class="language-js">const frutas = ['🍇', '🍈','🍉','🍊'];
 // Ingresa los indices de inicio y fin     
 console.log=(frutas.slice(1,3);) // Imprime ['🍈','🍉']  un array con los elementos seleccionados
@@ -123,4 +221,12 @@ console.log=(frutas.slice(1,3);) // Imprime ['🍈','🍉']  un array con los el
       }
     </style>
   </main>
+  <KnoledgeForm>
+    <!-- {questions.map((question) => <Question question={question} />)} -->
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
 </BasicLayout>

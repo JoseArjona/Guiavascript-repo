@@ -1,6 +1,85 @@
 ---
 import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+const questions = [
+  {
+    id: "1",
+    statement:
+      "¿Cuál de las siguientes expresiones devuelve todas las clases del elemento con la etiqueta `<div>`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.querySelector('div').classList`,
+        value: "correct",
+        note: "La expresión `document.querySelector('div').classList` devuelve un objeto `NodeList` con todas las clases del elemento con la etiqueta `<div>`",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('div').classList`,
+        value: "incorrect",
+        note: "La expresión `document.getElementById('div').classList` devuelve las clases de un elemento con el id 'div'",
+      },
+      {
+        id: "3",
+        answer: `document.getElementsByTagName('div').getAllClasses`,
+        value: "incorrect2",
+        note: "La expresión `document.getElementsByTagName('div').getAllClasses` no existe.",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement:
+      "¿Cuál de las siguientes expresiones asigna el valor `mivalor` al atributo `class` del elemento con el ID `miid`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').class = 'mivalor'`,
+        value: "incorrect",
+        note: "La propiedad `class` no existe, se debe usar `classList`",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').add(atribute = 'mivalor')`,
+        value: "incorrect2",
+        note: "La expresión `document.getElementById('miid').add(atribute = 'mivalor')` no existe",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('miid').setAttribute('class', 'mivalor')`,
+        value: "correct",
+        note: "La expresión `document.getElementById('miid').setAttribute('class', 'mivalor')` asigna el valor `mivalor` al atributo `class` del elemento con el ID `miid`",
+      },
+    ],
+  },
+  {
+    id: "3",
+    statement:
+      "¿Cuál de las siguientes expresiones comprueba si el elemento con el ID `miid` tiene la clase `miclase`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').class === 'miclase'`,
+        value: "incorrect",
+        note: "La propiedad `class` no existe, se debe usar `classList`",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').classList.contains('miclase')`,
+        value: "correct",
+        note: "La expresión `document.getElementById('miid').classList.contains('miclase')` comprueba si el elemento con el ID `miid` tiene la clase `miclase`",
+      },
+      {
+        id: "3",
+        answer: `document.getAttribute('.miid')`,
+        value: "incorrect2",
+        note: "La expresión `document.getAttribute('.miid')` no existe de esta forma. Primero se tiene que seleccionar el elemento para obtener el atributo y posteriormente comprobarlo.",
+      },
+    ],
+  },
+];
 
 const title = "Obteniendo Valores";
 const description =
@@ -44,8 +123,8 @@ console.log(placeHolder);</code></pre>
           Podemos modificar el valor de un atributo del elemento seleccionado.
           Usando el método <code class="txt-secondary"
             >.setAttribute('placeholder','modificado')</code
-          > y pasándole como primer argumento el atributo al que deseamos
-          modificar y el segundo argumento el nuevo valor.
+          > y pasándole como primer argumento el atributo al que deseamos modificar
+          y el segundo argumento el nuevo valor.
         </p>
         <pre><code class="language-html">&lt;!--HTML--&gt;
 &lt;input id='name' placeholder="HolaMundo"&gt;</code></pre>
@@ -66,7 +145,6 @@ console.log(inputName.getAttribute("placeholder"));</code></pre>
         <h4 class="txt-green">Obtener clases</h4>
         <p>
           Podemos obtener las clases del elemento seleccionado. Usando el método
-
 
           <code class="txt-yellow">.classList</code>
         </p>
@@ -121,11 +199,11 @@ console.log(titulo.classList.contains("text"));</code></pre>
         <p>
           Podemos agregar/eliminar una clase al elemento seleccionado. Usando el
           método <code class="txt-yellow">.classList.toggle("text")</code>
-           pasándole como argumento el nombre de la clase entre comillas. Este
-          método funciona como un switch de luz; pone y quita la clase cuando se
-          llama. Generalmente se usa acompañado de un evento y va dentro de una
-          función. Asi que no te preocupes si no lo has entendido, en la lección
-          de eventos lo veras en acción.
+          pasándole como argumento el nombre de la clase entre comillas. Este método
+          funciona como un switch de luz; pone y quita la clase cuando se llama.
+          Generalmente se usa acompañado de un evento y va dentro de una función.
+          Asi que no te preocupes si no lo has entendido, en la lección de eventos
+          lo veras en acción.
         </p>
         <pre><code class="language-html">&lt;!--HTML--&gt;
 &lt;p id="parrafo"&gt;Este es un párrafo&lt;/p&gt;</code></pre>
@@ -136,6 +214,13 @@ console.log(parrafo.classList);</code></pre>
       </article>
     </section>
   </main>
+  <KnoledgeForm>
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
   <style>
     section h4 {
       margin-bottom: 10px;

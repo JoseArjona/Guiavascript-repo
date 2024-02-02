@@ -1,0 +1,21 @@
+---
+import SchoolIcon from "../icons/SchoolIcon.astro";
+---
+
+<section class="card br-yellow primary knform">
+  <header class="flex f-row" style="gap: 10px; height: 20px;">
+    <div>
+      <SchoolIcon width="26" height="26" />
+    </div>
+    <h4>Prueba tu conocimiento</h4>
+  </header>
+  <slot />
+</section>
+
+<style>
+  .knform {
+    max-width: 900px;
+    margin: auto;
+    box-shadow: 0px 87px 78px -120px rgba(230, 179, 12, 0.274);
+  }
+</style>

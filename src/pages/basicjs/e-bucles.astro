@@ -1,7 +1,85 @@
 ---
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
-import BaseNav from "../../components/BaseNav.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+
+const questions = [
+  {
+    id: "1",
+    statement:
+      "¿Cuál de las siguientes es la sintaxis correcta para un bucle for?",
+    answers: [
+      {
+        id: "1",
+        answer: "for (let i = 0; i < 10; i++) { console.log(i); }",
+        value: "correct",
+        note: "La sintaxis correcta para un bucle for es: for (variable de control; condición; incremento/decremento) { código a ejecutar }",
+      },
+      {
+        id: "2",
+        answer: "while (i < 10) { console.log(i); i++; }",
+        value: "incorrect",
+        note: "La sintaxis escrita es para hacer un bucle while",
+      },
+      {
+        id: "3",
+        answer: "do { console.log(i); i++; } while (i < 10);",
+        value: "incorrect2",
+        note: "La sintaxis escrita es para hacer un bucle do-while",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement: "¿Qué hace la palabra reservada `break` dentro de un bucle?",
+    answers: [
+      {
+        id: "1",
+        answer: "Ejecuta el siguiente caso del switch",
+        value: "incorrect",
+        note: "La palabra reservada `break` dentro de un switch termina la ejecución del switch",
+      },
+      {
+        id: "2",
+        answer: "Ejecuta el siguiente bloque de código",
+        value: "incorrect2",
+        note: "La palabra reservada `break` dentro de un bloque de código termina la ejecución del bloque",
+      },
+      {
+        id: "3",
+        answer: "Termina la ejecución del bucle",
+        value: "correct",
+        note: "La palabra reservada `break` dentro de un bucle termina la ejecución del bucle",
+      },
+    ],
+  },
+  {
+    id: "3",
+    statement: "¿Qué hace la palabra reservada `continue` dentro de un bucle?",
+    answers: [
+      {
+        id: "1",
+        answer: "Ejecuta el siguiente caso del switch",
+        value: "incorrect",
+        note: "La palabra reservada `continue` dentro de un switch no hace nada",
+      },
+      {
+        id: "2",
+        answer: "Ejecuta el siguiente bloque de código",
+        value: "incorrect2",
+        note: "La palabra reservada `continue` dentro de un bloque de código no hace nada",
+      },
+      {
+        id: "3",
+        answer: "Salta a la siguiente iteración del bucle",
+        value: "correct",
+        note: "La palabra reservada `continue` dentro de un bucle salta a la siguiente iteración del bucle",
+      },
+    ],
+  },
+];
+
 const title = "Bucles";
 const description =
   "Los bucles son estructuras de control que nos permiten ejecutar un bloque de código repetidas veces. En JavaScript tenemos 3 tipos de bucles que son: for, while y do while.";
@@ -38,11 +116,10 @@ const description =
     <article class="card primary container-lg">
       <h3><span class="txt-blue">while</span></h3>
       <p>
-        La palabra reservada <span class="txt-green">while</span> nos permite
-        ejecutar un bloque de código repetidas veces, hasta que se cumpla una
-        condición. Un ejemplo sería que tu entrenador te pone a correr 10
-        vueltas al campo y no puedes descansar mientras no termines las 10
-        vueltas.
+        La palabra reservada <span class="txt-green">while</span> nos permite ejecutar
+        un bloque de código repetidas veces, hasta que se cumpla una condición. Un
+        ejemplo sería que tu entrenador te pone a correr 10 vueltas al campo y no
+        puedes descansar mientras no termines las 10 vueltas.
       </p>
       <pre><code class="language-js">let vueltas=0; //Declarando la variable vueltas
 while(vueltas < 10)&lbrace; //Evaluando la condición
@@ -56,9 +133,9 @@ console.log("Terminaste las 10 vueltas"); //Se ejecuta una vez que termine el ci
       <h3><span class="txt-blue">do while</span></h3>
       <p>
         La palabra reservada <span class="txt-green">do while</span> nos permite
-        ejecutar un bloque de código repetidas veces, hasta que se cumpla una
-        condición, pero nos permite ejecutar el código al menos 1 vez ya que la
-        condición es al final.
+        ejecutar un bloque de código repetidas veces, hasta que se cumpla una condición,
+        pero nos permite ejecutar el código al menos 1 vez ya que la condición es
+        al final.
       </p>
       <pre><code class="language-js">let vueltas=0; //Declarando la variable vueltas
 do&lbrace; 
@@ -71,10 +148,10 @@ console.log("Terminaste las 10 vueltas"); //Se ejecuta una vez que termine el ci
     <article class="card primary container-lg">
       <h3><span class="txt-blue">for</span></h3>
       <p>
-        La palabra reservada <span class="txt-green">for</span> nos permite
-        ejecutar un bloque de código repetidas veces, al igual que el while y do
-        while, pero nos permite declarar e incrementar el contador en la misma
-        línea, y al igual que el while se evalúa primero la condición.
+        La palabra reservada <span class="txt-green">for</span> nos permite ejecutar
+        un bloque de código repetidas veces, al igual que el while y do while, pero
+        nos permite declarar e incrementar el contador en la misma línea, y al igual
+        que el while se evalúa primero la condición.
       </p>
       <pre><code class="language-js">// la estructura es: for ( declaramos un contador; evaluamos la condicion; incrementamos el contador)
 for(let vueltas = 0; vueltas < 10; vueltas++)&lbrace; //Evaluando la condición
@@ -83,5 +160,55 @@ console.log("Vuelta: " + vueltas);
 &rbrace;
 console.log("Terminaste las 10 vueltas"); //Se ejecuta una vez que termine el ciclo</code></pre>
     </article>
+    <article class="card primary container-lg">
+      <h3><span class="txt-blue">Continue y Break</span></h3>
+      <div class="grid col-2 md-col-2 sm-col-1">
+        <p class="span-2 md-span-2 sm-span-1">
+          Continue y Break son dos palabras clave de JavaScript que se utilizan
+          para controlar el flujo de ejecución de los bucles.
+        </p>
+        <p>
+          <span class="txt-green">Continue</span> permite saltar a la siguiente iteración
+          del bucle, sin ejecutar el resto del código de la iteración actual.
+        </p>
+        <p>
+          Mientras que <span class="txt-blue">Break</span>
+          permite terminar la ejecución del bucle de forma inmediata.
+        </p>
+        <p>
+          Veamos a <span class="txt-green">Continue</span> como si fuese un puente
+          momentáneo que nos permite saltarnos una interacción.
+        </p>
+        <p>
+          Por otro lado
+          <span class="txt-blue">Break</span> es un poco más agresivo y digamos que
+          es una muralla que se aparece justo cuando por ejemplo se cumple algo y
+          decide terminar de iterar, aunque exista más carretera la muralla no dejara
+          seguir.
+        </p>
+      </div>
+      <pre><code class="language-js">// continue y break pueden ir separados o juntos, para este ejemplo lo usaremos junto
+// Bucle for Imprimirá todos los numero impares hasta llegar al 9.
+for (let i = 0; i < 10; i++) &lbrace;
+  // Si el número es par, saltar la iteración
+  if (i % 2 === 0) &lbrace;
+    continue;
+  &rbrace;
+  // Si el número es mayor a 8, terminira la iteración
+  if (i > 8) &lbrace;
+    break;
+  &rbrace;
+  console.log(i);
+&rbrace;
+</code></pre>
+    </article>
   </main>
+  <KnoledgeForm>
+    <!-- {questions.map((question) => <Question question={question} />)} -->
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
 </BasicLayout>

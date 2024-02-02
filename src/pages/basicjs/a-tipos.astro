@@ -1,6 +1,35 @@
 ---
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+
+const questions = [
+  {
+    id: "1",
+    statement: "¿Cuáles son los tipos de datos principales en JavaScript?",
+    answers: [
+      {
+        id: "1",
+        answer: "Number, Boolean, Arrays,Objects y String",
+        value: "correct",
+        note: "Buen comienzo",
+      },
+      {
+        id: "2",
+        answer: "let, const y var",
+        value: "no",
+        note: "Recuerda que esas son las palabras reservadas para declarar una variable, pero no son tipos de datos.",
+      },
+      {
+        id: "3",
+        answer: "js, css y html",
+        value: "incorrect",
+        note: "why?.",
+      },
+    ],
+  },
+];
 
 const title = "Tipos de datos";
 const description =
@@ -70,6 +99,13 @@ const person =
       </article>
     </section>
   </main>
+  <KnoledgeForm>
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
 </BasicLayout>
 
 <style>

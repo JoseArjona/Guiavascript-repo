@@ -1,6 +1,105 @@
 ---
 import DomLayout from "../../layouts/DomLayout.astro";
 import ProgressBar from "../../components/ProgressBar.astro";
+import KnoledgeForm from "../../components/survey/KnoledgeForm.astro";
+import QuestionVue from "../../components/survey/Question.vue";
+
+const questions = [
+  {
+    id: "1",
+    statement:
+      "¿Cuál de las siguientes expresiones crea un nuevo elemento `div`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.createElement('div')`,
+        value: "correct",
+        note: "La función `document.createElement()` crea un nuevo elemento con el nombre especificado",
+      },
+      {
+        id: "2",
+        answer: `document.querySelector('div')`,
+        value: "incorrect",
+        note: "La función `document.querySelector()` selecciona un elemento existente, no crea uno nuevo",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('div')`,
+        value: "incorrec2",
+        note: "La función `document.getElementById()` selecciona un elemento por su ID, no crea uno nuevo",
+      },
+    ],
+  },
+  {
+    id: "2",
+    statement:
+      "¿Cuál de las siguientes expresiones agrega el nuevo elemento `div` al final del elemento con el ID `miid`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').appendChild(div)`,
+        value: "correct",
+        note: "El método `appendChild()` agrega un nuevo elemento como hijo al final del elemento especificado",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').prependChild(div)`,
+        value: "incorrect",
+        note: "El método `prependChild()` agrega un nuevo elemento como hijo al principio del elemento especificado",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('miid').innerHTML = div`,
+        value: "incorrect2",
+        note: "La propiedad `innerHTML` reemplaza el contenido HTML del elemento, no agrega un nuevo elemento",
+      },
+    ],
+  },
+  {
+    id: "3",
+    statement:
+      "¿Cuál de las siguientes expresiones elimina el elemento con el ID `miid` del DOM?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').delete()`,
+        value: "incorrect",
+        note: "El método `delete()` no existe en el elemento del DOM",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').innerHTML = ''`,
+        value: "incorrect2",
+        note: "La propiedad `innerHTML` reemplaza el contenido HTML del elemento, no lo elimina del DOM",
+      },
+      {
+        id: "3",
+        answer: `document.getElementById('miid').remove()`,
+        value: "correct",
+        note: "El método `remove()` elimina el elemento del DOM",
+      },
+    ],
+  },
+  {
+    id: "4",
+    statement:
+      "¿Cuál de las siguientes expresiones modifica el contenido HTML del elemento con el ID `miid`?",
+    answers: [
+      {
+        id: "1",
+        answer: `document.getElementById('miid').innerHTML = 'Nuevo contenido'`,
+        value: "correct",
+        note: "La propiedad `innerHTML` modifica el contenido HTML del elemento",
+      },
+      {
+        id: "2",
+        answer: `document.getElementById('miid').textContent = 'Nuevo contenido'`,
+        value: "incorrect",
+        note: "La propiedad `textContent` modifica el texto del elemento, no el contenido HTML",
+      },
+    ],
+  },
+];
 
 const title = "Creando elementos";
 const description =
@@ -26,8 +125,8 @@ const description =
         <h4 class="txt-green">CreateElement</h4>
         <p>
           Podemos crear elementos usando el método
-          <code class="txt-secondary">.createElement("img")</code> y como
-          argumento le pasamos el elemento a crear.
+          <code class="txt-secondary">.createElement("img")</code> y como argumento
+          le pasamos el elemento a crear.
         </p>
         <pre><code class="language-js">const img = document.createElement("img");
 console.log(img);
@@ -45,12 +144,12 @@ console.log(img)</code></pre>
           Posteriormente de crear el elemento, lo ideal seria insertarlo en
           nuestro html. Usando el método <code class="txt-secondary"
             >.appendChild(img)</code
-          > como argumento le pasamos el elemento creado, sin embargo,
-          appendChild lo que hará es agregar el elemento dentro del elemento que
-          indiquemos, asi que necesitamos seleccionar el elemento <code
-            class="txt-blue">body.appendChild(img);</code
-          > .De esta forma ya le indicamos que dentro del elemento ingrese este
-          nuevo elemento.
+          > como argumento le pasamos el elemento creado, sin embargo, appendChild
+          lo que hará es agregar el elemento dentro del elemento que indiquemos,
+          asi que necesitamos seleccionar el elemento <code class="txt-blue"
+            >body.appendChild(img);</code
+          > .De esta forma ya le indicamos que dentro del elemento ingrese este nuevo
+          elemento.
         </p>
         <pre><code class="language-js">const body = document.querySelector("body"); // Seleccionar el body
 body.appendChild(img); // Agregar un elemento al final del body </code></pre>
@@ -64,8 +163,8 @@ body.appendChild(img); // Agregar un elemento al final del body </code></pre>
         <p>
           Asi como podemos crear y modificar elementos, también, podemos
           eliminarlos. Para ello usamos el método
-          <code class="txt-secondary">remove()</code> seleccionando el elemento
-          a eliminar.
+          <code class="txt-secondary">remove()</code> seleccionando el elemento a
+          eliminar.
         </p>
         <pre><code class="language-js">// Podemos eliminar un elemento creado en JS o uno ya existente.
 img.remove()// El img es el elemento que creamos antes. </code></pre>
@@ -78,10 +177,9 @@ img.remove()// El img es el elemento que creamos antes. </code></pre>
           <strong>remplazar el elemento interno</strong>. Para ello usaremos
           <code class="txt-secondary"
             >.innerHTML = `&lt;h1&gt;Manipulando DOM&lt;/h1&gt;`</code
-          > e igualándolo al elemento u elementos. Una recomendación es usar
-          "template literals" esto: <span class="txt-yellow">``</span> en lugar
-          de las comas ya que asi podremos escribir el o los elementos con
-          espacios.
+          > e igualándolo al elemento u elementos. Una recomendación es usar "template
+          literals" esto: <span class="txt-yellow">``</span> en lugar de las comas
+          ya que asi podremos escribir el o los elementos con espacios.
         </p>
         <pre><code class="language-html">&lt;!--HTML--&gt;
 &lt;div id="changeDiv"&gt;Hola Mundo&lt;div/&gt;
@@ -101,6 +199,13 @@ body.prepend(newDiv) // Agregar un elemento al inicio del body
       </article>
     </section>
   </main>
+  <KnoledgeForm>
+    {
+      questions.map((question) => (
+        <QuestionVue question={question} client:idle />
+      ))
+    }
+  </KnoledgeForm>
   <style>
     section p {
       margin: 0;

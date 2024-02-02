@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Blocks from "../components/Blocks.astro";
+import ChipAnchor from "../components/ChipAnchor.astro";
+import Badge from "../components/Badge.astro";
+import SchoolIcon from "../components/icons/SchoolIcon.astro";
 const SITE_TITLE = "GuiavaScript";
 const SITE_DESCRIPTION =
   "GuiavaScript es la guía definitiva para aprender y dominar JavaScript. Hacemos que el aprendizaje de JavaScript sea fácil al evitar la jerga compleja y los conceptos confusos, y en su lugar brindamos instrucciones simples y directas que hacen que el aprendizaje sea agradable y directo.";
@@ -47,49 +50,70 @@ const SITE_DESCRIPTION =
     </p>
     <div class="arrow"></div>
   </section>
-  <main class="grid col-2 md-col-1 sm-col-1 container" style="gap:10px">
-    <article class="card center accent">
-      <picture>
-        <img
-          src="./img/haze-learning-languages-in-the-app-1.png"
-          alt="haze-learning-languages-in-the-app-1"
-        />
-      </picture>
-      <h2>Apréndelo en tu idioma</h2>
-      <p>
-        Guiavascript ofrece contenido en español, lo que facilita que los
-        hispanohablantes aprendan y comprendan JavaScript básico.
-      </p>
-    </article>
-    <article class="card center accent">
-      <picture>
-        <img
-          src="./img/haze-school-subjects-and-items-for-studying-1.png"
-          alt="haze-school-subjects-and-items-for-studying-1"
-        />
-      </picture>
-      <h2>Fácil de usar y entender</h2>
-      <p>
-        Hacemos que aprender JavaScript sea muy fácil, sin jerga compleja ni
-        conceptos confusos, solo instrucciones simples y directas que hacen que
-        el aprendizaje sea divertido y fácil.
-      </p>
-    </article>
+  <main class="container">
+    <section class="flex f-row center">
+      <ChipAnchor href="#lec" target="_self" color="white br-primary">
+        Lecciones
+      </ChipAnchor>
+      <ChipAnchor
+        href="/t&c"
+        target="_blank"
+        color="accent txt-white br-primary"
+      >
+        <Badge content="new" xtraClass="blue" />
+        Conceptos & Tips ↗
+      </ChipAnchor>
+    </section>
+    <section class="grid col-2 md-col-2 sm-col-1">
+      <article class="card center accent">
+        <picture>
+          <img
+            src="./img/haze-learning-languages-in-the-app-1.png"
+            alt="haze-learning-languages-in-the-app-1"
+          />
+        </picture>
+        <h2 class="txt-center">Apréndelo en tu idioma</h2>
+        <p>
+          Guiavascript ofrece contenido en español, lo que facilita que los
+          hispanohablantes aprendan y comprendan JavaScript básico.
+        </p>
+      </article>
+      <article class="card center accent">
+        <picture>
+          <img
+            src="./img/haze-school-subjects-and-items-for-studying-1.png"
+            alt="haze-school-subjects-and-items-for-studying-1"
+          />
+        </picture>
+        <h2 class="txt-center">Fácil de usar y entender</h2>
+        <p>
+          Hacemos que aprender JavaScript sea muy fácil, sin jerga compleja ni
+          conceptos confusos, solo instrucciones simples y directas que hacen
+          que el aprendizaje sea divertido y fácil.
+        </p>
+      </article>
+    </section>
   </main>
-  <h2>Temas</h2>
-  <section class="modules grid col-3 md-col-1 sm-col-1">
+  <h2 class="txt-center display-3" id="lec">
+    <SchoolIcon width="34" height="34" /> Lecciones
+  </h2>
+  <section class="modules grid col-3 md-col-3 sm-col-1">
     <Blocks
       img="./img/firststeps.png"
       href="basicjs"
       title="JavaScript Básico"
       body="Aprende lo básico del lenguaje."
-    />
+    >
+      <Badge content="actualizado" xtraClass="green " />
+    </Blocks>
     <Blocks
       img="./img/firststeps.png"
       href="/basic-doml"
       title="Introducción al DOM"
       body="Aprende lo básico para controlar el DOM"
-    />
+    >
+      <Badge content="new" xtraClass="blue" />
+    </Blocks>
     <Blocks
       img="./img/coming-soon.png"
       href="/"
@@ -100,6 +124,9 @@ const SITE_DESCRIPTION =
 </Layout>
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
   .shareBtn {
     cursor: pointer;
     background: transparent;
@@ -148,7 +175,7 @@ const SITE_DESCRIPTION =
     font-size: 2.2rem;
     margin: auto;
     line-height: 1;
-    text-wrap: pretty;
+    text-wrap: balance;
     text-align: center;
   }
 
@@ -161,13 +188,13 @@ const SITE_DESCRIPTION =
     transform: rotate(15deg);
     animation: logo 4s alternate infinite;
   }
-
+  /* 
   .card img {
     width: 300px;
     height: 300px;
     min-height: 300px;
     border-radius: 10px 10px 0 0;
-  }
+  } */
 
   @keyframes logo {
     0% {

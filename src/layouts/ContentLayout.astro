@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/ConceptLayout.astro";
+import ChipAnchor from "../components/ChipAnchor.astro";
+
+export interface Props {
+  content: {
+    title: string;
+    description: string;
+    related?: {
+      href: string;
+      title: string;
+    }[];
+  };
+}
+
+const {
+  content: { title, description, related },
+} = Astro.props;
+---
+
+<Layout href="./">
+  <main class="txt-white" style="z-index: 999;">
+    <article class="container card primary" style="margin: auto; ">
+      <h1>{title}</h1>
+      <div>
+        <slot />
+      </div>
+    </article>
+    <footer>
+      <p>Temas relacionados:</p>
+      <div class="flex f-col center">
+        {
+          related ? (
+            related.map((item) => (
+              <ChipAnchor href={item.href} color="primary">
+                {item.title}
+              </ChipAnchor>
+            ))
+          ) : (
+            <ChipAnchor href="./" color="primary">
+              Inicio
+            </ChipAnchor>
+          )
+        }
+      </div>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 0;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+  li code {
+    color: rgb(171, 206, 226) !important;
+  }
+</style>
