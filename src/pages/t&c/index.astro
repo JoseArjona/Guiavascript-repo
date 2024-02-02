@@ -22,7 +22,7 @@ const posts = await Astro.glob("./*.{md,mdx}");
       <li></li>
     </ul>
   </div>
-  <main class="grid col-3 md-col-2 sm-col-2 txt-white" id="posts">
+  <main class="grid col-3 md-col-2 sm-col-1 txt-white" id="posts">
     {
       posts.map((post) => (
         <a href={post.url}>
