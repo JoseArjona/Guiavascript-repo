@@ -21,7 +21,7 @@ const { href, color } = Astro.props;
     cursor: pointer;
     border: none;
     padding: 16px 32px;
-    font-size: 24px;
+    font-size: 0.87em;
     font-weight: bold;
     position: relative;
     border-radius: 100px;
@@ -67,6 +67,13 @@ const { href, color } = Astro.props;
     }
     100% {
       background-position: 0 0;
+    }
+  }
+
+  @media (width < 375px) {
+    .chipBtn {
+      padding: 0.7em 2em;
+      font-size: 0.7em;
     }
   }
 </style>
