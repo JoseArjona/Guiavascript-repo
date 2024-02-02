@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 ---
 
-<Layout href="./">
+<Layout href="../">
   <main class="txt-white" style="z-index: 999;">
     <article class="container card primary" style="margin: auto; ">
       <h1>{title}</h1>
@@ -32,12 +32,12 @@ const {
         {
           related ? (
             related.map((item) => (
-              <ChipAnchor href={item.href} color="primary">
+              <ChipAnchor href={`../${item.href}`} color="primary">
                 {item.title}
               </ChipAnchor>
             ))
           ) : (
-            <ChipAnchor href="./" color="primary">
+            <ChipAnchor href="../" color="primary">
               Inicio
             </ChipAnchor>
           )
