@@ -7,15 +7,17 @@ export interface Props {
   image?: string;
 }
 
-const { title, description, image = "./guiavascript.png" } = Astro.props;
+const { title, description, image = "./banner.png" } = Astro.props;
 const favicon =
   Astro.url.hostname === "localhost"
-    ? "https://guiavascript.netlify.app/banner.png"
-    : Astro.url.protocol + "//" + Astro.url.host + "/banner.png";
+    ? "https://guiavascript.netlify.app/favicon.png"
+    : Astro.url.protocol + "//" + Astro.url.host + "/favicon.png";
 const manifest =
   Astro.url.hostname === "localhost"
     ? "https://guiavascript.netlify.app/manifest.json"
     : Astro.url.protocol + "//" + Astro.url.host + "/manifest.json";
+
+const { href } = new URL(image, Astro.url);
 ---
 
 <!-- Global Metadata -->
@@ -39,13 +41,13 @@ const manifest =
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={href} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={href} />
 
 <link rel="manifest" href={manifest} />
