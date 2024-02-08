@@ -17,7 +17,8 @@ const manifest =
     ? "https://guiavascript.netlify.app/manifest.json"
     : Astro.url.protocol + "//" + Astro.url.host + "/manifest.json";
 
-const { href } = new URL(image, Astro.url);
+const netlifyURL = "https://guiavascript.netlify.app/";
+const imageBanner = netlifyURL + "banner.png";
 ---
 
 <!-- Global Metadata -->
@@ -38,16 +39,16 @@ const { href } = new URL(image, Astro.url);
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={netlifyURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={href} />
+<meta property="og:image" content={imageBanner} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={netlifyURL} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={href} />
+<meta property="twitter:image" content={imageBanner} />
 
 <link rel="manifest" href={manifest} />
